@@ -4,3 +4,6 @@
 Homestead.yaml
 Homestead.json
 .env
+scms.sublime-project
+scms.sublime-workspace
+composer.*
