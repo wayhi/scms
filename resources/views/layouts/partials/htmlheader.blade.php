@@ -11,8 +11,9 @@
     <link href="{{ asset('/css/ionicons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('/plugins/iCheck/square/blue.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('/plugins/select2//select2.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
-    <link href="{{ asset('/css/AdminLTE.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/css/jquery-ui.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect.

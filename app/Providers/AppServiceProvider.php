@@ -27,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->registerRoleRepository();
         $this->registerPermissionRepository();
+        $this->registerSMSRepository();
     }
 
     protected function registerRoleRepository()
@@ -56,5 +57,19 @@ class AppServiceProvider extends ServiceProvider
         });
 
         $this->app->alias('permissionrepository', 'App\Repositories\PermissionRepository');
+    }
+    protected function registerSMSRepository()
+    {
+
+        $this->app->singleton('smsrepository', function ($app) {
+            $model = $app['config']['scms.sms'];
+            $sms = new $model();
+
+            $validator = $app['validator'];
+
+            return new PermissionRepository($sms, $validator);
+        });
+
+        $this->app->alias('smsrepository', 'App\Repositories\SMSRepository');
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Customer;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -11,9 +13,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,19 +25,29 @@ Route::get('/', function () {
 | kernel and includes session state, CSRF protection, and more.
 |
 */
+Route::match(['get','post'], '/', function () {
+     
+     return Redirect::to('/home');
 
-
-
-Route::group(['middleware' => ['web']], function () {
-    Route::auth();
-
-    Route::get('/home', 'HomeController@index');
 });
 
+
 Route::group(['middleware' => ['web']], function () {
     Route::auth();
-
+	Route::get('/home', ['as'=>'home','use'=>'HomeController@index']);
     Route::resource('admin/roles', 'Admin\\RoleController');
+    Route::get('/sms/start',['middleware'=>'auth','as'=>'sms.start','uses'=>'SmsController@start']);
+    Route::resource('sms', 'SmsController');
+
+
+    Route::get('mobile_search',['middleware'=>'auth',function(Request $request){
+            return Customer::where('mobile_phone','like',$request->get('term').'%')->where('activated','=',1)
+            ->take(10)->lists('mobile_phone');
+                }]);
+    Route::get('name_search',['middleware'=>'auth',function(Request $request){
+            return Customer::where('mobile_phone',$request->get('term'))->where('activated','=',1)
+            ->select('id','name')->get()->toJson();
+                }]);
     
 });
 

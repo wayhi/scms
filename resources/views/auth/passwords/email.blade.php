@@ -9,7 +9,7 @@
 <body class="login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="{{ url('/home') }}"><b>Admin</b>LTE</a>
+            <a href="{{ url('/home') }}">{{Config::get('scms.name')}}</a>
         </div><!-- /.login-logo -->
 
         @if (session('status'))
@@ -30,7 +30,7 @@
         @endif
 
         <div class="login-box-body">
-            <p class="login-box-msg">Reset Password</p>
+            <p class="login-box-msg">密码重置</p>
             <form action="{{ url('/password/email') }}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group has-feedback">
@@ -42,15 +42,15 @@
                     <div class="col-xs-2">
                     </div><!-- /.col -->
                     <div class="col-xs-8">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Send Password Reset Link</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">发送重置链接</button>
                     </div><!-- /.col -->
                     <div class="col-xs-2">
                     </div><!-- /.col -->
                 </div>
             </form>
 
-            <a href="{{ url('/login') }}">Log in</a><br>
-            <a href="{{ url('/register') }}" class="text-center">Register a new membership</a>
+            <a href="{{ url('/login') }}">登录</a><br>
+            <a href="{{ url('/register') }}" class="text-center">注册新用户</a>
 
         </div><!-- /.login-box-body -->
 

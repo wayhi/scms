@@ -718,12 +718,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/InfyOmLabs/laravel-generator.git",
-                "reference": "1fdf182e443f7f48d8ecbe941ea9ae511ce8dc14"
+                "reference": "b16d8aeb1c4fbaa35290192e576c21ad71a3d9c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/InfyOmLabs/laravel-generator/1fdf182e443f7f48d8ecbe941ea9ae511ce8dc14.zip",
-                "reference": "1fdf182e443f7f48d8ecbe941ea9ae511ce8dc14",
+                "url": "https://packagist.phpcomposer.com/files/InfyOmLabs/laravel-generator/b16d8aeb1c4fbaa35290192e576c21ad71a3d9c9.zip",
+                "reference": "b16d8aeb1c4fbaa35290192e576c21ad71a3d9c9",
                 "shasum": ""
             },
             "require": {
@@ -765,7 +765,7 @@
                 "test",
                 "view"
             ],
-            "time": "2016-03-26 11:41:47"
+            "time": "2016-04-12 18:21:26"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -1387,16 +1387,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.18.2",
+            "version": "1.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "064b38c16790249488e7a8b987acf1c9d7383c09"
+                "reference": "5f56ed5212dc509c8dc8caeba2715732abb32dbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/Seldaek/monolog/064b38c16790249488e7a8b987acf1c9d7383c09.zip",
-                "reference": "064b38c16790249488e7a8b987acf1c9d7383c09",
+                "url": "https://packagist.phpcomposer.com/files/Seldaek/monolog/5f56ed5212dc509c8dc8caeba2715732abb32dbf.zip",
+                "reference": "5f56ed5212dc509c8dc8caeba2715732abb32dbf",
                 "shasum": ""
             },
             "require": {
@@ -1461,7 +1461,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-04-02 13:12:58"
+            "time": "2016-04-12 18:29:35"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -1655,16 +1655,16 @@
         },
         {
             "name": "prettus/l5-repository",
-            "version": "2.1.8",
+            "version": "2.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/andersao/l5-repository.git",
-                "reference": "efe486eecf883272c2a7edd53fa6e1aad77627e4"
+                "reference": "3fb2cb778edcad84c3904bd8a26a6fc843cf83d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/andersao/l5-repository/efe486eecf883272c2a7edd53fa6e1aad77627e4.zip",
-                "reference": "efe486eecf883272c2a7edd53fa6e1aad77627e4",
+                "url": "https://packagist.phpcomposer.com/files/andersao/l5-repository/3fb2cb778edcad84c3904bd8a26a6fc843cf83d9.zip",
+                "reference": "3fb2cb778edcad84c3904bd8a26a6fc843cf83d9",
                 "shasum": ""
             },
             "require": {
@@ -1674,11 +1674,11 @@
                 "illuminate/filesystem": "~5.0",
                 "illuminate/http": "~5.0",
                 "illuminate/pagination": "~5.0",
-                "illuminate/support": "~5.0"
+                "illuminate/support": "~5.0",
+                "prettus/laravel-validation": "1.1.*"
             },
             "suggest": {
                 "league/fractal": "Required to use the Fractal Presenter (0.12.*).",
-                "prettus/laravel-validation": "Required to use the Repository Validators (1.1.*)",
                 "robclancy/presenter": "Required to use the Presenter Model (1.3.*)"
             },
             "type": "library",
@@ -1711,7 +1711,47 @@
                 "model",
                 "repository"
             ],
-            "time": "2016-03-01 18:33:39"
+            "time": "2016-04-13 22:00:01"
+        },
+        {
+            "name": "prettus/laravel-validation",
+            "version": "1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andersao/laravel-validator.git",
+                "reference": "c3501ba6b6312b8e98098783901060c0aff2b29d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/andersao/laravel-validator/c3501ba6b6312b8e98098783901060c0aff2b29d.zip",
+                "reference": "c3501ba6b6312b8e98098783901060c0aff2b29d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0|~5.1",
+                "illuminate/validation": "~5.0|~5.1",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Prettus\\Validator\\": "src/Prettus/Validator/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Anderson Andrade",
+                    "email": "contato@andersonandra.de"
+                }
+            ],
+            "description": "Laravel Validation Service",
+            "keywords": [
+                "laravel",
+                "service",
+                "validation"
+            ],
+            "time": "2015-06-08 23:53:46"
         },
         {
             "name": "psr/log",
