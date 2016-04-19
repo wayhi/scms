@@ -5,7 +5,7 @@
 @endsection
 
 @section('contentheader_title')
-短信管理
+信贷产品
 @endsection
 
 @section('contentheader_description')
@@ -19,7 +19,7 @@
        
   <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">短信发送</h3>
+              <h3 class="box-title">客户联系</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -31,7 +31,7 @@
                <div class="form-group">
                   {!!Form::label('send_to_number', '手机号码：',['class' => 'col-sm-2 control-label']);!!}
                   <div class="col-sm-6">
-                    {!!Form::text('send_to_number','',['class' => 'form-control required','id'=>'send_to_number']);!!}
+                    {!!Form::text('send_to_number','',['class' => 'form-control','id'=>'send_to_number',"autofocus"=>"autofocus"]);!!}
                   </div>
                 </div>
                <div class="form-group">
@@ -50,7 +50,7 @@
              </div>
              <input type='hidden' id='customer_id' name='customer_id'>
             <div class="box-footer">
-              <a href="/home" class="btn btn-default" role='button'>取消</a>
+              <a href="/home" class="btn btn-default" role='button'>返回</a>
               <button type='submit' name='status' value='1' class="btn btn-success">发送短信</button>
               <button type='submit' name='status' value='2' class="btn btn-danger">客户拒绝</button>
               <button type='submit' name='status' value='3' class="btn btn-warning">没有应答</button>

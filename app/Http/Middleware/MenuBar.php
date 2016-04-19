@@ -16,10 +16,10 @@ class MenuBar
       $dashboard = $menu->add('Dashboard','home');
       $dashboard->prepend("<i class='fa fa-dashboard'></i><span>")->append("</span>");
 
-      $sms = $menu->add('短信管理',['class'=>'treeview']);
+      $sms = $menu->add('信贷产品',['class'=>'treeview']);
       $sms->prepend("<i class='fa fa-mobile'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");
-      $sms->add('短信发送','sms/start')->prepend("<i class='fa fa-circle-o'></i>");
-      $sms->add('短信记录','#')->prepend("<i class='fa fa-circle-o'></i>");
+      $sms->add('客户联系','sms/start')->prepend("<i class='fa fa-circle-o'></i>");
+      $sms->add('联系记录','#')->prepend("<i class='fa fa-circle-o'></i>");
 
       $orders = $menu->add('订单管理',['class'=>'treeview']);
       $orders->prepend("<i class='fa fa-list'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");
