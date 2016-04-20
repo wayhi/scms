@@ -44,7 +44,7 @@ class SmsController extends Controller
 
         if($sms->status==1){
 
-            $send_result = $this->sendTemplateSMS($sms->send_to_number,null,80824);
+            $send_result = $this->sendTemplateSMS($sms->send_to_number,Array($sms->send_to.'客户'),81115);
             
             if($send_result){
                 Flash::success('客户 "'.$sms->send_to.'" 的短信已成功发送！');
