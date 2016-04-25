@@ -38,8 +38,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('admin/roles', 'Admin\\RoleController');
     Route::get('/sms/start',['middleware'=>'auth','as'=>'sms.start','uses'=>'SmsController@start']);
     Route::resource('sms', 'SmsController');
-
-
+    Route::resource('customers', 'Customer\\CustomerController');
+    Route::post('customers/add_bankcard',['middleware'=>'auth','as'=>'customers.addbankcard','uses'=>'Customer\\CustomerController@bankcard_store']);
     Route::get('mobile_search',['middleware'=>'auth',function(Request $request){
             return Customer::where('mobile_phone','like',$request->get('term').'%')->where('activated','=',1)
             ->take(10)->lists('mobile_phone');

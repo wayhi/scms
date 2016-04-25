@@ -33,8 +33,9 @@ class MenuBar
 
       $customers = $menu->add('客户管理', ['class'=>'treeview']);
       $customers->prepend("<i class='fa fa-group'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");
-      $customers->add('Level 2','#')->prepend("<i class='fa fa-circle-o'></i>");
-      $customers->add('Level 2','#')->prepend("<i class='fa fa-circle-o'></i>");
+      $customers->add('新建客户','customers/create')->prepend("<i class='fa fa-circle-o'></i>");
+      $customers->add('客户列表','customers')->prepend("<i class='fa fa-circle-o'></i>");
+      $customers->add('银行卡信息','＃')->prepend("<i class='fa fa-circle-o'></i>");
 
       $products = $menu->add('产品管理', ['class'=>'treeview']);
       $products->prepend("<i class='fa fa-th'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");

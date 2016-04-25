@@ -3,18 +3,17 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Presenters\CustomerPresenter;
+use App\Presenters\BankCardPresenter;
 use McCool\LaravelAutoPresenter\HasPresenter;
-use App\Models\Relations\BelongsToManyTagsTrait;
-use App\Models\Relations\HasManyBankCardsTrait;
+use App\Models\Relations\BelongsToCustomerTrait;
 
-class Customer extends Model implements HasPresenter
+class BankCard extends Model implements HasPresenter
 {
-    use BelongsToManyTagsTrait,HasManyBankCardsTrait;
+    use BelongsToCustomerTrait;
 
-    protected $table='customers';
+    protected $table='bankcard';
 
- 	public static $index = ['id', 'name','mobile_phone','created_at'];
+ 	public static $index = [];
 
     /**
      * The max records per page when displaying a paginated index.
@@ -44,13 +43,14 @@ class Customer extends Model implements HasPresenter
      */
 
  	public static $rules = [
-        'name'   => 'required',
+        'customer_id'   => 'required',
+        'bankcard_numbers' => 'required',
     ];
 
     protected $guarded = ['_token', '_method', 'id'];
 
     public function getPresenterClass()
     {
-        return CustomerPresenter::class;
+        return BankcardPresenter::class;
     }
 }

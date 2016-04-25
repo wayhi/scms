@@ -10,11 +10,13 @@
 <script src="{{ asset('/js/jquery-ui.min.js') }}" type="text/javascript"></script>
 
 <script src="{{ asset('/plugins/select2/select2.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('/plugins/input-mask/jquery.inputmask.js') }}" type="text/javascript"></script>
+<script src="{{ asset('/plugins/input-mask/jquery.inputmask.date.extensions.js') }}" type="text/javascript"></script>
+<script src="{{ asset('/plugins/input-mask/jquery.inputmask.extensions.js') }}" type="text/javascript"></script>
+
+
 <script>
-  $(function () {
-    //Initialize Select2 Elements
-    $(".select2").select2();
-   });
+  
     $(function(){ 
       $("#send_to_number").autocomplete({ 
         delay:500,
@@ -32,6 +34,22 @@
         }         
       }); 
     }); 
+
+    $(function () {
+    //Initialize Select2 Elements
+    $(".select2").select2();
+
+    //Datemask dd/mm/yyyy
+    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+    //Datemask2 mm/dd/yyyy
+    $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
+    //
+    $("#datemask3").inputmask("mm/yyyy", {"placeholder": "mm/yyyy"});
+    //Money Euro
+    $("[data-mask]").inputmask();
+
+    
+  });
 </script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.

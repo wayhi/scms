@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'platform.servicedesk@yifenqi.com', 'name' => 'Platform ServiceDesk'],
 
     /*
     |--------------------------------------------------------------------------

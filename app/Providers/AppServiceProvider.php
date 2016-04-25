@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\RoleRepository;
 use App\Repositories\PermissionRepository;
+use App\Repositories\CustomerRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +29,8 @@ class AppServiceProvider extends ServiceProvider
         $this->registerRoleRepository();
         $this->registerPermissionRepository();
         $this->registerSMSRepository();
+        $this->registerCustomerRepository();
+        $this->registerBankCardRepository();
     }
 
     protected function registerRoleRepository()
@@ -71,5 +74,34 @@ class AppServiceProvider extends ServiceProvider
         });
 
         $this->app->alias('smsrepository', 'App\Repositories\SMSRepository');
+    }
+
+    protected function registerCustomerRepository()
+    {
+
+        $this->app->singleton('customerrepository', function ($app) {
+            $model = $app['config']['scms.customer'];
+            $sms = new $model();
+
+            $validator = $app['validator'];
+
+            return new CustomerRepository($sms, $validator);
+        });
+
+        $this->app->alias('customerrepository', 'App\Repositories\CustomerRepository');
+    }
+
+    protected function registerBankCardRepository()
+    {
+
+        $this->app->singleton('bankcardrepository', function ($app) {
+            $model = $app['config']['scms.bankcard'];
+            $bankcard = new $model();
+            $validator = $app['validator'];
+
+            return new CustomerRepository($bankcard, $validator);
+        });
+
+        $this->app->alias('bankcardrepository', 'App\Repositories\BankCardRepository');
     }
 }

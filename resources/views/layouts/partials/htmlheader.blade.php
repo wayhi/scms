@@ -12,6 +12,9 @@
     <link href="{{ asset('/plugins/iCheck/square/blue.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('/plugins/select2//select2.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/plugins/daterangepicker/daterangepicker-bs3.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/plugins/datepicker/datepicker3.css') }}" rel="stylesheet" type="text/css" />
+    
     <!-- Theme style -->
     <link href="{{ asset('/css/jquery-ui.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter

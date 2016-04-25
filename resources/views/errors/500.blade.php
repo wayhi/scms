@@ -1,15 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.error')
 
-@section('htmlheader_title')
-    Server error
-@endsection
-
-@section('contentheader_title')
-    500 Error Page
-@endsection
-
-@section('$contentheader_description')
-@endsection
 
 @section('main-content')
 

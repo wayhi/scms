@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
 use Illuminate\Support\Facades\View;
 use App\Facades\RoleRepository;
 use App\Facades\PermissionRepository;
