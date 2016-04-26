@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\View;
 use App\Facades\CustomerRepository;
 use App\Facades\BankCardRepository;
 use Illuminate\Support\Facades\Redirect;
-use Flash,DB;
+use Flash,Session,DB;
 use App\Models\Tag;
 
 class CustomerController extends Controller
@@ -93,7 +93,7 @@ class CustomerController extends Controller
         $customer->load('tags','bankcards');
         //$tags = $customer->tags()->get();
         //$bankcards = $customer->bankcards();
- 
+        
         return View::make('customers.show',['customer'=>$customer]);
     }
 
@@ -103,9 +103,16 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id,$bankcard = null)
     {
-        //
+        //return $bankcard;
+        
+        $customer = CustomerRepository::find($id);
+        $customer->load('bankcards');
+        $tags = Tag::all();
+        $tags_selected = $customer->tags()->select('id')->get()->toArray();
+        $tags_selected_ids = array_column($tags_selected,'id');
+        return View::make('customers.edit',['customer'=>$customer,'tags'=>$tags,'tags_selected_ids'=>$tags_selected_ids]);
     }
 
     /**
@@ -117,7 +124,18 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $customer = CustomerRepository::find($id);
+        $customer->name = $request->get('name');
+        $customer->mobile_phone = $request->get('mobile_phone');
+        $customer->id_number = $request->get('id_number');
+        $customer->gender = $request->get('gender');
+        $customer->wechat_account = $request->get('wechat_account');
+        $customer->save();
+
+        Flash::success('客户 "'.$customer->name.'" 的信息已成功更新！');
+            return Redirect::route('customers.index');
+
+
     }
 
     /**

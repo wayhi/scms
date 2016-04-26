@@ -38,6 +38,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('admin/roles', 'Admin\\RoleController');
     Route::get('/sms/start',['middleware'=>'auth','as'=>'sms.start','uses'=>'SmsController@start']);
     Route::resource('sms', 'SmsController');
+    Route::get('/customer/edit/{id}/{bankcard_id}',['middleware'=>'auth',function($id,$bankcard_id){
+            return CustomerController::bankcard_store($id,$bankcard_id);
+    }]);
     Route::resource('customers', 'Customer\\CustomerController');
     Route::post('customers/add_bankcard',['middleware'=>'auth','as'=>'customers.addbankcard','uses'=>'Customer\\CustomerController@bankcard_store']);
     Route::get('mobile_search',['middleware'=>'auth',function(Request $request){
