@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'templates'         => 'core-templates',
+    'templates'         => 'adminlte-templates',
 
     /*
     |--------------------------------------------------------------------------

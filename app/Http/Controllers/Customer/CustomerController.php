@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Customer;
 
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
 use App\Facades\CustomerRepository;
@@ -90,11 +91,19 @@ class CustomerController extends Controller
     public function show($id)
     {
         $customer = CustomerRepository::find($id);
-        $customer->load('tags','bankcards');
+        if($customer){
+            $customer->load('tags','bankcards');
+            return View::make('customers.show',['customer'=>$customer]);
+        }else{
+
+            throw new NotFoundHttpException();
+        }
+        
+       
         //$tags = $customer->tags()->get();
         //$bankcards = $customer->bankcards();
         
-        return View::make('customers.show',['customer'=>$customer]);
+        
     }
 
     /**
@@ -124,16 +133,47 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
+        $input = $request->only(['name','mobile_phone','wechat_account','activated']);
+        $val = CustomerRepository::validate($input, array_keys($input));
+        if ($val->fails()) {
+            Flash::error($val->errors());
+            return Redirect::route('customers.edit',['id'=>$id])->withInput();
+        }
+        if($request->has('bkcards_toremove'))
+        {
+            $bkcard_ids = $request->bkcards_toremove;
+            $bkcard_ids = explode(',',substr($bkcard_ids,0,strlen($bkcard_ids)-1));
+            //return $bkcard_ids;
+            BankCardRepository::delete($bkcard_ids);
+            
+        }
         $customer = CustomerRepository::find($id);
-        $customer->name = $request->get('name');
-        $customer->mobile_phone = $request->get('mobile_phone');
-        $customer->id_number = $request->get('id_number');
-        $customer->gender = $request->get('gender');
-        $customer->wechat_account = $request->get('wechat_account');
-        $customer->save();
+        $customer->name = $input['name'];
+        $customer->mobile_phone = $input['mobile_phone'];
+        $customer->gender = $request->gender;
+        $customer->wechat_account = $input['wechat_account'];
+        $customer->activated = $input['activated'];
+        if($request->has('tag_ids')){
+            $tmp_tags = $request->get('tag_ids');
+            $customer->tag_ids = implode(',',$tmp_tags);
+            DB::table('customer_tag')->where('customer_id',$id)->delete();
+            foreach ($tmp_tags as $tag_id) {
+                DB::table('customer_tag')->insert(['customer_id'=>$id,'tag_id'=>$tag_id]);
+            }
 
-        Flash::success('客户 "'.$customer->name.'" 的信息已成功更新！');
+        }else{
+            $customer->tag_ids ='';
+            DB::table('customer_tag')->where('customer_id',$id)->delete();
+        }
+        $customer->save();
+        
+        if($request->get('save')=='withoutCard'){
+            Flash::success('客户 "'.$customer->name.'" 的信息已成功更新！');
             return Redirect::route('customers.index');
+        }elseif($request->get('save')=='withCard'){
+            return View::make('customers.bankcard',['customer_id'=>$customer->id,'name'=>$customer->name]);
+        }
 
 
     }
@@ -162,10 +202,26 @@ class CustomerController extends Controller
 
         $bankcard = BankCardRepository::create($input);
 
-        Flash::success('新的银行卡 "'.$bankcard->code.'" 已成功创建！');
+        Flash::success('客户 '.$request->customer_name.' 的银行卡 "'.$bankcard->code.'" 已成功添加。');
         return Redirect::route('customers.index');
         
         
+    }
+
+    public function search(Request $request,$search_term='')
+    {
+        
+        if($search_term==''){
+            $search_term = $request->table_search;
+        } 
+      
+
+        $results = CustomerRepository::search(['where'=>[['name','like','%'.trim($search_term).'%']],'orwhere'=>[['mobile_phone',trim($search_term)]]],$search_term);
+        
+        $links = CustomerRepository::searchlinks();
+        return View::make('customers.search',['search_term'=>$search_term,'customers'=> $results,'links'=>$links]);
+
+
     }
 
 }

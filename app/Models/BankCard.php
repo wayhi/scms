@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use App\Presenters\BankCardPresenter;
 use McCool\LaravelAutoPresenter\HasPresenter;
 use App\Models\Relations\BelongsToCustomerTrait;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class BankCard extends Model implements HasPresenter
 {
-    use BelongsToCustomerTrait;
+    use BelongsToCustomerTrait, SoftDeletes;
 
     protected $table='bankcard';
 
@@ -48,6 +49,8 @@ class BankCard extends Model implements HasPresenter
     ];
 
     protected $guarded = ['_token', '_method', 'id'];
+
+    protected $dates = ['created_at','updated_at','deleted_at'];
 
     public function getPresenterClass()
     {

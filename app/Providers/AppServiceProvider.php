@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use App\Repositories\RoleRepository;
 use App\Repositories\PermissionRepository;
 use App\Repositories\CustomerRepository;
+use Prettus\Repository\Providers\RepositoryServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->register(RepositoryServiceProvider::class);
         $this->registerRoleRepository();
         $this->registerPermissionRepository();
         $this->registerSMSRepository();

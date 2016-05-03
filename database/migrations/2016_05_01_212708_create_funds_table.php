@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class Createloan_order_infosTable extends Migration
+class CreatefundsTable extends Migration
 {
 
     /**
@@ -13,11 +13,14 @@ class Createloan_order_infosTable extends Migration
      */
     public function up()
     {
-        Schema::create('loan_order_infos', function (Blueprint $table) {
+        Schema::create('funds', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('loan_order_id');
-            $table->string('loan_order_code');
-            $table->number('product_price');
+            $table->text('fund_code');
+            $table->varchar(50)('fund_name');
+            $table->decimal(16('credit_limit', 0));
+            $table->varchar(10)('currency');
+            $table->varchar(255)('contact_info');
+            $table->tinyint(1)('activated');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +33,6 @@ class Createloan_order_infosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('loan_order_infos');
+        Schema::drop('funds');
     }
 }

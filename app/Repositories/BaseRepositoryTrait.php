@@ -149,5 +149,21 @@ trait BaseRepositoryTrait
         return $this->validator->make($data, $rules);
     }
 
+    /**
+     *  delete the data
+     *  @param string $ids
+     *  @return $this
+    */
+
+    public function delete($ids)
+    {
+        $model = $this->model;
+        $model->destroy($ids);
+
+        return $this;
+    }
+
+    
+
     
 }

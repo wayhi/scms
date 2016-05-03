@@ -10,7 +10,7 @@
 @endsection
 
 @section('contentheader_description')
-	
+	客户查询
 @endsection
 
 
@@ -22,22 +22,13 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">客户列表</h3>
+              <h3 class="box-title">查询结果</h3>
 
               <div class="box-tools">
-              <div class="btn-group pull-left">
-				  <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-				    操作
-				    <span class="caret"></span>
-				  </button>
-				  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-				    <li><a href="/customers/create">新增</a></li>
-				   
-				  </ul>
-				</div>
+              
               
                 <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="姓名或电话">
+                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
 
                   <div class="input-group-btn">
                     <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
@@ -48,7 +39,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
-              <table class="table n_table table-bordered">
+              <table class="table table-hover">
                 <tr class='warning'>
                   <th>ID</th>
                   <th>客户名称</th>

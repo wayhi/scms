@@ -58,12 +58,24 @@
                   &nbsp{!!$customer->wechat_account!!}
                   
                 </div>
+
+                <div class="form-group">
+                  {!!Form::label('activated', '有效：',['class' => 'col-sm-2 control-label']);!!} 
+                  
+                  
+                  @if($customer->activated)
+                    &nbsp是
+                  @else
+                    &nbsp否
+                  @endif
+                  
+                </div>
                 
                 <div class="form-group">
                  {!!Form::label('cards', '银行卡：',['class' => 'col-sm-2 control-label']);!!} 
                  
                  @foreach($customer->bankcards as $bankcard)
-                     <span class="badge bg-light-blue">{{$bankcard->bin.'-'.$bankcard->code}}</span>
+                     <span class="badge bg-yellow">{{$bankcard->bin.'-'.$bankcard->code}}</span>
                     @endforeach
                   <br>
                 </div>
@@ -73,7 +85,7 @@
                  
                  
                     @foreach($customer->tags as $tag)
-                     <span class="badge bg-yellow">{{$tag->title}}</span>
+                     <span class="badge bg-light-blue">{{$tag->title}}</span>
                     @endforeach
                   
                   
@@ -87,7 +99,7 @@
              
               <div class="form-group ">
                 <div class="box-footer">
-                  <a href="/customers" class="btn btn-default" role='button'>取消</a>
+                  <a href="javascript:history.go(-1);" class="btn btn-default" role='button'>取消</a>
                   <a href="{!! URL::route('customers.edit', array('customer' => $customer->id)) !!}" class="btn btn-info">编辑</a>
                 </div>
               </div>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-	Platform Administration
+	客户管理
 @endsection
 
 @section('contentheader_title')
@@ -10,13 +10,12 @@
 @endsection
 
 @section('contentheader_description')
-	客户创建
+	
 @endsection
 
 @section('main-content')
 @include('flash::message')
-<!--div class="col-md-10"-->
-          <!-- Horizontal Form -->
+ <div class="content">          <!-- Horizontal Form -->
   <div class="box box-info">
             <div class="box-header with-border">
               <h3 class="box-title">客户创建</h3>
@@ -91,7 +90,7 @@
 
   </div>
 
-
+</div>
 <!--/div-->  
 
 @endsection

@@ -32,6 +32,7 @@
                   <div class="col-sm-6">
                     <span>{!!$name!!}</span>
                     {!!Form::hidden('customer_id',$customer_id)!!}
+                     {!!Form::hidden('customer_name',$name)!!}
                   </div>
                 </div>
                 <div class="form-group">

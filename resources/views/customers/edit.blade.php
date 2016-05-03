@@ -1,5 +1,11 @@
 @extends('layouts.app')
+<script>
+  function removeBkCard(card_id){
+    //alert('ok');
+    document.getElementById('bkcards_toremove').value += card_id+',';  
 
+  }
+</script>
 @section('htmlheader_title')
 	Platform Administration
 @endsection
@@ -10,7 +16,7 @@
 @endsection
 
 @section('contentheader_description')
-	客户创建
+	
 @endsection
 
 @section('main-content')
@@ -19,7 +25,7 @@
           <!-- Horizontal Form -->
   <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">客户创建</h3>
+              <h3 class="box-title">客户信息编辑</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -30,7 +36,7 @@
                 <div class="form-group required">
                   {!!Form::label('name', '姓名：',['class' => 'col-sm-2 control-label']);!!}
                   <div class="col-sm-6">
-                    {!!Form::text('name',null,['class' => 'form-control','id'=>'name','required'=>'true']);!!}
+                    {!!Form::text('name',null,['class' => 'form-control','id'=>'name']);!!}
                   </div>
                 </div>
                 <div class="form-group">
@@ -55,7 +61,9 @@
                 <div class="form-group">
                   {!!Form::label('mobile_phone', '手机号：',['class' => 'col-sm-2 control-label']);!!} 
                   <div class="col-sm-6">
+                   
                     {!!Form::text('mobile_phone',null,['class' => 'form-control','id'=>'mobile_phone']);!!}
+
                   </div>
                 </div>
 
@@ -67,14 +75,38 @@
                 </div>
 
                 <div class="form-group">
+                  {!!Form::label('activated', '有效：',['class' => 'col-sm-2 control-label']);!!} 
+                  <div class="col-sm-6">
+                    {!!Form::radio('activated','1')!!}<span>有效</span>{!!Form::radio('activated','0')!!}<span>无效</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
                  {!!Form::label('cards', '银行卡：',['class' => 'col-sm-2 control-label']);!!} 
-                 
+                 <input type='hidden' id='bkcards_toremove' name='bkcards_toremove' value=''>
                  @foreach($customer->bankcards as $bankcard)
-                     <span class="badge badge-lg bg-light-blue">{{$bankcard->bin.'-'.$bankcard->code}}</span>
-                      {!!Form::submit('-',['class'=>'btn btn-danger btn-xs','name'=>'delbankcard'])!!}
-                      <br>
+                 <div class="col-md-3">
+                    <div class="box box-warning">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">{!!$bankcard->bin!!}</h3>
+
+                        <div class="box-tools pull-right">
+                          <button type="button" class="btn btn-box-tool" data-widget="remove" onclick="javascript:removeBkCard({!!$bankcard->id!!});" /><i class="fa fa-times"></i>
+                          </button>
+                        </div>
+                        <!-- /.box-tools -->
+                      </div>
+                      <!-- /.box-header -->
+                      <div class="box-body">
+                        {!!$bankcard->code!!}
+                      </div>
+                      <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                  </div>
+                  <!-- /.col -->
                   @endforeach
-                  <br>
+
                 </div>
                 
                 <div class="form-group">
@@ -95,7 +127,7 @@
              
 
               <div class="box-footer">
-                <a href="/customers" class="btn btn-default" role='button'>取消</a>
+                <a href="javascript:history.go(-1);" class="btn btn-default" role='button'>取消</a>
                 <button type="submit" name='save' value='withCard' class="btn btn-warning">增加银行卡</button>
                 <button type="submit" name='save' value='withoutCard' class="btn btn-info">保存</button>
               </div>

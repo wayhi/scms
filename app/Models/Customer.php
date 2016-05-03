@@ -14,7 +14,7 @@ class Customer extends Model implements HasPresenter
 
     protected $table='customers';
 
- 	public static $index = ['id', 'name','mobile_phone','created_at'];
+ 	public static $index = ['id', 'name','mobile_phone','activated','created_at'];
 
     /**
      * The max records per page when displaying a paginated index.
@@ -44,7 +44,10 @@ class Customer extends Model implements HasPresenter
      */
 
  	public static $rules = [
-        'name'   => 'required',
+        'name'   => 'required|max:5',
+        'mobile_phone' => 'required|digits:11',
+        'wechat_account'=> 'max:255',
+        'id_number' => 'alpha_num',
     ];
 
     protected $guarded = ['_token', '_method', 'id'];

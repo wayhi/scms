@@ -41,6 +41,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/customer/edit/{id}/{bankcard_id}',['middleware'=>'auth',function($id,$bankcard_id){
             return CustomerController::bankcard_store($id,$bankcard_id);
     }]);
+    Route::match(['get','post'],'/customers/search/{search_term?}',['as'=>'customers.search',
+        'uses'=>'Customer\\CustomerController@search']);
+
     Route::resource('customers', 'Customer\\CustomerController');
     Route::post('customers/add_bankcard',['middleware'=>'auth','as'=>'customers.addbankcard','uses'=>'Customer\\CustomerController@bankcard_store']);
     Route::get('mobile_search',['middleware'=>'auth',function(Request $request){
@@ -51,7 +54,9 @@ Route::group(['middleware' => ['web']], function () {
             return Customer::where('mobile_phone',$request->get('term'))->where('activated','=',1)
             ->select('id','name')->get()->toJson();
                 }]);
-    
+    Route::resource('funds', 'FundsController');
+    Route::resource('fundproducts','FundProductController');
+
 });
 
 
@@ -66,3 +71,7 @@ Route::group(['prefix' => 'api', 'namespace' => 'API'], function () {
         require config('infyom.laravel_generator.path.api_routes');
     });
 });
+
+
+
+

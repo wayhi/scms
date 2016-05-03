@@ -35,17 +35,18 @@ class MenuBar
       $customers->prepend("<i class='fa fa-group'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");
       $customers->add('新建客户','customers/create')->prepend("<i class='fa fa-circle-o'></i>");
       $customers->add('客户列表','customers')->prepend("<i class='fa fa-circle-o'></i>");
-      $customers->add('银行卡信息','＃')->prepend("<i class='fa fa-circle-o'></i>");
+      
 
       $products = $menu->add('产品管理', ['class'=>'treeview']);
       $products->prepend("<i class='fa fa-th'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");
-      $products->add('Level 2','#')->prepend("<i class='fa fa-circle-o'></i>");
-      $products->add('Level 2','#')->prepend("<i class='fa fa-circle-o'></i>");
+      $products->add('消费金融','#')->prepend("<i class='fa fa-circle-o'></i>");
+      $products->add('信用贷款','#')->prepend("<i class='fa fa-circle-o'></i>");
 
       $partners = $menu->add('合作方管理', ['class'=>'treeview']);
       $partners->prepend("<i class='fa fa-user-plus'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");
-      $partners->add('Level 2','#')->prepend("<i class='fa fa-circle-o'></i>");
-      $partners->add('Level 2','#')->prepend("<i class='fa fa-circle-o'></i>");
+      $partners->add('资金方','funds')->prepend("<i class='fa fa-circle-o'></i>");
+      $partners->add('资金产品','fundproducts')->prepend("<i class='fa fa-circle-o'></i>");
+      $partners->add('商户','#')->prepend("<i class='fa fa-circle-o'></i>");
 
 
   		$reports = $menu->add('统计报表', ['class'=>'treeview']);
@@ -56,7 +57,7 @@ class MenuBar
       $admins = $menu->add('系统设置', ['class'=>'treeview'])->active('/admin/*');
       $admins->prepend("<i class='fa fa-cog'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");
       $admins->add('角色权限管理','admin/roles')->prepend("<i class='fa fa-circle-o'></i>")->active('/admin/roles');
-      $admins->add('Level 2','#')->prepend("<i class='fa fa-circle-o'></i>");
+      $admins->add('用户管理','#')->prepend("<i class='fa fa-circle-o'></i>");
 
 		});
 

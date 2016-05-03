@@ -10,13 +10,16 @@
         "lavary/laravel-menu": "dev-master",
         "infyomlabs/laravel-generator": "dev-master",
         "infyomlabs/core-templates": "dev-master",
+        "infyomlabs/adminlte-templates": "dev-master",
         "laravelcollective/html": "5.2.*",
         "doctrine/dbal": "~2.3",
-        "prettus/l5-repository": "^2.1",
+        "prettus/l5-repository": "^2.5",
         "mccool/laravel-auto-presenter": "^4.0",
         "zizaco/entrust": "dev-master",
         "acacha/admin-lte-template-laravel": "2.*",
-        "barryvdh/laravel-debugbar": "^2.2"
+        "barryvdh/laravel-debugbar": "^2.2",
+        "infyomlabs/swagger-generator": "dev-master",
+        "jlapp/swaggervel": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

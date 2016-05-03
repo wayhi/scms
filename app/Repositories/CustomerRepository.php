@@ -11,5 +11,7 @@ namespace App\Repositories;
  */
 class CustomerRepository extends AbstractRepository
 {
-    use PaginateRepositoryTrait;
+    use PaginateRepositoryTrait,SearchRepositoryTrait;
+
+   
 }
