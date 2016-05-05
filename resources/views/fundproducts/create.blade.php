@@ -1,26 +1,26 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-    产品管理
+    合作方管理
 @endsection
 
 @section('contentheader_title')
-    产品管理
+    合作方管理
 
 @endsection
 
 @section('contentheader_description')
-    资金产品
+    资金方
 @endsection
 
 @section('main-content')
 @include('flash::message')
- 
+ @include('adminlte::common.errors')
     <div class="content">
        
         <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">产品创建</h3>
+              <h3 class="box-title">资金产品创建</h3>
               
             </div>
 

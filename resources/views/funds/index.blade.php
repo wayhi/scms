@@ -14,13 +14,17 @@
 @section('main-content')
 
 @include('flash::message')
-
+<script>
+  function search(){
+    window.location.href='/funds?search=' + document.getElementsByName('table_search')[0].value;
+  }
+</script>
 
 <div class="row">
     <div class="col-xs-12">
         <!--div class="box"-->
             <div class="box-header">
-                <h3 class="box-title">资金方列表</h3>
+                <h3 class="box-title">资金方信息</h3>
             
                 <div class="box-tools">
                   <div class="btn-group pull-right">
@@ -35,10 +39,10 @@
                     </div>
                   
                     <div class="input-group input-group-sm" style="width: 150px;">
-                      <input type="text" name="table_search" class="form-control pull-right" placeholder="姓名或电话">
+                      <input type="text" name="table_search" class="form-control pull-right" placeholder="编号或名称">
 
                       <div class="input-group-btn">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                        <a type="button" href='javascript:search();' class="btn btn-primary"><i class="fa fa-search"></i></a>
                       </div>
                     </div>
                 </div> 

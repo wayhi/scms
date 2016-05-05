@@ -12,8 +12,7 @@ class FundProductRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'product_code',
-        'product_name',
-        'repay_method'
+        'product_name'=>'like',
     ];
 
     /**

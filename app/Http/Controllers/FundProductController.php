@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\Funds;
 
 class FundProductController extends AppBaseController
 {
@@ -30,10 +31,10 @@ class FundProductController extends AppBaseController
     public function index(Request $request)
     {
         $this->fundProductRepository->pushCriteria(new RequestCriteria($request));
-        $fundProducts = $this->fundProductRepository->all();
-
+        $fundProducts = $this->fundProductRepository->with(['fund'])->paginate(10);
+        $links = $fundProducts->links();
         return view('fundproducts.index')
-            ->with('fundproducts', $fundProducts);
+            ->with(['fundproducts'=>$fundProducts,'links'=>$links]);
     }
 
     /**
@@ -43,7 +44,8 @@ class FundProductController extends AppBaseController
      */
     public function create()
     {
-        return view('fundproducts.create');
+        $fundlist = Funds::all()->lists('fund_name','id');
+        return view('fundproducts.create')->with('fundlist',$fundlist);
     }
 
     /**
@@ -55,7 +57,7 @@ class FundProductController extends AppBaseController
      */
     public function store(CreateFundProductRequest $request)
     {
-        //return "ok";
+       
         $input = $request->all();
 
         $fundProduct = $this->fundProductRepository->create($input);
@@ -74,7 +76,7 @@ class FundProductController extends AppBaseController
      */
     public function show($id)
     {
-        $fundProduct = $this->fundProductRepository->findWithoutFail($id);
+        $fundProduct = $this->fundProductRepository->with(['fund'])->findWithoutFail($id);
 
         if (empty($fundProduct)) {
             Flash::error('FundProduct not found');
@@ -101,8 +103,8 @@ class FundProductController extends AppBaseController
 
             return redirect(route('fundproducts.index'));
         }
-
-        return view('fundproducts.edit')->with('fundproduct', $fundProduct);
+        $fundlist = Funds::all()->lists('fund_name','id');
+        return view('fundproducts.edit')->with(['fundproduct'=>$fundProduct,'fundlist'=>$fundlist]);
     }
 
     /**

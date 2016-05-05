@@ -18,7 +18,7 @@
 
 <!-- Credit Limit Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('credit_limit', '授信额度:') !!}
+    {!! Form::label('credit_limit', '授信额度(分):') !!}
     {!! Form::number('credit_limit', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -31,7 +31,7 @@
 <!-- Activated Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('activated', '有效:') !!}
-    {!! Form::text('activated', null, ['class' => 'form-control']) !!}
+    {!! Form::select('activated',['1'=>'是','0'=>'否'],null,['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

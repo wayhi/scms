@@ -13,7 +13,7 @@
 <!-- Credit Limit Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('credit_limit', '授信额度:') !!}
-    <p>{!! $funds->credit_limit !!}</p>
+    <p>{!! $funds->credit_limit_formatted !!}</p>
 </div>
 
 <!-- Currency Field -->
@@ -31,7 +31,7 @@
 <!-- Activated Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('activated', '有效:') !!}
-    <p>{!! $funds->activated !!}</p>
+    <p>{!! $funds->activated_text !!}</p>
 </div>
 
 <!-- Created At Field -->

@@ -5,6 +5,9 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Relations\HasManyFundProductsTrait;
+use McCool\LaravelAutoPresenter\HasPresenter;
+use App\Presenters\FundPresenter;
+
 
 /**
  * @SWG\Definition(
@@ -35,7 +38,7 @@ use App\Models\Relations\HasManyFundProductsTrait;
  *      )
  * )
  */
-class Funds extends Model
+class Funds extends Model implements HasPresenter
 {
     use SoftDeletes,HasManyFundProductsTrait;
 
@@ -74,4 +77,9 @@ class Funds extends Model
         'credit_limit' => 'numeric',
         'contact_info' => 'max:255'
     ];
+
+    public function getPresenterClass()
+    {
+        return FundPresenter::class;
+    }
 }

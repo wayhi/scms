@@ -56,6 +56,10 @@ Route::group(['middleware' => ['web']], function () {
                 }]);
     Route::resource('funds', 'FundsController');
     Route::resource('fundproducts','FundProductController');
+    Route::match(['get','post'],'/fundproducts?search={table_search?}',['as'=>'fundproducts.search',
+        function(Request $request){
+            return Redirect::to('/fundproducts?search=001');
+        }]);
 
 });
 

@@ -12,7 +12,7 @@ class FundsRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'fund_code',
-        'fund_name'
+        'fund_name'=>'like'
     ];
 
     /**

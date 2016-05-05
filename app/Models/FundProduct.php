@@ -5,6 +5,8 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Relations\BelongsToFundTrait;
+use McCool\LaravelAutoPresenter\HasPresenter;
+use App\Presenters\FundProductPresenter;
 /**
  * @SWG\Definition(
  *      definition="FundProduct",
@@ -39,7 +41,7 @@ use App\Models\Relations\BelongsToFundTrait;
  *      )
  * )
  */
-class FundProduct extends Model
+class FundProduct extends Model implements HasPresenter
 {
     use SoftDeletes,BelongsToFundTrait;
 
@@ -57,6 +59,7 @@ class FundProduct extends Model
         'limit_per_order',
         'repay_method',
         'repay_times',
+        'repay_period',
         'repay_pct',
         'clearing_acct_name',
         'clearing_acct_bank',
@@ -87,10 +90,16 @@ class FundProduct extends Model
         'repay_method' => 'max:50',
         'repay_times' => 'required|max:120',
         'repay_pct' => 'required',
+        'repay_period' => 'required',
         'clearing_acct_name' => 'required|max:50',
         'clearing_acct_bank' => 'required|max:50',
         'clearing_acct_code' => 'required|max:50',
         'controller_name' => 'max:50',
         'contact_email' => 'email'
     ];
+
+    public function getPresenterClass()
+    {
+        return FundProductPresenter::class;
+    }
 }

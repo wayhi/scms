@@ -44,8 +44,10 @@ class MenuBar
 
       $partners = $menu->add('合作方管理', ['class'=>'treeview']);
       $partners->prepend("<i class='fa fa-user-plus'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");
-      $partners->add('资金方','funds')->prepend("<i class='fa fa-circle-o'></i>");
-      $partners->add('资金产品','fundproducts')->prepend("<i class='fa fa-circle-o'></i>");
+      $fund_partner=$partners->add('资金方','#')->prepend("<i class='fa fa-level-down'></i>");
+      $fund_partner->add('资金方信息','funds')->prepend("<i class='fa fa-circle-o'></i>");
+      $fund_partner->add('资金产品','fundproducts')->prepend("<i class='fa fa-circle-o'></i>");
+      
       $partners->add('商户','#')->prepend("<i class='fa fa-circle-o'></i>");
 
 

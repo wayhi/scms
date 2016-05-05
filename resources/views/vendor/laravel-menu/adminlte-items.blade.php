@@ -8,7 +8,7 @@
     @endif
     @if($item->hasChildren())
       <ul class="treeview-menu">
-        @include(config('laravel-menu.views.bootstrap-items'), 
+        @include(config('laravel-menu.views.adminlte-items'), 
 array('items' => $item->children()))
       </ul> 
     @endif

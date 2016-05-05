@@ -1,4 +1,8 @@
 <div class="form-group col-sm-4">
+    {!! Form::label('fund_id', '所属资金方：') !!}
+    {!! Form::select('fund_id',$fundlist,null,['class' => 'form-control']) !!}
+</div>
+<div class="form-group col-sm-4">
     {!! Form::label('product_code', '产品编号：') !!}
     {!! Form::text('product_code', null, ['class' => 'form-control']) !!}
 </div>
@@ -7,25 +11,30 @@
     {!! Form::text('product_name', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group col-sm-4">
-    {!! Form::label('credit_limit', '产品限额(分)：') !!}
-    {!! Form::number('crredit_limit', null, ['class' => 'form-control']) !!}
+    {!! Form::label('credit_limit', '授信额度(金额单位－分)：') !!}
+    {!! Form::number('credit_limit', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group col-sm-4">
-    {!! Form::label('limit_per_order', '每单限额(分)：') !!}
+    {!! Form::label('limit_per_order', '每单限额(金额单位－分)：') !!}
     {!! Form::number('limit_per_order', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group col-sm-4">
     {!! Form::label('repay_method', '还款方式：') !!}
-    {!! Form::text('repay_method', null, ['class' => 'form-control']) !!}
+    {!! Form::select('repay_method',[0=>'等额本息',1=>'先息后本'],null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group col-sm-4">
     {!! Form::label('repay_times', '还款期数：') !!}
-    {!! Form::number('repay_times', null, ['class' => 'form-control']) !!}
+    {!! Form::number('repay_times',null,['class' => 'form-control']) !!}
 </div>
 <div class="form-group col-sm-4">
-    {!! Form::label('repay_pct', '每期还款百分比：') !!}
+    {!! Form::label('repay_period', '还款间隔：') !!}
+    {!! Form::select('repay_period',[0=>'每月',1=>'每30天',2=>'每3个月',3=>'每6个月'],null,['class' => 'form-control']) !!}
+</div>
+<div class="form-group col-sm-4">
+    {!! Form::label('repay_pct', '年化利率：') !!}
     <div class="input-group">
-        <input type="text" class="form-control">
+        
+        {!!Form::text('repay_pct',null,['class' => 'form-control']);!!}
         <span class="input-group-addon">%</span>
     </div>
 </div>
