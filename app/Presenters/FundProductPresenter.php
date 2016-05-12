@@ -84,6 +84,9 @@ class FundProductPresenter extends BasePresenter
 			case '1':
 				return '先息后本';
 				break;
+			case '2':
+				return '平均利息';
+				break;	
 			default:
 				return 'N/A';
 				break;

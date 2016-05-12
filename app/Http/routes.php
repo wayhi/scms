@@ -56,10 +56,8 @@ Route::group(['middleware' => ['web']], function () {
                 }]);
     Route::resource('funds', 'FundsController');
     Route::resource('fundproducts','FundProductController');
-    Route::match(['get','post'],'/fundproducts?search={table_search?}',['as'=>'fundproducts.search',
-        function(Request $request){
-            return Redirect::to('/fundproducts?search=001');
-        }]);
+    Route::resource('merchants', 'MerchantsController');
+    Route::resource('shops', 'ShopsController');
 
 });
 
@@ -75,6 +73,10 @@ Route::group(['prefix' => 'api', 'namespace' => 'API'], function () {
         require config('infyom.laravel_generator.path.api_routes');
     });
 });
+
+
+
+
 
 
 

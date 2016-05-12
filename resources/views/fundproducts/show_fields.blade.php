@@ -31,8 +31,12 @@
     <p>{!! $fundproduct->repay_period_text !!}</p>
 </div>
 <div class="form-group col-sm-4">
-    {!! Form::label('repay_pct', '年化利率:') !!}
+    {!! Form::label('repay_pct', '每期还款比率:') !!}
     <p>{!! $fundproduct->repay_pct !!}%</p>
+</div>
+<div class="form-group col-sm-4">
+    {!! Form::label('interest_rate', '每期利率:') !!}
+    <p>{!! $fundproduct->interest_rate !!}%</p>
 </div>
 <div class="form-group col-sm-4">
     {!! Form::label('clearing_acct_name', '账户名称：') !!}

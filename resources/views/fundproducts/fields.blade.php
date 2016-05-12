@@ -20,7 +20,7 @@
 </div>
 <div class="form-group col-sm-4">
     {!! Form::label('repay_method', '还款方式：') !!}
-    {!! Form::select('repay_method',[0=>'等额本息',1=>'先息后本'],null, ['class' => 'form-control']) !!}
+    {!! Form::select('repay_method',[0=>'等额本息',1=>'先息后本',2=>'平均利息'],null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group col-sm-4">
     {!! Form::label('repay_times', '还款期数：') !!}
@@ -31,10 +31,18 @@
     {!! Form::select('repay_period',[0=>'每月',1=>'每30天',2=>'每3个月',3=>'每6个月'],null,['class' => 'form-control']) !!}
 </div>
 <div class="form-group col-sm-4">
-    {!! Form::label('repay_pct', '年化利率：') !!}
+    {!! Form::label('repay_pct', '每期还款比率：') !!}
     <div class="input-group">
         
         {!!Form::text('repay_pct',null,['class' => 'form-control']);!!}
+        <span class="input-group-addon">%</span>
+    </div>
+</div>
+<div class="form-group col-sm-4">
+    {!! Form::label('interest_rate', '每期利率：') !!}
+    <div class="input-group">
+        
+        {!!Form::text('interest_rate',null,['class' => 'form-control']);!!}
         <span class="input-group-addon">%</span>
     </div>
 </div>

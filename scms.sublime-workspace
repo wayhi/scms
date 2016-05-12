@@ -4,6 +4,102 @@
 		"selected_items":
 		[
 			[
+				"s",
+				"status"
+			],
+			[
+				"m",
+				"model"
+			],
+			[
+				"per",
+				"$period_unit〔variable〕"
+			],
+			[
+				"get",
+				"getWrappedObject〔function〕"
+			],
+			[
+				"swith",
+				"switch	switch …"
+			],
+			[
+				"cr",
+				"credit"
+			],
+			[
+				"credit",
+				"credit_limit"
+			],
+			[
+				"key_",
+				"key_value"
+			],
+			[
+				"search",
+				"search_term"
+			],
+			[
+				"Customer",
+				"CustomerController"
+			],
+			[
+				"req",
+				"required|max:5"
+			],
+			[
+				"imp",
+				"implode〔function〕"
+			],
+			[
+				"bank",
+				"bankcard"
+			],
+			[
+				"add",
+				"add_bancard"
+			],
+			[
+				"tag_",
+				"tag_ids"
+			],
+			[
+				"Has",
+				"HasManyTagsTrait〔trait〕"
+			],
+			[
+				"fa",
+				"false"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"Re",
+				"Request"
+			],
+			[
+				"array_",
+				"array_column〔function〕"
+			],
+			[
+				"for",
+				"foreach〔keyword〕"
+			],
+			[
+				"perm",
+				"$perms_selected〔variable〕"
+			],
+			[
+				"foreach",
+				"foreach	foreach …"
+			],
+			[
+				"Permis",
+				"PermissionRepository〔namespace〕"
+			],
+			[
 				"miss",
 				"missed_times_2"
 			],
@@ -22,10 +118,6 @@
 			[
 				"Ssc_number",
 				"Ssc_number_missed〔namespace〕"
-			],
-			[
-				"for",
-				"for	for …"
 			],
 			[
 				"re",
@@ -78,10 +170,6 @@
 			[
 				"array_pu",
 				"array_push〔function〕"
-			],
-			[
-				"array_",
-				"array_combine〔function〕"
 			],
 			[
 				"array_c",
@@ -152,10 +240,6 @@
 				"file_get_html〔function〕"
 			],
 			[
-				"fun",
-				"function〔keyword〕"
-			],
-			[
 				"e",
 				"elseif	elseif …"
 			],
@@ -202,10 +286,6 @@
 			[
 				"amou",
 				"amount_actual"
-			],
-			[
-				"get",
-				"getElementById〔function〕"
 			],
 			[
 				"par",
@@ -284,10 +364,6 @@
 				"Item"
 			],
 			[
-				"search",
-				"search_string"
-			],
-			[
 				"di",
 				"disabled	Attr"
 			],
@@ -318,10 +394,6 @@
 			[
 				"group",
 				"group_id"
-			],
-			[
-				"foreach",
-				"foreach〔keyword〕"
 			],
 			[
 				"Cr",
@@ -387,6 +459,110 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "resources/views/shops/index.blade.php",
+			"settings":
+			{
+				"buffer_size": 1910,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/shops/table.blade.php",
+			"settings":
+			{
+				"buffer_size": 1377,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/shops/edit.blade.php",
+			"settings":
+			{
+				"buffer_size": 850,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/shops/show.blade.php",
+			"settings":
+			{
+				"buffer_size": 868,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/shops/show_fields.blade.php",
+			"settings":
+			{
+				"buffer_size": 2011,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/routes.php",
+			"settings":
+			{
+				"buffer_size": 2934,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/ShopsController.php",
+			"settings":
+			{
+				"buffer_size": 3727,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/MerchantsController.php",
+			"settings":
+			{
+				"buffer_size": 3767,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/merchants/index.blade.php",
+			"settings":
+			{
+				"buffer_size": 1922,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/FundProductController.php",
+			"settings":
+			{
+				"buffer_size": 4169,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Repositories/BaseRepositoryTrait.php",
+			"settings":
+			{
+				"buffer_size": 3244,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Models/Merchants.php",
+			"settings":
+			{
+				"buffer_size": 1684,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Models/Shops.php",
+			"settings":
+			{
+				"buffer_size": 2037,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -395,10 +571,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 392.0,
-		"last_filter": "",
+		"height": 367.0,
+		"last_filter": "Package Control: ",
 		"selected_items":
 		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
 			[
 				"",
 				"CI Codeintel Helper: Create IDE helper"
@@ -408,9 +588,10 @@
 	},
 	"console":
 	{
-		"height": 0.0,
+		"height": 126.0,
 		"history":
 		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
 			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
 		]
 	},
@@ -425,148 +606,164 @@
 	},
 	"expanded_folders":
 	[
-		"/Applications/MAMP/htdocs/scms"
+		"/Applications/MAMP/htdocs/scms",
+		"/Applications/MAMP/htdocs/scms/app",
+		"/Applications/MAMP/htdocs/scms/app/Http",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers",
+		"/Applications/MAMP/htdocs/scms/app/Models",
+		"/Applications/MAMP/htdocs/scms/app/Models/Relations",
+		"/Applications/MAMP/htdocs/scms/app/Presenters",
+		"/Applications/MAMP/htdocs/scms/resources",
+		"/Applications/MAMP/htdocs/scms/resources/views",
+		"/Applications/MAMP/htdocs/scms/resources/views/fundproducts",
+		"/Applications/MAMP/htdocs/scms/resources/views/merchants",
+		"/Applications/MAMP/htdocs/scms/resources/views/shops",
+		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs/adminlte-templates",
+		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs/adminlte-templates/templates",
+		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs/adminlte-templates/templates/scaffold",
+		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs/adminlte-templates/templates/scaffold/views"
 	],
 	"file_history":
 	[
-		"/Applications/MAMP/htdocs/bootstrap-cms/config/cms.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/config/app.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/resources/views/vendor/navigation/bootstrap.blade.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/config/theme.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/.env",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/laravel/framework/src/Illuminate/Contracts/Cache/Factory.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/laravel/framework/src/Illuminate/Support/Facades/Cache.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/graham-campbell/navigation/src/Facades/Navigation.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/config/broadcasting.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/graham-campbell/credentials/src/Repositories/AbstractRepository.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/app/Http/Controllers/AbstractController.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/app/Subscribers/CommandSubscriber.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/resources/views/pages/show.blade.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/graham-campbell/credentials/src/Repositories/BaseRepositoryTrait.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/graham-campbell/credentials/src/Http/Controllers/AbstractController.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/app/Http/Controllers/PostController.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/app/Repositories/EventRepository.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/app/Repositories/PostRepository.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/app/Repositories/PageRepository.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/graham-campbell/credentials/src/Repositories/PaginateRepositoryTrait.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/composer.json",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/cartalyst/sentry/src/Throttling/Exceptions.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/app/Repositories/CommentRepository.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/app/Providers/AppServiceProvider.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/app/Models/Page.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/app/Http/Controllers/PageController.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/app/Facades/PageRepository.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/graham-campbell/credentials/src/Repositories/UserRepository.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/graham-campbell/credentials/src/Repositories/SlugRepositoryTrait.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/graham-campbell/credentials/src/Repositories/RevisionRepository.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/graham-campbell/credentials/src/Http/Controllers/LoginController.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/symfony/http-foundation/Response.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/laravel/framework/src/Illuminate/Http/RedirectResponse.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/laravel/framework/src/Illuminate/Http/Response.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/laravel/framework/src/Illuminate/Support/Facades/Redirect.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/app/Http/Kernel.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/laravel/framework/src/Illuminate/Routing/Redirector.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/app/Http/routes.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/laravel/framework/src/Illuminate/Support/Fluent.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/app/Models/Relations/HasManyPostsTrait.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/laravel/framework/src/Illuminate/Http/ResponseTrait.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/app/Models/Post.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/graham-campbell/credentials/src/Models/AbstractModel.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/vendor/graham-campbell/credentials/src/Http/Middleware/Auth/AbstractAuth.php",
-		"/Applications/MAMP/htdocs/bootstrap-cms/config/credentials.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/auth/login.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/FundProduct.php",
+		"/Applications/MAMP/htdocs/scms/app/Presenters/ShopPresenter.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/shops/create.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/shops/fields.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/FundProductController.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/shopsController.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Relations/BelongsToMerchantTrait.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Relations/HasManyShopsTrait.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/merchantsController.php",
+		"/Applications/MAMP/htdocs/scms/app/Repositories/ShopsRepository.php",
+		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs/adminlte-templates/templates/scaffold/views/index.stub",
+		"/Applications/MAMP/htdocs/scms/app/Repositories/merchantsRepository.php",
+		"/Applications/MAMP/htdocs/scms/app/Repositories/shopsRepository.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Middleware/MenuBar.php",
 		"/Applications/MAMP/htdocs/scms/app/Http/routes.php",
-		"/Applications/MAMP/htdocs/scms/.env",
-		"/Applications/MAMP/htdocs/scms/resources/views/welcome.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/fundProducts/index.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/merchants/fields.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/merchants/edit.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/merchants/create.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/merchants/index.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/merchants/show.blade.php",
+		"/Users/JW/Downloads/postfixadmin-20160506-29863.sql",
+		"/Applications/MAMP/htdocs/scms/resources/views/merchants/show_fields.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/merchants.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/merchants/table.blade.php",
+		"/Applications/MAMP/htdocs/scms/composer.json",
+		"/Applications/MAMP/htdocs/scms/resources/views/funds/show.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/fundProducts/show.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/funds/index.blade.php",
+		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs/adminlte-templates/templates/scaffold/views/show.stub",
+		"/Applications/MAMP/htdocs/scms/resources/views/funds/edit.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Repositories/FundProductRepository.php",
+		"/Applications/MAMP/htdocs/scms/app/Repositories/FundsRepository.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/fundProducts/fields.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/fundProducts/show_fields.blade.php",
+		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs/adminlte-templates/templates/scaffold/views/edit.stub",
+		"/Applications/MAMP/htdocs/scms/resources/views/funds/create.blade.php",
+		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs/adminlte-templates/templates/scaffold/views/create.stub",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/Customer/CustomerController.php",
+		"/Applications/MAMP/htdocs/scms/public/css/AdminLTE.min.css",
+		"/Applications/MAMP/htdocs/scms/public/css/AdminLTE.css",
+		"/Applications/MAMP/htdocs/scms/public/css/main.css",
+		"/Applications/MAMP/htdocs/scms/app/Presenters/FundProductPresenter.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/customers/index.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/fundProducts/table.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Presenters/FundPresenter.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/funds/show_fields.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Relations/BelongsToFundTrait.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/FundsController.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/fundProducts/edit.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Funds.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/funds/table.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/funds/fields.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/SmsController.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/fundProducts/create.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/vendor/laravel-menu/adminlte-items.blade.php",
+		"/Applications/MAMP/htdocs/scms/config/app.php",
+		"/Applications/MAMP/htdocs/scms/app/Providers/AppServiceProvider.php",
+		"/Applications/MAMP/htdocs/scms/resources/model_schemas/Funds.json",
+		"/Applications/MAMP/htdocs/scms/resources/views/customers/create.blade.php",
+		"/Applications/MAMP/htdocs/scms/vendor/prettus/l5-repository/src/Prettus/Repository/Contracts/Transformable.php",
+		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs/laravel-generator/src/Common/BaseRepository.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/layouts/app.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/home.blade.php",
-		"/Applications/MAMP/htdocs/CMS-master/resources/views/partials/footer.blade.php",
-		"/Applications/MAMP/htdocs/CMS-master/resources/views/partials/header.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/assets/css/font-awesome.min.css",
-		"/Applications/MAMP/htdocs/scms/resources/assets/css/bootstrap.css",
-		"/Applications/MAMP/htdocs/scms/resources/assets/css/bootstrap.min.css",
-		"/Users/JW/Downloads/CMS-master/app/Models/Comment.php",
-		"/Users/JW/Documents/yifenqi/src_db/src/3.1_epdc-scms/src/main/java/com/yifenqi/epdc/web/controller/system/AuthenticationController.java",
-		"/Users/JW/Documents/yifenqi/src_db/src/3.1_epdc-scms/src/main/resources/applicationContext-common.xml",
-		"/Users/JW/Documents/yifenqi/src_db/src/3.1_epdc-scms/src/main/resources/conf/fdfs_client.conf",
-		"/Users/JW/Documents/yifenqi/src_db/src/3.1_epdc-scms/src/main/resources/rest-servlet.xml",
-		"/Users/JW/Documents/yifenqi/src_db/src/3.1_epdc-scms/src/main/java/com/yifenqi/epdc/web/controller/loan/LoanBorrowerCerInfoController.java",
-		"/Users/JW/Documents/yifenqi/src_db/src/3.1_epdc-scms/src/main/java/com/yifenqi/epdc/web/controller/loan/LoanOrderApplyController.java",
-		"/Users/JW/Documents/yifenqi/src_db/src/3.1_epdc-scms/WebContent/WEB-INF/yfqTag.tld",
-		"/Users/JW/Documents/yifenqi/src_db/src/3.1_epdc-scms/WebContent/pages/header.jsp",
-		"/Users/JW/Documents/yifenqi/src_db/src/3.1_epdc-scms/WebContent/index.jsp",
-		"/Users/JW/Documents/yifenqi/src_db/src/3.1_epdc-scms/WebContent/pages/loan/apply_consumption_list.jsp",
-		"/Users/JW/Documents/yifenqi/src_db/src/1.5_epdc-orm/src/main/java/com/yifenqi/epdc/dao/loan/LoanOrderCommcInsurPolicyDaoImpl.java",
-		"/Users/JW/Documents/yifenqi/src_db/src/3.1_epdc-scms/src/main/resources/applicationContext-cache.xml",
-		"/Users/JW/Documents/yifenqi/src_db/src/3.1_epdc-scms/src/main/resources/base.properties",
-		"/Users/JW/Downloads/src_db/src/3.2_epdc-trade-api/src/main/java/com/yifenqi/epdc/trade/http/AccountSignInRequest.java",
-		"/Users/JW/Downloads/car2016.1.28/index_new.html",
-		"/Users/JW/Library/Caches/TemporaryItems/Outlook Temp/归档/css/style.css",
-		"/Users/JW/Downloads/src_db/src/3.1_epdc-scms/src/main/java/com/yifenqi/epdc/web/controller/client/ClientUiCstmController.java",
-		"/Users/JW/Downloads/src_db/src/1.5_epdc-orm/src/main/java/com/yifenqi/epdc/mapper/bank/BankBaseInfoMapper.java",
-		"/Users/JW/Downloads/src_db/src/1.5_epdc-orm/src/main/java/com/yifenqi/epdc/dao/bank/BankBaseInfoDao.java",
-		"/Users/JW/Downloads/src_db/src/1.5_epdc-orm/bin/com/yifenqi/epdc/mapper/bank/BankBaseInfoMapper.xml",
-		"/Users/JW/Downloads/src_db/src/3.6_epdc-webapp/src/main/java/com/yifenqi/epdc/web/controller/webapp/Webapp2Controller.java",
-		"/Applications/MAMP/htdocs/bridgestone/bs-admin/events/file/RGWM0120150303103507.csv",
-		"/Users/JW/Downloads/web/index.php",
-		"/Applications/MAMP/htdocs/ssc_lumen/database/migrations/2015_11_25_055751_create_missed_number.php",
-		"/Applications/MAMP/conf/php5.6.10/php.ini",
-		"/Applications/MAMP/htdocs/ssc_lumen/app/SSC.php",
-		"/Applications/MAMP/htdocs/ssc_lumen/app/Http/Controllers/Controller.php",
-		"/Applications/MAMP/htdocs/ssc_lumen/app/Http/Controllers/MainController.php",
-		"/Applications/MAMP/htdocs/ssc_lumen/app/Http/routes.php",
-		"/Applications/MAMP/htdocs/ssc_lumen/resources/views/notification.blade.php",
-		"/Applications/MAMP/htdocs/ssc_lumen/database/migrations/2015_08_13_035123_create_ssc_ball_log.php",
-		"/Applications/MAMP/htdocs/ssc_lumen/app/Ssc_ball_log.php",
-		"/Applications/MAMP/htdocs/ssc_lumen/app/User.php",
-		"/Applications/MAMP/htdocs/ssc_lumen/app/Group.php",
-		"/Applications/MAMP/htdocs/ssc_lumen/app/Console/Kernel.php",
-		"/Applications/MAMP/htdocs/ssc_lumen/storage/logs/lumen.log",
-		"/Applications/MAMP/htdocs/ssc_lumen/.env",
-		"/Applications/MAMP/htdocs/easyProcess/app/models/Ssc_Log.php",
-		"/Applications/MAMP/htdocs/easyProcess/app/config/local/app.php",
-		"/Applications/MAMP/htdocs/easyProcess/app/config/local/database.php",
-		"/Applications/MAMP/htdocs/easyProcess/app/models/Ssc_Record.php",
-		"/Applications/MAMP/htdocs/easyProcess/app/controllers/ssc/simple_html_dom.php",
-		"/Applications/MAMP/htdocs/easyProcess/app/controllers/user/UserController.php",
-		"/Applications/MAMP/htdocs/clarins/app/config/app.php",
-		"/Applications/MAMP/htdocs/clarins/app/views/items/default.blade.php",
-		"/Applications/MAMP/htdocs/clarins/app/views/Login/login.blade.php",
-		"/Applications/MAMP/htdocs/clarins/app/controllers/UserController.php",
-		"/Applications/MAMP/htdocs/clarins/app/config/local/database.php",
-		"/Applications/MAMP/htdocs/clarins/bootstrap/start.php",
-		"/Applications/MAMP/htdocs/clarins/composer.json",
-		"/Applications/MAMP/htdocs/clarins/app/config/stage/app.php",
-		"/Applications/MAMP/htdocs/clarins/app/config/stage/database.php",
-		"/Applications/MAMP/htdocs/clarins/.gitignore",
-		"/Applications/MAMP/htdocs/clarins/app/views/items/showcart.blade.php",
-		"/Applications/MAMP/htdocs/clarins/app/views/orders/index.blade.php",
-		"/Applications/MAMP/htdocs/clarins/app/views/orders/manage.blade.php",
-		"/Applications/MAMP/htdocs/clarins/app/views/users/edit.blade.php",
-		"/Applications/MAMP/htdocs/clarins/app/controllers/OrderController.php",
-		"/Applications/MAMP/htdocs/easyProcess/public/css/fa.css",
-		"/Applications/MAMP/htdocs/easyProcess/app/controllers/nav/NavController.php",
-		"/Applications/MAMP/htdocs/easyProcess/public/css/nav.css",
-		"/Applications/MAMP/htdocs/easyProcess/app/views/payment/create.blade.php",
-		"/Applications/MAMP/htdocs/easyProcess/app/views/admin/_layouts/default.blade.php",
-		"/Applications/MAMP/htdocs/easyProcess/app/config/database.php",
-		"/Applications/MAMP/htdocs/easyProcess/bootstrap/start.php",
-		"/Applications/MAMP/htdocs/easyProcess/app/views/main.blade.php",
-		"/Applications/MAMP/htdocs/easyProcess/app/views/errors/missing.blade.php",
-		"/Applications/MAMP/htdocs/easyProcess/app/views/Login/pwd_change.blade.php",
-		"/Applications/MAMP/htdocs/easyProcess/app/start/global.php",
-		"/Applications/MAMP/htdocs/easyProcess/app/routes.php",
-		"/Applications/MAMP/htdocs/easyProcess/app/views/activemail.blade.php"
+		"/Applications/MAMP/htdocs/scms/config/infyom/laravel_generator.php",
+		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs/laravel-generator/src/Controller/AppBaseController.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Fund.php",
+		"/Applications/MAMP/htdocs/scms/app/Facades/FundProductRepository.php",
+		"/Applications/MAMP/htdocs/scms/app/Repositories/AbstractRepository.php",
+		"/Applications/MAMP/htdocs/scms/app/Repositories/SearchRepositoryTrait.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/customers/bankcard.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Repositories/FundRepository.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Relations/HasManyFundProductsTrait.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/customers/show.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/customers/edit.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/customers/search.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Repositories/CustomerRepository.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Customer.php",
+		"/Applications/MAMP/htdocs/scms/app/Repositories/BaseRepositoryTrait.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/admin/role_edit.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/BankCard.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/Admin/RoleController.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Relations/HasManyBankCardsTrait.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/admin/role_create.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/layouts/partials/scripts.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/layouts/partials/htmlheader.blade.php",
+		"/Applications/MAMP/htdocs/scms/config/scms.php",
+		"/Applications/MAMP/htdocs/scms/app/Facades/BankCardRepository.php",
+		"/Applications/MAMP/htdocs/scms/app/Presenters/BankCardPresenter.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Relations/BelongsToCustomerTrait.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Tag.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/bankcard.php",
+		"/Applications/MAMP/htdocs/scms/app/Repositories/BankCardRepository.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/sms/start.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Relations/BelongsToManyCustomersTrait.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Relations/BelongsToManyTagsTrait.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Relations/HasManyTagsTrait.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/Customer/TagController.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/errors/404.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/errors/500.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/errors/503.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/layouts/error.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Presenters/CustomerPresenterTrait.php",
+		"/Applications/MAMP/htdocs/scms/app/Presenters/CustomerPresenter.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/customer/index.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Presenters/CreatedPresenterTrait.php",
+		"/Applications/MAMP/htdocs/scms/app/Facades/CustomerRepository.php",
+		"/Applications/MAMP/htdocs/scms/.gitignore",
+		"/Applications/MAMP/htdocs/scms/app/Http/Kernel.php",
+		"/Applications/MAMP/htdocs/scms/.env",
+		"/Applications/MAMP/htdocs/scms/config/mail.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/REST.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/HomeController.php",
+		"/Applications/MAMP/htdocs/scms/public/SDK/CCPRestSDK.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/CCPRestSDK.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Sms.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/Admin/PermissionController.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/User.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/Auth/AuthController.php",
+		"/Applications/MAMP/htdocs/scms/app/Facades/PermissionRepository.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/Smscontroller.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/admin/role_show.blade.php",
+		"/Applications/MAMP/htdocs/scms/vendor/acacha/admin-lte-template-laravel/src/Http/routes.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/auth/register.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/auth/passwords/reset.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/auth/passwords/email.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Facades/RoleRepository.php",
+		"/Applications/MAMP/htdocs/scms/app/Facades/SMSRepository.php",
+		"/Applications/MAMP/htdocs/scms/app/Repositories/SMSRepository.php"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
 		"height": 93.0,
 		"where_history":
 		[
+			"/Applications/MAMP/htdocs/scms/public",
 			"/Users/JW/Documents/yifenqi/src_db/src/3.1_epdc-scms"
 		]
 	},
@@ -575,6 +772,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"0000-00-00",
+			"https://fonts-gstatic-com.gmirror.org",
+			"http://fonts-gstatic-com.gmirror.org",
+			"https://fonts-gstatic-com.gmirror.org",
+			"https",
+			"https://fonts-gstatic-com.gmirror.org",
+			"fonts.gstatic.com",
+			"stdClass",
+			"fopen",
 			"insur/list/",
 			"menu/homePage/",
 			"last_log",
@@ -598,6 +804,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"2016-05-06",
+			"http://fonts-gstatic-com.gmirror.org",
+			"http",
+			"http://fonts-gstatic-com.gmirror.org",
+			"fonts-gstatic-com.gmirror.org",
 			"#",
 			"",
 			"$row",
@@ -612,8 +823,411 @@
 	"groups":
 	[
 		{
+			"selected": 8,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "resources/views/shops/index.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1910,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1876,
+								1876
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 330.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "resources/views/shops/table.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1377,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								594,
+								594
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "resources/views/shops/edit.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 850,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								276
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "resources/views/shops/show.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 868,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								432,
+								432
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "resources/views/shops/show_fields.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2011,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								519,
+								519
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 183.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/Http/routes.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2934,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2528,
+								2528
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/Http/Controllers/ShopsController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3727,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1045,
+								1045
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 154.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/Http/Controllers/MerchantsController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3767,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								873,
+								873
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 84.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "resources/views/merchants/index.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1922,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1880,
+								1880
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 330.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/Http/Controllers/FundProductController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4169,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 272.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "app/Repositories/BaseRepositoryTrait.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3244,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3229,
+								3229
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1950.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "app/Models/Merchants.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1684,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1647,
+								1647
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "app/Models/Shops.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2037,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								227,
+								227
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -656,7 +1270,7 @@
 	"project": "scms.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":
