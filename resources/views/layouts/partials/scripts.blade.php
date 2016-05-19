@@ -13,6 +13,7 @@
 <script src="{{ asset('/plugins/input-mask/jquery.inputmask.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/plugins/input-mask/jquery.inputmask.date.extensions.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/plugins/input-mask/jquery.inputmask.extensions.js') }}" type="text/javascript"></script>
+<script src="/plugins/timepicker/bootstrap-timepicker.min.js" type="text/javascript"></script>
 
 
 <script>
@@ -47,6 +48,10 @@
     $("#datemask3").inputmask("mm/yyyy", {"placeholder": "mm/yyyy"});
     //Money Euro
     $("[data-mask]").inputmask();
+
+    $(".timepicker").timepicker({
+      showInputs: false
+    });
 
     
   });

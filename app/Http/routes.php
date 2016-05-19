@@ -58,6 +58,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('fundproducts','FundProductController');
     Route::resource('merchants', 'MerchantsController');
     Route::resource('shops', 'ShopsController');
+    Route::resource('goodsMasters', 'GoodsMasterController');
 
 });
 
@@ -73,6 +74,10 @@ Route::group(['prefix' => 'api', 'namespace' => 'API'], function () {
         require config('infyom.laravel_generator.path.api_routes');
     });
 });
+
+
+
+
 
 
 

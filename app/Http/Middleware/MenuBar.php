@@ -39,8 +39,8 @@ class MenuBar
 
       $products = $menu->add('产品管理', ['class'=>'treeview']);
       $products->prepend("<i class='fa fa-th'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");
-      $products->add('消费金融','#')->prepend("<i class='fa fa-circle-o'></i>");
-      $products->add('信用贷款','#')->prepend("<i class='fa fa-circle-o'></i>");
+      $products->add('产品列表','goodsMasters')->prepend("<i class='fa fa-circle-o'></i>");
+      
 
       $partners = $menu->add('合作方管理', ['class'=>'treeview']);
       $partners->prepend("<i class='fa fa-user-plus'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");

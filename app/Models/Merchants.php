@@ -5,6 +5,7 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Relations\HasManyShopsTrait;
+use App\Models\Relations\HasManyGoodsMastersTrait;
 use McCool\LaravelAutoPresenter\HasPresenter;
 /**
  * @SWG\Definition(
@@ -32,7 +33,7 @@ use McCool\LaravelAutoPresenter\HasPresenter;
  */
 class Merchants extends Model
 {
-    use SoftDeletes,HasManyShopsTrait;
+    use SoftDeletes,HasManyShopsTrait,HasManyGoodsMastersTrait;
 
     public $table = 'merchants';
     
