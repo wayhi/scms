@@ -11,9 +11,9 @@
     }
 
     
-    $id= Config::get('app.oss_id');
-    $key= Config::get('app.oss_key');
-    $host = Config::get('app.oss_host');
+    //$id= Config::get('app.oss_id');
+    //$key= Config::get('app.oss_key');
+    //$host = Config::get('app.oss_host');
 
     $now = time();
     $expire = 30; //设置该policy超时时间是10s. 即这个policy过了这个有效时间，将不能访问

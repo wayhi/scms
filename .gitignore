@@ -7,6 +7,6 @@ Homestead.json
 scms.sublime-project
 scms.sublime-workspace
 composer.*
-app.php
+/config/app.php
 mail.php
 

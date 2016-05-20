@@ -26,7 +26,7 @@ function send_request()
   
     if (xmlhttp!=null)
     {
-        serverUrl = '/oss/php/get.php'
+        serverUrl = '/osscallback/php/get.php'
         xmlhttp.open( "GET", serverUrl, false );
         xmlhttp.send( null );
         return xmlhttp.responseText
