@@ -8,8 +8,8 @@
         return $expiration."Z";
     }
 
-    $id= 'bdJOYYvXQJyNO1UQ';
-    $key= '7CSXOzmp7njW4isKZH7DWeE3g15vY9';
+    $id= 'ZnHAP83YFlLak7pI';
+    $key= 'zXAh4EMikr2aGHv3KPAh1iImyHvhc3';
     $host = 'http://oss.yifenqi.com';
     $callbackUrl = "http://dev01.yifenqi.com:8080/osscallback/callback.php";
 
