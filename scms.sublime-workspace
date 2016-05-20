@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"Be",
+				"BelongsToFundProductTrait"
+			],
+			[
+				"be",
+				"BelongsToFundTrait〔trait〕"
+			],
+			[
+				"hasm",
+				"HasManyGoodsMastersTrait〔trait〕"
+			],
+			[
+				"Mer",
+				"MerchantsRepository"
+			],
+			[
+				"merch",
+				"merchantsRepo"
+			],
+			[
+				"M",
+				"MerchantsRepository"
+			],
+			[
+				"fun",
+				"fundprodrepo"
+			],
+			[
+				"fund",
+				"FundProductRepository〔namespace〕"
+			],
+			[
+				"Fund",
+				"FundProductRepository〔namespace〕"
+			],
+			[
 				"s",
 				"status"
 			],
@@ -70,10 +106,6 @@
 			[
 				"fa",
 				"false"
-			],
-			[
-				"fun",
-				"function"
 			],
 			[
 				"Re",
@@ -186,10 +218,6 @@
 			[
 				"has",
 				"hasMany〔function〕"
-			],
-			[
-				"M",
-				"MainController"
 			],
 			[
 				"sm",
@@ -460,106 +488,50 @@
 	"buffers":
 	[
 		{
-			"file": "resources/views/shops/index.blade.php",
-			"settings":
-			{
-				"buffer_size": 1910,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/shops/table.blade.php",
-			"settings":
-			{
-				"buffer_size": 1377,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/shops/edit.blade.php",
-			"settings":
-			{
-				"buffer_size": 850,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/shops/show.blade.php",
-			"settings":
-			{
-				"buffer_size": 868,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/shops/show_fields.blade.php",
-			"settings":
-			{
-				"buffer_size": 2011,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "app/Http/routes.php",
 			"settings":
 			{
-				"buffer_size": 2934,
+				"buffer_size": 3000,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/ShopsController.php",
+			"file": "resources/views/goodsMasters/index.blade.php",
 			"settings":
 			{
-				"buffer_size": 3727,
+				"buffer_size": 1931,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/MerchantsController.php",
+			"file": "app/Models/goods_master.php",
 			"settings":
 			{
-				"buffer_size": 3767,
+				"buffer_size": 3028,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/merchants/index.blade.php",
+			"file": "resources/views/goodsMasters/fields.blade.php",
 			"settings":
 			{
-				"buffer_size": 1922,
+				"buffer_size": 5574,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/FundProductController.php",
+			"file": "resources/views/goodsMasters/show_fields.blade.php",
 			"settings":
 			{
-				"buffer_size": 4169,
+				"buffer_size": 3863,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Repositories/BaseRepositoryTrait.php",
+			"file": ".gitignore",
 			"settings":
 			{
-				"buffer_size": 3244,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/Models/Merchants.php",
-			"settings":
-			{
-				"buffer_size": 1684,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/Models/Shops.php",
-			"settings":
-			{
-				"buffer_size": 2037,
+				"buffer_size": 146,
 				"line_ending": "Unix"
 			}
 		}
@@ -607,29 +579,72 @@
 	"expanded_folders":
 	[
 		"/Applications/MAMP/htdocs/scms",
-		"/Applications/MAMP/htdocs/scms/app",
-		"/Applications/MAMP/htdocs/scms/app/Http",
-		"/Applications/MAMP/htdocs/scms/app/Http/Controllers",
-		"/Applications/MAMP/htdocs/scms/app/Models",
-		"/Applications/MAMP/htdocs/scms/app/Models/Relations",
-		"/Applications/MAMP/htdocs/scms/app/Presenters",
-		"/Applications/MAMP/htdocs/scms/resources",
+		"/Applications/MAMP/htdocs/scms/app/Http/Middleware",
+		"/Applications/MAMP/htdocs/scms/config/laravel-menu",
 		"/Applications/MAMP/htdocs/scms/resources/views",
 		"/Applications/MAMP/htdocs/scms/resources/views/fundproducts",
-		"/Applications/MAMP/htdocs/scms/resources/views/merchants",
-		"/Applications/MAMP/htdocs/scms/resources/views/shops",
-		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs/adminlte-templates",
-		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs/adminlte-templates/templates",
+		"/Applications/MAMP/htdocs/scms/resources/views/goodsMasters",
+		"/Applications/MAMP/htdocs/scms/resources/views/layouts/partials",
+		"/Applications/MAMP/htdocs/scms/resources/views/vendor/adminlte",
+		"/Applications/MAMP/htdocs/scms/resources/views/vendor/adminlte/common",
+		"/Applications/MAMP/htdocs/scms/resources/views/vendor/laravel-menu",
+		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs",
 		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs/adminlte-templates/templates/scaffold",
-		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs/adminlte-templates/templates/scaffold/views"
+		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs/adminlte-templates/templates/scaffold/fields",
+		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs/laravel-generator",
+		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs/laravel-generator/src",
+		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs/laravel-generator/src/Generators",
+		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs/laravel-generator/src/Generators/API",
+		"/Applications/MAMP/htdocs/scms/vendor/lavary/laravel-menu",
+		"/Applications/MAMP/htdocs/scms/vendor/lavary/laravel-menu/src",
+		"/Applications/MAMP/htdocs/scms/vendor/lavary/laravel-menu/src/config",
+		"/Applications/MAMP/htdocs/scms/vendor/nesbot/carbon/src",
+		"/Applications/MAMP/htdocs/scms/vendor/nesbot/carbon/src/Carbon",
+		"/Applications/MAMP/htdocs/scms/vendor/prettus/l5-repository",
+		"/Applications/MAMP/htdocs/scms/vendor/prettus/l5-repository/src",
+		"/Applications/MAMP/htdocs/scms/vendor/prettus/l5-repository/src/Prettus",
+		"/Applications/MAMP/htdocs/scms/vendor/prettus/l5-repository/src/Prettus/Repository",
+		"/Applications/MAMP/htdocs/scms/vendor/prettus/l5-repository/src/Prettus/Repository/Eloquent"
 	],
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/scms/resources/views/goodsMasters/create.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Repositories/goods_masterRepository.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/GoodsMasterController.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/goodsMasters/show.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Presenters/GoodsMasterPresenter.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Middleware/MenuBar.php",
+		"/Applications/MAMP/htdocs/scms/config/laravel-menu/settings.php",
+		"/Applications/MAMP/htdocs/scms/vendor/lavary/laravel-menu/src/config/settings.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/goodsMasters/show_fields.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Relations/BelongsToFundProductTrait.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/goods_master.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Merchants.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/goodsMasters/fields.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/goodsMasters/table.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/FundProductController.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Relations/HasManyGoodsMastersTrait.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/layouts/partials/scripts.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/layouts/partials/htmlheader.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/layouts/partials/contentheader.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/layouts/partials/mainheader.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/fundproducts/fields.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/shops/fields.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/shops/index.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/shops/show_fields.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/shops/show.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/shops/edit.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/shops/table.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/ShopsController.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Shops.php",
+		"/Applications/MAMP/htdocs/scms/app/Repositories/BaseRepositoryTrait.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/fundproducts/show_fields.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/merchants/index.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/MerchantsController.php",
+		"/Applications/MAMP/htdocs/scms/app/Presenters/FundProductPresenter.php",
 		"/Applications/MAMP/htdocs/scms/app/Models/FundProduct.php",
 		"/Applications/MAMP/htdocs/scms/app/Presenters/ShopPresenter.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/shops/create.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/shops/fields.blade.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/FundProductController.php",
 		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/shopsController.php",
 		"/Applications/MAMP/htdocs/scms/app/Models/Relations/BelongsToMerchantTrait.php",
 		"/Applications/MAMP/htdocs/scms/app/Models/Relations/HasManyShopsTrait.php",
@@ -638,13 +653,11 @@
 		"/Applications/MAMP/htdocs/scms/vendor/infyomlabs/adminlte-templates/templates/scaffold/views/index.stub",
 		"/Applications/MAMP/htdocs/scms/app/Repositories/merchantsRepository.php",
 		"/Applications/MAMP/htdocs/scms/app/Repositories/shopsRepository.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Middleware/MenuBar.php",
 		"/Applications/MAMP/htdocs/scms/app/Http/routes.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/fundProducts/index.blade.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/merchants/fields.blade.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/merchants/edit.blade.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/merchants/create.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/merchants/index.blade.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/merchants/show.blade.php",
 		"/Users/JW/Downloads/postfixadmin-20160506-29863.sql",
 		"/Applications/MAMP/htdocs/scms/resources/views/merchants/show_fields.blade.php",
@@ -667,7 +680,6 @@
 		"/Applications/MAMP/htdocs/scms/public/css/AdminLTE.min.css",
 		"/Applications/MAMP/htdocs/scms/public/css/AdminLTE.css",
 		"/Applications/MAMP/htdocs/scms/public/css/main.css",
-		"/Applications/MAMP/htdocs/scms/app/Presenters/FundProductPresenter.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/customers/index.blade.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/fundProducts/table.blade.php",
 		"/Applications/MAMP/htdocs/scms/app/Presenters/FundPresenter.php",
@@ -702,14 +714,11 @@
 		"/Applications/MAMP/htdocs/scms/resources/views/customers/search.blade.php",
 		"/Applications/MAMP/htdocs/scms/app/Repositories/CustomerRepository.php",
 		"/Applications/MAMP/htdocs/scms/app/Models/Customer.php",
-		"/Applications/MAMP/htdocs/scms/app/Repositories/BaseRepositoryTrait.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/admin/role_edit.blade.php",
 		"/Applications/MAMP/htdocs/scms/app/Models/BankCard.php",
 		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/Admin/RoleController.php",
 		"/Applications/MAMP/htdocs/scms/app/Models/Relations/HasManyBankCardsTrait.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/admin/role_create.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/layouts/partials/scripts.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/layouts/partials/htmlheader.blade.php",
 		"/Applications/MAMP/htdocs/scms/config/scms.php",
 		"/Applications/MAMP/htdocs/scms/app/Facades/BankCardRepository.php",
 		"/Applications/MAMP/htdocs/scms/app/Presenters/BankCardPresenter.php",
@@ -726,33 +735,7 @@
 		"/Applications/MAMP/htdocs/scms/resources/views/errors/500.blade.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/errors/503.blade.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/layouts/error.blade.php",
-		"/Applications/MAMP/htdocs/scms/app/Presenters/CustomerPresenterTrait.php",
-		"/Applications/MAMP/htdocs/scms/app/Presenters/CustomerPresenter.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/customer/index.blade.php",
-		"/Applications/MAMP/htdocs/scms/app/Presenters/CreatedPresenterTrait.php",
-		"/Applications/MAMP/htdocs/scms/app/Facades/CustomerRepository.php",
-		"/Applications/MAMP/htdocs/scms/.gitignore",
-		"/Applications/MAMP/htdocs/scms/app/Http/Kernel.php",
-		"/Applications/MAMP/htdocs/scms/.env",
-		"/Applications/MAMP/htdocs/scms/config/mail.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/REST.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/HomeController.php",
-		"/Applications/MAMP/htdocs/scms/public/SDK/CCPRestSDK.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/CCPRestSDK.php",
-		"/Applications/MAMP/htdocs/scms/app/Models/Sms.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/Admin/PermissionController.php",
-		"/Applications/MAMP/htdocs/scms/app/Models/User.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/Auth/AuthController.php",
-		"/Applications/MAMP/htdocs/scms/app/Facades/PermissionRepository.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/Smscontroller.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/admin/role_show.blade.php",
-		"/Applications/MAMP/htdocs/scms/vendor/acacha/admin-lte-template-laravel/src/Http/routes.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/auth/register.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/auth/passwords/reset.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/auth/passwords/email.blade.php",
-		"/Applications/MAMP/htdocs/scms/app/Facades/RoleRepository.php",
-		"/Applications/MAMP/htdocs/scms/app/Facades/SMSRepository.php",
-		"/Applications/MAMP/htdocs/scms/app/Repositories/SMSRepository.php"
+		"/Applications/MAMP/htdocs/scms/app/Presenters/CustomerPresenterTrait.php"
 	],
 	"find":
 	{
@@ -823,24 +806,55 @@
 	"groups":
 	[
 		{
-			"selected": 8,
+			"selected": 5,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "resources/views/shops/index.blade.php",
+					"file": "app/Http/routes.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1910,
+						"buffer_size": 3000,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1876,
-								1876
+								2589,
+								2589
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "resources/views/goodsMasters/index.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1931,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1881,
+								1881
 							]
 						],
 						"settings":
@@ -858,20 +872,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "resources/views/shops/table.blade.php",
+					"buffer": 2,
+					"file": "app/Models/goods_master.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1377,
+						"buffer_size": 3028,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								594,
-								594
+								2922,
+								2922
 							]
 						],
 						"settings":
@@ -882,58 +896,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1305.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "resources/views/shops/edit.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 850,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								276
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "resources/views/shops/show.blade.php",
+					"file": "resources/views/goodsMasters/fields.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 868,
+						"buffer_size": 5574,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								432,
-								432
+								1616,
+								1616
 							]
 						],
 						"settings":
@@ -944,120 +927,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "resources/views/shops/show_fields.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2011,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								519,
-								519
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 183.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/Http/routes.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2934,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2528,
-								2528
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/Http/Controllers/ShopsController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3727,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1045,
-								1045
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 154.0,
+						"translation.y": 304.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "app/Http/Controllers/MerchantsController.php",
+					"buffer": 4,
+					"file": "resources/views/goodsMasters/show_fields.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3767,
+						"buffer_size": 3863,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								873,
-								873
+								2158,
+								2158
 							]
 						],
 						"settings":
@@ -1068,50 +958,19 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 84.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "resources/views/merchants/index.blade.php",
-					"semi_transient": false,
+					"buffer": 5,
+					"file": ".gitignore",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 1922,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1880,
-								1880
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 330.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "app/Http/Controllers/FundProductController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4169,
+						"buffer_size": 146,
 						"regions":
 						{
 						},
@@ -1124,108 +983,13 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 272.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "app/Repositories/BaseRepositoryTrait.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3244,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3229,
-								3229
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1950.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "app/Models/Merchants.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1684,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1647,
-								1647
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "app/Models/Shops.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2037,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								227,
-								227
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]

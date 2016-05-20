@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "714f23abeccf108a609e6e8afab604b0",
-    "content-hash": "b2936bb307af18a702927baa929a3b6e",
+    "hash": "842690469d16245347ef03c9638e5f7f",
+    "content-hash": "c41fc905398d1b1859d4f3529aa8a3f6",
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
@@ -58,6 +58,47 @@
                 "theme"
             ],
             "time": "2016-05-02 13:27:46"
+        },
+        {
+            "name": "aliyuncs/oss-sdk-php",
+            "version": "v2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aliyun/aliyun-oss-php-sdk.git",
+                "reference": "64081f92361db3c15fca18420d676c3c35c41971"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/aliyun/aliyun-oss-php-sdk/64081f92361db3c15fca18420d676c3c35c41971.zip",
+                "reference": "64081f92361db3c15fca18420d676c3c35c41971",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "satooshi/php-coveralls": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "OSS\\": "src/OSS"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aliyuncs",
+                    "homepage": "http://www.aliyun.com"
+                }
+            ],
+            "description": "Aliyun OSS SDK for PHP",
+            "homepage": "http://www.aliyun.com/product/oss/",
+            "time": "2016-03-29 08:22:34"
         },
         {
             "name": "barryvdh/laravel-debugbar",

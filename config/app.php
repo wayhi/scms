@@ -121,6 +121,28 @@ return [
     |
     */
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | OSS Configuration
+    |--------------------------------------------------------------------------
+    | Aliyun OSS Setting
+    | 
+    | 
+    | 
+    |
+    | 
+    |
+    */
+    
+    'oss_id' => env('OSS_ID',''),
+
+    'oss_key' => env('OSS_KEY',''),
+
+    'oss_host' => env('OSS_HOST',''),
+    
+    'oss_callbackurl' => env('OSS_CALLBACKURL',''),
+
     'providers' => [
 
         /*

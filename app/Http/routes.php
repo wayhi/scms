@@ -31,6 +31,12 @@ Route::match(['get','post'], '/', function () {
 
 });
 
+Route::get('/oss',function(){
+    return Redirect::to('/oss/index.html');
+});
+//Route::match('/oss/php/get.php',function(){
+//    return Redirect::to('/oss/php/get.php');
+//});
 
 Route::group(['middleware' => ['web']], function () {
     Route::auth();
