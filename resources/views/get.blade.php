@@ -8,10 +8,10 @@
         return $expiration."Z";
     }
 
-    $id= '6MKOqxGiGU4AUk44';
-    $key= 'ufu7nS8kS59awNihtjSonMETLI0KLy';
-    $host = 'http://post-test.oss-cn-hangzhou.aliyuncs.com';
-    $callbackUrl = "http://oss-demo.aliyuncs.com:23450";
+    $id= 'ZnHAP83YFlLak7pI';
+    $key= 'zXAh4EMikr2aGHv3KPAh1iImyHvhc3';
+    $host = 'http://oss.yifenqi.com';
+    $callbackUrl = "http://dev01.yifenqi.com:8080/osscallback/callback.php";
 
     $callback_param = array('callbackUrl'=>$callbackUrl, 
                  'callbackBody'=>'filename=${object}&size=${size}&mimeType=${mimeType}&height=${imageInfo.height}&width=${imageInfo.width}', 
@@ -24,7 +24,7 @@
     $end = $now + $expire;
     $expiration = gmt_iso8601($end);
 
-    $dir = 'user-dir/';
+    $dir = 'images/';
 
     //最大文件大小.用户可以自己设置
     $condition = array(0=>'content-length-range', 1=>0, 2=>1048576000);

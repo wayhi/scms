@@ -31,16 +31,14 @@ Route::match(['get','post'], '/', function () {
 
 });
 
-Route::get('/oss',function(){
-    return Redirect::to('/oss/index.html');
-});
-//Route::match('/oss/php/get.php',function(){
-//    return Redirect::to('/oss/php/get.php');
-//});
+
 
 Route::group(['middleware' => ['web']], function () {
     Route::auth();
-	Route::get('/home', ['as'=>'home','use'=>'HomeController@index']);
+    Route::get('/getoss',['as'=>'getoss','uses'=>'API\\OSSController@getoss']);
+    Route::get('/getosscallback',['as'=>'getosscallback','uses'=>'API\\OSSController@getosscallback']);
+    Route::get('/callback',['as'=>'callback','uses'=>'API\\OSSController@callback']);
+	Route::get('/home', ['as'=>'home','uses'=>'HomeController@index']);
     Route::resource('admin/roles', 'Admin\\RoleController');
     Route::get('/sms/start',['middleware'=>'auth','as'=>'sms.start','uses'=>'SmsController@start']);
     Route::resource('sms', 'SmsController');

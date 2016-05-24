@@ -80,8 +80,9 @@ class MerchantsController extends AppBaseController
 
             return redirect(route('merchants.index'));
         }
-
-        return view('merchants.show')->with('merchants', $merchants);
+        $expires=time() + 3600;
+        $signature="";
+        return view('merchants.show')->with(['merchants'=>$merchants,'expires'=>$expires,'signature'=>$signature]);
     }
 
     /**
@@ -124,9 +125,15 @@ class MerchantsController extends AppBaseController
 
         $merchants = $this->merchantsRepository->update($request->all(), $id);
 
-        Flash::success('merchants updated successfully.');
+        if($request->get('save')==''){
+            return view('merchants.edit')->with(['merchants'=>$merchants]);
+        }else{
+            Flash::success('merchants updated successfully.');
 
-        return redirect(route('merchants.index'));
+            return redirect(route('merchants.index'));
+        }
+
+        
     }
 
     /**

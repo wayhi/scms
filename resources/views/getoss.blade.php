@@ -1,6 +1,6 @@
 <?php
     
-    
+    use Config;
     function gmt_iso8601($time) {
         $dtStr = date("c", $time);
         $mydatetime = new DateTime($dtStr);
@@ -10,9 +10,9 @@
         return $expiration."Z";
     }
 
-    $id= 'dVlyl1bwWh8T6nos';
-    $key= '9aoOXwZb82Tgdq73yrwLGpllLlEiAr';
-    $host = 'http://oss.yifenqi.com';
+    $id= Config::get('app.oss_id');//'dVlyl1bwWh8T6nos';
+    $key= Config::get('app.oss_key');//'9aoOXwZb82Tgdq73yrwLGpllLlEiAr';
+    $host = Config::get('app.oss_host');//'http://oss.yifenqi.com';
     $now = time();
     $expire = 30; //设置该policy超时时间是10s. 即这个policy过了这个有效时间，将不能访问
     $end = $now + $expire;

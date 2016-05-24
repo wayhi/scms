@@ -38,7 +38,20 @@
 <!-- Merchant Cert Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('merchant_cert', '相关资质文件:') !!}
-    <p>{!! $merchants->merchant_cert !!}</p>
+    @if(isset(json_decode($merchants->merchant_cert, true)['certfiles']))
+        @foreach(json_decode($merchants->merchant_cert, true)['certfiles'] as $certfile)
+            <div class='row'>
+            <image src="http://{{env('OSS_IMGHOST').'/'.$certfile['filepath'].'@!thumbnail'}}"/>
+            <a target="_blank" href="http://{{env('OSS_HOST').'/'.$certfile['filepath']}}">{{ $certfile['certname'] }}</a>
+            
+            <!--
+                Code:
+            {{urlencode(base64_encode(hash_hmac('sha1','GET\n\n\n'.$expires.'\n/'.$certfile['filepath'],env('OSS_KEY'),true)))}}
+            -->
+            
+            </div>
+        @endforeach
+    @endif
 </div>
 
 <!-- Created At Field -->

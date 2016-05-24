@@ -26,8 +26,8 @@ function send_request()
   
     if (xmlhttp!=null)
     {
-        //serverUrl = 'http://scms52.dev/oss/php/get.php'
-        serverUrl = 'http://scms52.dev/getoss';
+        //serverUrl = 'http://scms52.dev/oss/php/get.php';
+        serverUrl = '/getoss';
         xmlhttp.open( "GET", serverUrl, false );
         xmlhttp.send( null );
         return xmlhttp.responseText
@@ -39,6 +39,7 @@ function send_request()
 };
 
 function check_object_radio() {
+    /*
     var tt = document.getElementsByName('myradio');
     for (var i = 0; i < tt.length ; i++ )
     {
@@ -48,6 +49,8 @@ function check_object_radio() {
             break;
         }
     }
+    */
+    g_object_name_type = 'random_name';
 }
 
 function get_signature()
@@ -146,13 +149,32 @@ function set_upload_param(up, filename, ret)
     up.start();
 }
 
+function delete_uploaded_file(file_id)
+{
+    
+    var files_uploaded;
+
+    var _uploaded = document.getElementsByName('merchant_cert')[0].value;
+    
+    if(_uploaded !=""){
+        files_uploaded = JSON.parse(_uploaded);
+       
+    }else{
+        files_uploaded = {certfiles:[]};
+    }
+    
+    files_uploaded.certfiles.splice(file_id,1);
+    document.getElementsByName('merchant_cert')[0].value = JSON.stringify(files_uploaded);
+    document.forms[0].submit();
+}
+
 var uploader = new plupload.Uploader({
 	runtimes : 'html5,flash,silverlight,html4',
 	browse_button : 'selectfiles', 
     //multi_selection: false,
 	container: document.getElementById('container'),
-	flash_swf_url : 'lib/plupload-2.1.2/js/Moxie.swf',
-	silverlight_xap_url : 'lib/plupload-2.1.2/js/Moxie.xap',
+	//flash_swf_url : 'lib/plupload-2.1.2/js/Moxie.swf',
+	//silverlight_xap_url : 'lib/plupload-2.1.2/js/Moxie.xap',
     url : 'http://oss.aliyuncs.com',
 
     filters: {
@@ -191,14 +213,34 @@ var uploader = new plupload.Uploader({
 			d.getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
             var prog = d.getElementsByTagName('div')[0];
 			var progBar = prog.getElementsByTagName('div')[0]
-			progBar.style.width= 2*file.percent+'px';
+			progBar.style.width= 5*file.percent+'px';
 			progBar.setAttribute('aria-valuenow', file.percent);
 		},
 
 		FileUploaded: function(up, file, info) {
+             
             if (info.status == 200)
             {
-                document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = 'upload to oss success, object name:' + get_uploaded_object_name(file.name);
+                var type_name = document.getElementsByName('merchant_cert_type')[0].value;
+                var file_path = get_uploaded_object_name(file.name);
+                var files_uploaded;
+                var _uploaded = document.getElementsByName('merchant_cert')[0].value;
+               
+                if((_uploaded !="") && (_uploaded !="{\"certfiles\": []}") && (_uploaded!="{}")){
+                   
+                    files_uploaded = JSON && JSON.parse(_uploaded) || $.parseJSON(_uploaded);//JSON.parse(_uploaded);
+                   
+                }else{
+                   
+                    files_uploaded = {certfiles:[]};
+                }
+                
+                var temp = {certname:type_name,filepath:file_path};
+                files_uploaded.certfiles.push(temp);
+
+                document.getElementsByName('merchant_cert')[0].value = JSON.stringify(files_uploaded);
+                document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = type_name+'上传成功, 文件名:' + get_uploaded_object_name(file.name);
+                
             }
             else
             {
