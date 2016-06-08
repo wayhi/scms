@@ -5,6 +5,7 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Relations\BelongsToFundTrait;
+use App\Models\Relations\HasManyGoodsMastersTrait;
 use McCool\LaravelAutoPresenter\HasPresenter;
 use App\Presenters\FundProductPresenter;
 /**
@@ -43,7 +44,7 @@ use App\Presenters\FundProductPresenter;
  */
 class FundProduct extends Model implements HasPresenter
 {
-    use SoftDeletes,BelongsToFundTrait;
+    use SoftDeletes,BelongsToFundTrait,HasManyGoodsMastersTrait;
 
     public $table = 'fund_product';
     

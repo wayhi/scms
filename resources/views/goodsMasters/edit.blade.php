@@ -1,24 +1,24 @@
 @extends('layouts.app')
 @section('htmlheader_title')
-    goods_master
+    产品管理
 @endsection
 
 @section('contentheader_title')
-    goods_master
+    产品管理
 @endsection
 
 @section('contentheader_description')
-    goods_master
+    产品列表
 @endsection
 @section('main-content')
 @include('flash::message')
-
+@include('adminlte::common.errors')
   
    <div class="content">
        @include('adminlte::common.errors')
        <div class="box box-info">
            <div class="box-header with-border">
-              <h3 class="box-title">goods_master</h3>
+              <h3 class="box-title">产品编辑</h3>
               
             </div>
            <div class="box-body">

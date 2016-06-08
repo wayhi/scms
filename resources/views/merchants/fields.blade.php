@@ -15,7 +15,11 @@
     {!! Form::label('merchant_code', '平台编码:') !!}
     {!! Form::text('merchant_code', null, ['class' => 'form-control']) !!}
 </div>
-
+<!-- Merchant Code Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('filing_name', '备案名称:') !!}
+    {!! Form::text('filing_name', null, ['class' => 'form-control']) !!}
+</div>
 <!-- Address Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('address', '联系地址:') !!}

@@ -30,14 +30,11 @@ Route::match(['get','post'], '/', function () {
      return Redirect::to('/home');
 
 });
-
-
-
-Route::group(['middleware' => ['web']], function () {
-    Route::auth();
-    Route::get('/getoss',['as'=>'getoss','uses'=>'API\\OSSController@getoss']);
-    Route::get('/getosscallback',['as'=>'getosscallback','uses'=>'API\\OSSController@getosscallback']);
-    Route::match(['get','post'],'/callback',['as'=>'callback','uses'=>'API\\OSSController@callback']);
+Route::get('/getoss',['as'=>'getoss','uses'=>'API\\OSSController@getoss']);
+Route::get('/getosscallback',['as'=>'getosscallback','uses'=>'API\\OSSController@getosscallback']);
+Route::match(['get','post'],'/callback',['as'=>'callback','uses'=>'API\\OSSController@callback']);
+Route::group(['middleware' => ['web','auth']], function () {
+    //Route::auth();
 	Route::get('/home', ['as'=>'home','uses'=>'HomeController@index']);
     Route::resource('admin/roles', 'Admin\\RoleController');
     Route::get('/sms/start',['middleware'=>'auth','as'=>'sms.start','uses'=>'SmsController@start']);
@@ -63,7 +60,15 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('merchants', 'MerchantsController');
     Route::resource('shops', 'ShopsController');
     Route::resource('goodsMasters', 'GoodsMasterController');
-
+    Route::resource('orders', 'orderController');
+    Route::get('orders_in_approval',['as'=>'oia','uses'=>'orderController@getInApproval']);
+    Route::get('orders_in_funding',['as'=>'oif','uses'=>'orderController@getInFunding']);
+    Route::get('orders_in_repaying',['as'=>'oir','uses'=>'orderController@getInRepaying']);
+    Route::get('orders_completed',['as'=>'oc','uses'=>'orderController@getCompleted']);
+    Route::get('orders_overdue',['as'=>'ood','uses'=>'orderController@getOverdue']);
+    //Route::put('order_approve',['as'=>'orderapprove','uses'=>'orderController@approve']);
+    Route::resource('payables', 'payableController');
+    Route::resource('receivables', 'receivableController');
 });
 
 
@@ -78,15 +83,3 @@ Route::group(['prefix' => 'api', 'namespace' => 'API'], function () {
         require config('infyom.laravel_generator.path.api_routes');
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-

@@ -45,6 +45,7 @@ class Merchants extends Model
         'merchant_name',
         'short_name',
         'merchant_code',
+        'filing_name',
         'address',
         'contact_person',
         'phone',
@@ -70,6 +71,7 @@ class Merchants extends Model
         'short_name' => 'max:20',
         'merchant_code' => 'required|max:50',
         'address' => 'max:100',
+        'filing_name' => 'max:50',
         'contact_person' => 'max:20',
         'phone' => 'max:50'
     ];

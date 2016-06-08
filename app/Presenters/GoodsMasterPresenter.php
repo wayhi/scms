@@ -76,4 +76,28 @@ class GoodsMasterPresenter extends BasePresenter
 		}
 	}
 
+	public function repay_way_text()
+	{
+
+		$ra = $this->getWrappedObject()->repay_way;
+		//0=>'无限制',1=>'信用卡预授权',2=>'银行卡代扣',3=>'线下还款'
+		switch ($ra) {
+			case 0:
+				return '无限制';
+				break;
+			case 1:
+				return '信用卡预授权';
+				break;
+			case 2:
+				return '银行卡代扣';
+				break;
+			case 3:
+				return '线下还款';
+				break;		
+			default:
+				return '';
+				break;
+		}
+	}
+
 }

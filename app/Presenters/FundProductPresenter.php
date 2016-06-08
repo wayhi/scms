@@ -78,13 +78,13 @@ class FundProductPresenter extends BasePresenter
 	{
 		$repay_method = $this->getWrappedObject()->repay_method;
 		switch ($repay_method) {
-			case '0':
+			case 0:
 				return '等额本息';
 				break;
-			case '1':
+			case 1:
 				return '先息后本';
 				break;
-			case '2':
+			case 2:
 				return '平均利息';
 				break;	
 			default:

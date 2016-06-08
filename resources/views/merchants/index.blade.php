@@ -27,15 +27,14 @@
             
                 <div class="box-tools">
                   <div class="btn-group pull-right">
-                      <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        操作
-                        <span class="caret"></span>
-                      </button>
-                      <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                        <li><a href="{!!route('merchants.create')!!}">新增</a></li>
-                       
-                      </ul>
-                    </div>
+                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      操作
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                      <li><a href="{!!route('merchants.create')!!}">新增</a></li>
+                    </ul>
+                  </div>
                   
                     <div class="input-group input-group-sm" style="width: 150px;">
                       <input type="text" name="table_search" class="form-control pull-right" placeholder="编号或名称">

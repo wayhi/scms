@@ -7,7 +7,7 @@
 <!-- Type Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('type', '类型:') !!}
-    <p>{!! $goodsMaster->type_text !!}</p>
+    <p>{!! $goodsMaster->type !!}</p>
 </div>
 
 <!-- Goods Name Field -->
@@ -16,11 +16,11 @@
     <p>{!! $goodsMaster->goods_name !!}</p>
 </div>
 
-<!-- Goods Spec Field -->
+<!-- Goods Spec Field 
 <div class="form-group col-sm-4">
     {!! Form::label('goods_spec', '产品描述:') !!}
     <p>{!! $goodsMaster->goods_spec !!}</p>
-</div>
+</div-->
 
 <!-- Shop Id Field -->
 <div class="form-group col-sm-4">
@@ -32,6 +32,11 @@
 <div class="form-group col-sm-4">
     {!! Form::label('fund_product_id', '关联资金:') !!}
     <p>{!! $goodsMaster->fundproduct->product_name !!}</p>
+</div>
+
+<div class="form-group col-sm-4">
+    {!! Form::label('repay_way', '还款途径:') !!}
+    <p>{!! $goodsMaster->repay_way_text !!}</p>
 </div>
 
 <!-- Platform Approve Field -->
@@ -123,6 +128,14 @@
     {!! Form::label('activated', '是否有效:') !!}
     <p>{!! $goodsMaster->activated_text !!}</p>
 </div>
+
+<div class="form-group col-sm-4">
+    {!! Form::label('supportings', '所需支持文件:') !!}
+    @foreach($goodsMaster->supportings as $supporting)
+        <span class="badge bg-light-blue">{{$supporting->title}}</span>
+    @endforeach
+</div>
+            
 
 <!-- Created At Field -->
 <div class="form-group col-sm-4">

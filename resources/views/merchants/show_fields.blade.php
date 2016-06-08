@@ -17,6 +17,11 @@
     <p>{!! $merchants->merchant_code !!}</p>
 </div>
 
+<div class="form-group col-sm-6">
+    {!! Form::label('filing_name', '备案名称:') !!}
+    <p>{!! $merchants->filing_name !!}</p>
+</div>
+
 <!-- Address Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('address', '联系地址:') !!}

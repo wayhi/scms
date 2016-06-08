@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Relations\BelongsToMerchantTrait;
 use App\Models\Relations\BelongsToFundProductTrait;
+use App\Models\Relations\BelongsToManySupportingTrait;
 use McCool\LaravelAutoPresenter\HasPresenter;
 use App\Presenters\GoodsMasterPresenter;
 
@@ -36,7 +37,7 @@ use App\Presenters\GoodsMasterPresenter;
  */
 class Goods_master extends Model implements HasPresenter
 {
-    use SoftDeletes,BelongsToMerchantTrait,BelongsToFundProductTrait;
+    use SoftDeletes,BelongsToMerchantTrait,BelongsToFundProductTrait,BelongsToManySupportingTrait;
 
     public $table = 'goods_master';
     
@@ -52,6 +53,7 @@ class Goods_master extends Model implements HasPresenter
         'fund_product_id',
         'platform_approve',
         'payout_rate',
+        'repay_way',
         'downpayment_rate',
         'downpayment_amount',
         'handling_fee_rate',
@@ -60,6 +62,7 @@ class Goods_master extends Model implements HasPresenter
         'repay_pct',
         'repay_amount',
         'order_limit',
+        'supporting_ids',
         'blocked_on_creation',
         'refund_available',
         'trade_time_start',
@@ -125,4 +128,29 @@ class Goods_master extends Model implements HasPresenter
         return Carbon::parse($value)->format('h:i:s A');
        
     }
+
+    public function getTypeAttribute($value)
+    {
+        
+        switch ($value) {
+            case 1:
+                return "保险";
+                break;
+            case 2:
+                return "社区";
+                break;
+            case 3:
+                return "信用贷款";
+                break;
+            case 4:
+                return "消费贷";
+                break;    
+            default:
+                return "";
+                break;
+        }
+       
+    }
+
+    
 }

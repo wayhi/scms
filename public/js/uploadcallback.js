@@ -215,8 +215,8 @@ var uploader = new plupload.Uploader({
                 files_uploaded.certfiles.push(temp);
 
                 document.getElementsByName('merchant_cert')[0].value = JSON.stringify(files_uploaded);
-                document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = type_name+'上传成功, 文件名:' + get_uploaded_object_name(file.name) +' 回调服务器返回的内容是:' + info.response;;
-                
+                //document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = type_name+'上传成功, 文件名:' + get_uploaded_object_name(file.name) +' 回调服务器返回的内容是:' + info.response;;
+                document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = type_name+'上传成功';
 
             }
             else if (info.status == 203)

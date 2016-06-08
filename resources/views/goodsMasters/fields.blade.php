@@ -2,7 +2,7 @@
 <!-- Type Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('type', '类型:') !!}
-    {!! Form::select('type', ['1' => '消费金融', '2' => '信用贷款'], null, ['class' => 'form-control']) !!}
+    {!! Form::select('type', ['1' => '保险', '2' => '社区','3'=>'信用贷','4'=>'消费贷'], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Goods Name Field -->
@@ -11,11 +11,11 @@
     {!! Form::text('goods_name', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Goods Spec Field -->
+<!-- Goods Spec Field 
 <div class="form-group col-sm-4">
     {!! Form::label('goods_spec', '产品描述:') !!}
     {!! Form::text('goods_spec', null, ['class' => 'form-control']) !!}
-</div>
+</div-->
 
 <!-- Shop Id Field -->
 <div class="form-group col-sm-4">
@@ -29,6 +29,11 @@
     {!! Form::select('fund_product_id',  $fundproducts, null, ['class' => 'form-control']) !!}
 </div>
 
+<div class="form-group col-sm-4">
+    {!! Form::label('repay_way', '还款途径:') !!}
+    {!! Form::select('repay_way',[0=>'无限制',1=>'信用卡预授权',2=>'银行卡代扣',3=>'线下还款'], null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Platform Approve Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('platform_approve', '平台是否审批:') !!}<br>
@@ -39,6 +44,8 @@
         {!! Form::radio('platform_approve','0', null) !!} 否
     </label><br><br>
 </div>
+
+
 
 <!-- Payout Rate Field -->
 <div class="form-group col-sm-4">
@@ -146,6 +153,16 @@
     </label><br><br>
 </div>
 
+<div class="form-group col-sm-4">
+  {!!Form::label('supporting_ids', '所需审核材料：')!!} 
+  @if(isset($action)&&$action=='edit')
+   {!!Form::select('supporting_ids[]',$supportings,$supportings_selected_ids,["class"=>"form-control select2","multiple"=>"multiple","data-placeholder"=>"选择所需审核材料","style"=>"width: 100%;"])!!}
+  @else
+      {!!Form::select('supporting_ids[]',$supportings,null,["class"=>"form-control select2","multiple"=>"multiple","data-placeholder"=>"选择所需审核材料","style"=>"width: 100%;"])!!}
+
+  @endif
+    
+</div>
 <!-- Refund Available Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('refund_available', '是否可退货:') !!}<br>
