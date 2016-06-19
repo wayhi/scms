@@ -2,11 +2,9 @@
     <thead>
         <th>订单号</th>
         <th>付款对象</th>
-        <th>关联商户</th>
-        <th>关联资金</th>
         <th>计划支付金额</th>
         <th>实际支付金额</th>
-        <th>序号</th>
+        <th>期数/总期数</th>
         <th>计划支付日期</th>
         <th>实际支付日期</th>
         <th>状态</th>
@@ -15,13 +13,20 @@
     <tbody>
     @foreach($payables as $payable)
         <tr>
-            <td><a href='/orders/{{$payable->order_id}}' target='_blank'>{!! $payable->order->order_number !!}</a></td>
-            <td>{!! $payable->type_text !!}</td>
-            <td>{!! $payable->shop->shop_name !!}</td>
+            <td>{!! $payable->order->order_number !!}</td>
+            @if($payable->type==1)
+             <td>{!! $payable->shop->shop_name !!}</td>
+            @elseif($payable->type==2)
             <td>{!! $payable->fundproduct->product_name !!}</td>
+            @endif
             <td>{!! $payable->amount_scheduled !!}</td>
             <td>{!! $payable->amount_actual !!}</td>
-            <td>{!! $payable->serial_no !!}</td>
+            @if($payable->type==2)
+            <td>{!! $payable->serial_no !!}/{!!$payable->fundproduct->repay_times!!}</td>
+            @else
+            <td>N/A</td>
+            @endif
+            
             <td>{!! $payable->pd_scheduled !!}</td>
             <td>{!! $payable->pd_actual !!}</td>
             <td>{!! $payable->status_text !!}</td>

@@ -73,7 +73,7 @@ class receivableController extends AppBaseController
      */
     public function show($id)
     {
-        $receivable = $this->receivableRepository->findWithoutFail($id);
+        $receivable = $this->receivableRepository->with(['order.goods','shop','fundproduct'])->findWithoutFail($id);
 
         if (empty($receivable)) {
             Flash::error('receivable not found');

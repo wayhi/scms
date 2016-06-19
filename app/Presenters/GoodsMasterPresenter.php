@@ -27,14 +27,24 @@ class GoodsMasterPresenter extends BasePresenter
 	public function type_text()
 	{
 
-		$type = $this->getWrappedObject()->type;
-		if($type==1){
-			return '消费金融';
-		}elseif($type==2){
-			return '信用贷款';
-		}else{
-			return 'N/A';
-		}
+		$value = $this->getWrappedObject()->type;
+		switch ($value) {
+            case 1:
+                return "保险";
+                break;
+            case 2:
+                return "社区";
+                break;
+            case 3:
+                return "信用贷款";
+                break;
+            case 4:
+                return "消费贷";
+                break;    
+            default:
+                return "";
+                break;
+        }
 	}
     
     public function platformapprove_text()
@@ -99,5 +109,11 @@ class GoodsMasterPresenter extends BasePresenter
 				break;
 		}
 	}
+
+	public function name_with_link()
+    {
+        $name =$this->getWrappedObject()->goods_name;
+        return "<a href='".route('goodsMasters.show',$this->getWrappedObject()->id)."' target='_blank'>".$name."</a>";
+    }
 
 }

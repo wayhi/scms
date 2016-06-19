@@ -17,7 +17,7 @@
             <td>{!! $order->order_number !!}</td>
             <td>{!! $order->customer->name !!}</td>
             <td>{!! $order->goods->goods_name !!}</td>
-            <td>{!! $order->goods->type !!}</td>
+            <td>{!! $order->goods->type_text !!}</td>
             <td>{!! $order->apply_amount !!}</td>
             <td>{!! $order->process_status_text !!}</td>
             <td>{!! $order->fund_status_text !!}</td>

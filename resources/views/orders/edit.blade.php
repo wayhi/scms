@@ -13,7 +13,7 @@
 @endsection
 @section('main-content')
 @include('flash::message')
-@include('adminlte::common.errors')  
+
    <div class="content">
        @include('adminlte::common.errors')
        <div class="box box-info">
@@ -32,4 +32,8 @@
            </div>
        </div>
    </div>
+   <script type="text/javascript" src="{{ asset('/plugins/plupload/js/plupload.full.min.js')}}"></script>
+@if(env('APP_ENV')=='local')<script type="text/javascript" src="{{asset('/js/upload.js')}}"></script>
+@else<script type="text/javascript" src="{{asset('/js/uploadcallback.js')}}"></script>
+@endif
 @endsection

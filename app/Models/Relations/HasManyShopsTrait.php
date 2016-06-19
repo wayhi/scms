@@ -12,7 +12,7 @@ trait HasManyShopsTrait
     
     public function shops()
     {
-        return $this->HasMany('App\Models\Shops');
+        return $this->HasMany('App\Models\Shops','merchant_id','id');
     }
 
 

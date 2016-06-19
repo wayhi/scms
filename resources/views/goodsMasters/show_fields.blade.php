@@ -7,7 +7,7 @@
 <!-- Type Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('type', '类型:') !!}
-    <p>{!! $goodsMaster->type !!}</p>
+    <p>{!! $goodsMaster->type_text !!}</p>
 </div>
 
 <!-- Goods Name Field -->

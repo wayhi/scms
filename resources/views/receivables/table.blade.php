@@ -15,7 +15,7 @@
     <tbody>
     @foreach($receivables as $receivable)
         <tr>
-            <td><a href='/orders/{{$receivable->order_id}}' target='_blank'>{!! $receivable->order->order_number !!}</a></td>
+            <td>{!! $receivable->order->order_number !!}</td>
             <td>{!! $receivable->type_text !!}</td>
             <td>{!! $receivable->shop->shop_name !!}</td>
             <td>{!! $receivable->fundproduct->product_name !!}</td>

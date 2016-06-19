@@ -1,3 +1,4 @@
+{!! Form::hidden('upload_type','')!!}
 <!-- Merchant Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('merchant_name', '平台名称:') !!}
@@ -43,7 +44,7 @@
     {!! Form::select('merchant_cert_type',['营业执照'=>'营业执照','税务登记证'=>'税务登记证','组织机构代码证'=>'组织机构代码证'],null, ['class' => 'form-control']) !!}
     <div id="container">
         <a id="selectfiles" href="javascript:void(0);" class='btn'>选择文件</a>
-        <a id="postfiles" href="javascript:void(0);" class='btn btn-xs btn-primary'>开始上传</a>
+        <a id="postfiles" href="javascript:void(0);" class='btn btn-xs btn-primary' name='merchant'>开始上传</a>
     </div>
     
     <div id="ossfile">你的浏览器不支持flash,Silverlight或者HTML5！</div>

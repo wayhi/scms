@@ -38,6 +38,12 @@ class ShopPresenter extends BasePresenter
 			return '否';
 		}
 	}
+
+	public function name_with_link()
+    {
+        $name =$this->getWrappedObject()->shop_name;
+        return "<a href='".route('shops.show',$this->getWrappedObject()->id)."' target='_blank'>".$name."</a>";
+    }
     
 
 }

@@ -73,7 +73,7 @@ class order extends Model implements HasPresenter
         'fund_status',
         'risk_level',
         'goods_info',
-        'supporting_doc',
+        'supporting_docs',
         'effective_date',
         'memo',
         'modified_by',
@@ -95,11 +95,11 @@ class order extends Model implements HasPresenter
      * @var array
      */
     public static $rules = [
-        'order_number' => 'alpha_num',
-        'shop_id' => 'numeric',
-        'customer_id' => 'numeric',
+        'order_number' => 'alpha_num|unique:orders',
+        'shop_id' => 'numeric|required',
+        'customer_id' => 'sometimes|numeric|required',
         'bankcard_id' => 'numeric',
-        'goods_id' => 'numeric',
+        'goods_id' => 'sometimes|numeric|required',
         'apply_amount' => 'numeric',
         'credit_amount' => 'numeric',
         'platform_payout' => 'numeric',
@@ -123,7 +123,7 @@ class order extends Model implements HasPresenter
     public function getEffectiveDateAttribute($value)
     {
         if(Carbon::parse($value)->year<1970){
-            return "N/A";
+            return "";
         }else{
             return Carbon::parse($value)->toDateString(); 
         }
@@ -132,6 +132,12 @@ class order extends Model implements HasPresenter
     }
     
     public function getCreatedAtAttribute($value)
+    {
+        return Carbon::parse($value)->toDateString(); 
+
+    }
+
+    public function getUpdatedAtAttribute($value)
     {
         return Carbon::parse($value)->toDateString(); 
 

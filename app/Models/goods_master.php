@@ -129,28 +129,5 @@ class Goods_master extends Model implements HasPresenter
        
     }
 
-    public function getTypeAttribute($value)
-    {
-        
-        switch ($value) {
-            case 1:
-                return "保险";
-                break;
-            case 2:
-                return "社区";
-                break;
-            case 3:
-                return "信用贷款";
-                break;
-            case 4:
-                return "消费贷";
-                break;    
-            default:
-                return "";
-                break;
-        }
-       
-    }
-
     
 }

@@ -66,6 +66,7 @@ class receivable extends Model implements HasPresenter
         'amount_actual',
         'adjustment_amount',
         'serial_no',
+        'voucher_no',
         'pd_scheduled',
         'pd_actual',
         'handled_by',
@@ -90,10 +91,11 @@ class receivable extends Model implements HasPresenter
      * @var array
      */
     public static $rules = [
-        'amount_scheduled' => 'numeric|required',
+        'amount_scheduled' => 'numeric',
         'amount_actual' => 'numeric',
         'adjustment_amount' => 'numeric',
         'serial_no' => 'numeric|max:120',
+        'voucher_no'=> 'max:255',
         'pd_scheduled' => 'date',
         'pd_actual' => 'date',
         'handled_by' => 'max:255',

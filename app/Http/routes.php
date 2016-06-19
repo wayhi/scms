@@ -1,7 +1,11 @@
 <?php
 
 use App\Models\Customer;
+use App\Models\BankCard;
+use App\Models\Shops;
+use App\Models\Goods_master;
 use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -54,6 +58,20 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::get('name_search',['middleware'=>'auth',function(Request $request){
             return Customer::where('mobile_phone',$request->get('term'))->where('activated','=',1)
             ->select('id','name')->get()->toJson();
+                }]);
+    Route::get('customer_search',['middleware'=>'auth',function(Request $request){
+            return Customer::where('name','like',$request->get('q').'%')->where('activated','=',1)
+            ->select(DB::raw("id,concat(`name`,'(',`mobile_phone`,')') as text"))->paginate(10)->toJson();
+                }]);
+    Route::get('bankcard_search/{customer_id}',['middleware'=>'auth',function($customer_id){
+            return BankCard::where('customer_id',$customer_id)->where('activated','=',1)
+            ->select(DB::raw("id,concat(`bin`,'******',right(`code`,4)) as bincode"))->get()->toJson();
+                }]);
+    Route::get('shop_search/{goods_id}',['middleware'=>'auth',function($goods_id){
+            return Shops::where('merchant_id','=',Goods_master::where('id',$goods_id)->get()[0]['merchant_id'])->where('status','=',1)->select('id','shop_name')->get()->toJson();
+                }]);
+    Route::get('goods_supportings/{goods_id}',['middleware'=>'auth',function($goods_id){
+            return Goods_master::with('supportings')->where('id',$goods_id)->get()->toJson();
                 }]);
     Route::resource('funds', 'FundsController');
     Route::resource('fundproducts','FundProductController');

@@ -8,13 +8,13 @@
 <!-- Customer Id Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('customer_id', '申请人:') !!}
-    <p>{!! $order->customer->name !!}</p>
+    <p>{!! $order->customer->name_with_link !!}</p>
 </div>
 <!-- Bankcard Id Field -->
 
 <div class="form-group col-sm-4">
     {!! Form::label('bankcard_id', '关联银行卡') !!}
-    @if(isset($order->bankcard)) <p>{!! $order->bankcard->bin.$order->bankcard->code !!}</p> 
+    @if(isset($order->bankcard)) <p>{!! $order->bankcard->getCodeDisplay !!}</p> 
     @else
     <p>N/A</p>
     @endif
@@ -29,19 +29,19 @@
 <!-- Shop Id Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('shop_id', '关联商家:') !!}
-    <p>{!! $order->shop->shop_name !!}</p>
+    <p>{!! $order->shop->name_with_link !!}</p>
 </div>
 
 <!-- Goods Id Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('goods_id', '易分期产品:') !!}
-    <p>{!! $order->goods->goods_name !!}</p>
+    <p>{!! $order->goods->name_with_link !!}</p>
 </div>
 
 <!-- Order Type Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('order_type', '产品类型:') !!}
-    <p>{!! $order->goods->type !!}</p>
+    <p>{!! $order->goods->type_text !!}</p>
 </div>
 
 <!-- Apply Amount Field -->
@@ -130,10 +130,16 @@
 </div>
 
 
-<!-- Supporting Doc Field -->
 <div class="form-group col-sm-4">
-    {!! Form::label('supporting_doc', '申请附件:') !!}
-    <p>{!! $order->supporting_doc !!}</p>
+    {!! Form::label('supporting_docs','相关支持文件:') !!}
+    @if(isset(json_decode($order->supporting_docs, true)['certfiles']))
+        @foreach(json_decode($order->supporting_docs, true)['certfiles'] as $certfile)
+            <div class='row'>
+            <image src="http://{{env('OSS_IMGHOST').'/'.$certfile['filepath'].'@!thumbnail'}}"/>
+            <a target="_blank" href="http://{{env('OSS_HOST').'/'.$certfile['filepath']}}">{{ $certfile['certname'] }}</a>
+            </div>
+        @endforeach
+    @endif
 </div>
 
 <!-- Effective Date Field -->

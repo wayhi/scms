@@ -48,7 +48,7 @@ class ReceivablePresenter extends BasePresenter
                 return "已支付";
                 break; 
             case 3:
-                return "支付失败";
+                return "逾期";
                 break;              
             default:
                 return "";

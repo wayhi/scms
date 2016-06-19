@@ -12,7 +12,7 @@ trait BelongsToMerchantTrait
     
     public function merchant()
     {
-        return $this->BelongsTo('App\Models\Merchants');
+        return $this->BelongsTo('App\Models\Merchants','merchant_id','id');
     }
 
 

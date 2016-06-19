@@ -2,28 +2,19 @@
 <!-- Order Id Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('order_id', '订单号:') !!}
-    <p><a target='_blank' href='/orders/{{$payable->order_id}}'>{!! $payable->order->order_number !!}</a></p>
+    <p><a target='_blank' href="{{route('orders.show',$payable->order_id)}}">{!! $payable->order->order_number !!}</a></p>
 </div>
 
 <!-- Type Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('type', '付款对象:') !!}
-    <p>{!! $payable->type_text !!}</p>
+    @if($payable->type==1)
+    <p><a target="_blank" href="{{route('shops.show',$payable->shop_id)}}"> {!! $payable->shop->shop_name !!}</a></p>
+    @elseif($payable->type==2)
+    <p><a target="_blank" href="{{route('fundproducts.show',$payable->fund_product_id)}}">{!! $payable->fundproduct->product_name !!}</a></p>
+    @endif
 </div>
 
-<!-- Shop Id Field -->
-@if($payable->type==1)
-<div class="form-group col-sm-4">
-    {!! Form::label('shop_id', '关联商户:') !!}
-    <p>{!! $payable->shop->shop_name !!}</p>
-</div>
-@endif
-@if($payable->type==2)
-<div class="form-group col-sm-4">
-    {!! Form::label('fundproduct', '关联资金:') !!}
-    <p>{!! $payable->fundproduct->product_name !!}</p>
-</div>
-@endif
 <!-- Amount Scheduled Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('amount_scheduled', '计划付款金额:') !!}
@@ -44,14 +35,16 @@
 
 <!-- Serial No Field -->
 <div class="form-group col-sm-4">
-    {!! Form::label('serial_no', '期数:') !!}
-    <p>{!! $payable->serial_no !!}</p>
+    {!! Form::label('serial_no', '期数/总期数:') !!}
+    @if($payable->type==2)
+    <p>{!! $payable->serial_no !!}/{!! $payable->fundproduct->repay_times !!}</p>
+    @else
+    <p>N/A </p>
+    @endif
+    
 </div>
 
-<div class="form-group col-sm-4">
-    {!! Form::label('repay_times', '总期数:') !!}
-    <p>{!! $payable->fundproduct->repay_times !!}</p>
-</div>
+
 
 <!-- Pd Scheduled Field -->
 <div class="form-group col-sm-4">

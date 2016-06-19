@@ -47,4 +47,10 @@ Trait CustomerPresenterTrait
     	}
     }
 
+    public function name_with_link()
+    {
+        $name =$this->getWrappedObject()->name;
+        return "<a href='".route('customers.show',$this->getWrappedObject()->id)."' target='_blank'>".$name."</a>";
+    }
+
 }

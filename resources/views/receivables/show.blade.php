@@ -1,33 +1,30 @@
 @extends('layouts.app')
 @section('htmlheader_title')
-    receivable
+    应收账款
 @endsection
 
 @section('contentheader_title')
-    receivable
+    应收账款
 @endsection
 
 @section('contentheader_description')
-    receivable
+    应收
 @endsection
 @section('main-content')
-@include('flash::message')
-@include('adminlte::common.errors')
 
+@include('flash::message')
    
     <div class="content">
         <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">receivable</h3>
-              
+              <h3 class="box-title">应收账款详细</h3>
             </div>
             <div class="box-body">
                <div class="row" style="padding-left: 20px">
-                 @include('receivables.show_fields')
-                  
+                 @include('receivables.show_fields') 
                 </div>
                 <div class='btn-group'>
-                    <a href="{!! route('receivables.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('receivables.index') !!}" class="btn btn-default">返回</a>
                 </div>
             </div>
         </div>

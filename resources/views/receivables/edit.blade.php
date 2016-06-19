@@ -1,16 +1,17 @@
 @extends('layouts.app')
 @section('htmlheader_title')
-    receivable
+    应收账款
 @endsection
 
 @section('contentheader_title')
-    receivable
+    应收账款
 @endsection
 
 @section('contentheader_description')
-    receivable
+    应收
 @endsection
 @section('main-content')
+
 @include('flash::message')
 
   
@@ -18,7 +19,7 @@
        @include('adminlte::common.errors')
        <div class="box box-info">
            <div class="box-header with-border">
-              <h3 class="box-title">receivable</h3>
+              <h3 class="box-title">应收账款</h3>
               
             </div>
            <div class="box-body">
