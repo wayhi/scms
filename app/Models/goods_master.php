@@ -53,6 +53,7 @@ class Goods_master extends Model implements HasPresenter
         'fund_product_id',
         'platform_approve',
         'payout_rate',
+        'fund_rate',
         'repay_way',
         'downpayment_rate',
         'downpayment_amount',
@@ -88,6 +89,7 @@ class Goods_master extends Model implements HasPresenter
     public static $rules = [
         'goods_name' => 'required|max:50',
         'payout_rate' => 'numeric|required',
+        'fund_rate'=>'numeric|required',
         'downpayment_rate' => 'numeric',
         'downpayment_amount' => 'numeric',
         'handling_fee_rate' => 'numeric',

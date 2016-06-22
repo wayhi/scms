@@ -70,7 +70,7 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::get('shop_search/{goods_id}',['middleware'=>'auth',function($goods_id){
             return Shops::where('merchant_id','=',Goods_master::where('id',$goods_id)->get()[0]['merchant_id'])->where('status','=',1)->select('id','shop_name')->get()->toJson();
                 }]);
-    Route::get('goods_supportings/{goods_id}',['middleware'=>'auth',function($goods_id){
+    Route::get('goods_info/{goods_id}',['middleware'=>'auth',function($goods_id){
             return Goods_master::with('supportings')->where('id',$goods_id)->get()->toJson();
                 }]);
     Route::resource('funds', 'FundsController');

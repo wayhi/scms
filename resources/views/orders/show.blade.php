@@ -9,29 +9,64 @@
 @endsection
 
 @section('contentheader_description')
-    订单列表
+    订单信息
 @endsection
 @section('main-content')
 @include('flash::message')
 @include('adminlte::common.errors')
    
-    <div class="content">
-        <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">订单详情</h3>
+    <!--div class="content"-->
+        
+
+
+        <!-- Custom Tabs -->
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#tab_1" data-toggle="tab">订单详情</a></li>
+              <li><a href="#tab_2" data-toggle="tab">用户还款记录</a></li>
+              <li><a href="#tab_3" data-toggle="tab">资金记录</a></li>
+              <li><a href="#tab_4" data-toggle="tab">合同协议</a></li>
+              <li><a href="#tab_5" data-toggle="tab">关联信息</a></li>
               
-            </div>
-            <div class="box-body">
-               <div class="row" style="padding-left: 20px">
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab_1">
+               <div class="row" style="padding-left: 10px">
                  @include('orders.show_fields')
-                  
                 </div>
                 <div class='form-group'>
-                   
-                    <a href="{!! route('orders.index') !!}" class="btn btn-default">返回</a>
-                    
+                    <a href="javascript:history.go(-1);" class="btn btn-default">返回</a>    
                 </div>
+              </div>
+              <!-- /.tab-pane -->
+
+              <div class="tab-pane" id="tab_2">
+                <div class="row" style="padding-left: 10px; padding-right: 10px">
+                 @include('orders.show_receivables')
+                </div>
+                <div class='form-group'>
+                    <a href="javascript:history.go(-1);" class="btn btn-default">返回</a>
+                </div>
+              </div>
+              
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="tab_3">
+               
+              </div>
+              <!-- /.tab-pane -->
+               <div class="tab-pane" id="tab_4">
+               
+              </div>
+              <!-- /.tab-pane -->
+               <div class="tab-pane" id="tab_5">
+                <div class="row" style="padding-left: 10px; padding-right: 10px">
+                    @include('orders.show_related')
+                </div>
+               </div> 
+              <!-- /.tab-pane -->
             </div>
-        </div>
-    </div>
+            <!-- /.tab-content -->
+          </div>
+          <!-- nav-tabs-custom -->
+    <!--/div-->
 @endsection

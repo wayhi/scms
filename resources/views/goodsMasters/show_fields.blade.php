@@ -51,6 +51,11 @@
     <p>{!! $goodsMaster->payout_rate !!}%</p>
 </div>
 
+<div class="form-group col-sm-4">
+    {!! Form::label('fund_rate', '资金方支付比率:') !!}
+    <p>{!! $goodsMaster->fund_rate !!}%</p>
+</div>
+
 <!-- Downpayment Rate Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('downpayment_rate', '预缴款比率:') !!}
@@ -130,7 +135,7 @@
 </div>
 
 <div class="form-group col-sm-4">
-    {!! Form::label('supportings', '所需支持文件:') !!}
+    {!! Form::label('supportings', '所需审核材料:') !!}
     @foreach($goodsMaster->supportings as $supporting)
         <span class="badge bg-light-blue">{{$supporting->title}}</span>
     @endforeach

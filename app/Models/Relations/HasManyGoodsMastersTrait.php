@@ -3,7 +3,7 @@
 namespace App\Models\Relations;
 
 /**
- * This is the has many shops trait.
+ * This is the has many goods trait.
  *
  * @author J.W
  */

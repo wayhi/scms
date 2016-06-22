@@ -8,6 +8,8 @@ use App\Models\Relations\BelongsToCustomerTrait;
 use App\Models\Relations\BelongsToGoodsMasterTrait;
 use App\Models\Relations\BelongsToShopTrait;
 use App\Models\Relations\BelongsToBankCardTrait;
+use App\Models\Relations\HasManyReceivablesTrait;
+use App\Models\Relations\HasManyPayablesTrait;
 use Carbon\Carbon;
 use McCool\LaravelAutoPresenter\HasPresenter;
 use App\Presenters\OrderPresenter;
@@ -43,7 +45,7 @@ use App\Presenters\OrderPresenter;
  */
 class order extends Model implements HasPresenter
 {
-    use SoftDeletes,BelongsToCustomerTrait,BelongsToGoodsMasterTrait,BelongsToShopTrait,BelongsToBankCardTrait;
+    use SoftDeletes,BelongsToCustomerTrait,BelongsToGoodsMasterTrait,BelongsToShopTrait,BelongsToBankCardTrait,HasManyReceivablesTrait,HasManyPayablesTrait;
 
     public $table = 'orders';
     

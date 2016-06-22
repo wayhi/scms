@@ -1,5 +1,6 @@
 <!-- Order Number Field -->
 {!! Form::hidden('upload_type','')!!}
+
     
 @if($mode==='editing' && isset($order))
     <div class="form-group col-sm-4">
@@ -13,8 +14,10 @@
     {!! Form::label('goods_id', '易分期产品:') !!}
     @if($mode==='editing' && isset($order))
         <p>{!! $order->goods->name_with_link !!}</p>
+        {!! Form::hidden('goods_info',null)!!} 
     @else
         {!! Form::select('goods_id',$goodslist,null, ['class' => 'form-control select2','placeholder'=>"选择产品..."]) !!}
+        {!! Form::hidden('goods_info','{}')!!} 
     @endif    
 </div>
 
@@ -165,7 +168,7 @@
 <!-- Risk Level Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('risk_level', '风险等级:') !!}
-    {!! Form::select('risk_level', [1,2,3,4,5],null, ['class' => 'form-control']) !!}
+    {!! Form::select('risk_level', [0,1,2,3,4,5],null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Effective Date Field -->
@@ -186,11 +189,7 @@
     {!! Form::text('memo', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Goods Info Field>
-<div class="form-group col-sm-4">
-    {!! Form::label('goods_info', '产品信息:') !!}
-    {!! Form::text('goods_info', null, ['class' => 'form-control']) !!}
-</div-->
+
 
 <!-- Supporting Doc Field -->
 <div class="form-group col-sm-4">
@@ -220,6 +219,8 @@
     @endif
 </div>
 
+
+
 <div class="form-group col-sm-4">
 <br>
     <div id="container">
@@ -230,9 +231,27 @@
     <div id="ossfile">你的浏览器不支持flash,Silverlight或者HTML5！</div>
    <pre class='hidden' id="console"></pre>
 </div>
+<div class="form-group col-sm-4">
 
-
-
+</div>
+<!--Modal-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">关联信息录入</h4>
+      </div>
+      <div id='related_inputs' class="modal-body">
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="javascript:saveInput();">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

@@ -57,6 +57,14 @@
 </div>
 
 <div class="form-group col-sm-4">
+    {!! Form::label('fund_rate', '资金方支付比率:') !!}
+    <div class="input-group">
+        {!! Form::text('fund_rate',null, ['class' => 'form-control']) !!}
+        <span class="input-group-addon">%</span>
+    </div>
+</div>
+
+<div class="form-group col-sm-4">
     {!! Form::label('downpayment_rate', '预缴款比率:') !!}
     <div class="input-group">
         {!! Form::text('downpayment_rate', 0, ['class' => 'form-control']) !!}

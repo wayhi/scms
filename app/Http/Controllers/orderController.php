@@ -52,7 +52,7 @@ class orderController extends AppBaseController
                 return $query->orderBy('updated_at','desc');
             })->paginate(10);
             $links = $orders->links();
-            return view('orders.index')->with(['orders'=>$orders,'links'=>$links]);
+            return view('orders.index')->with(['orders'=>$orders,'links'=>$links,'viewname'=>'所有订单']);
         
     }
 
@@ -63,7 +63,7 @@ class orderController extends AppBaseController
             return $query->where('process_status','1')->orderBy('updated_at','desc');
         })->paginate(10);
         $links = $orders->links();
-        return view('orders.index')->with(['orders'=>$orders,'links'=>$links]);
+        return view('orders.index')->with(['orders'=>$orders,'links'=>$links,'viewname'=>'待审核']);
 
     }
 
@@ -74,7 +74,7 @@ class orderController extends AppBaseController
             return $query->where('process_status','2')->orderBy('updated_at','desc');
         })->paginate(10);
         $links = $orders->links();
-        return view('orders.index')->with(['orders'=>$orders,'links'=>$links]);
+        return view('orders.index')->with(['orders'=>$orders,'links'=>$links,'viewname'=>'放款中']);
 
     }
 
@@ -84,7 +84,7 @@ class orderController extends AppBaseController
             return $query->where('process_status','4')->orderby('updated_at','desc');
         })->paginate(10);
         $links = $orders->links();
-        return view('orders.index')->with(['orders'=>$orders,'links'=>$links]);
+        return view('orders.index')->with(['orders'=>$orders,'links'=>$links,'viewname'=>'还款中']);
 
     }
 
@@ -94,7 +94,7 @@ class orderController extends AppBaseController
             return $query->where('process_status','6')->orderBy('updated_at','desc');
         })->paginate(10);
         $links = $orders->links();
-        return view('orders.index')->with(['orders'=>$orders,'links'=>$links]);
+        return view('orders.index')->with(['orders'=>$orders,'links'=>$links,'viewname'=>'已完成']);
     }
 
     public function getOverdue(Request $request)
@@ -104,7 +104,7 @@ class orderController extends AppBaseController
             return $query->where(['process_status'=>3,'fund_status'=>5])->orderBy('updated_at','desc'); //
         })->paginate(10);
         $links = $orders->links();
-        return view('orders.index')->with(['orders'=>$orders,'links'=>$links]);
+        return view('orders.index')->with(['orders'=>$orders,'links'=>$links,'viewname'=>'还款逾期']);
 
     }
 
@@ -116,7 +116,8 @@ class orderController extends AppBaseController
     public function create()
     {
         $goodslist = $this->goods_masterRepo->lists('goods_name','id')->toArray();
-
+        //$goods_spec = $this->goods_masterRepo->lists('goods_spec')->toJson();
+        //return $goods_spec;
         return view('orders.create')->with(['mode'=>'creating','goodslist'=>$goodslist]);
     }
 
@@ -136,8 +137,13 @@ class orderController extends AppBaseController
             $new_creation = array_merge($input,['order_number'=>self::getOrderNumber(0),'process_status'=>1,'fund_status'=>1]);
         }else{
             $new_creation = array_merge($input,['order_number'=>self::getOrderNumber($goods->type),'process_status'=>1,'fund_status'=>1]);
+            if($goods->order_limit!=0 && ($input['apply_amount']>$goods->order_limit)){
+                Flash::error('订单超限额！');
+
+                return redirect(route('orders.index'));
+            }
         }
-        
+    
 
         $order = $this->orderRepository->create($new_creation);
 
@@ -155,7 +161,7 @@ class orderController extends AppBaseController
      */
     public function show($id)
     {
-        $order = $this->orderRepository->with(['customer','goods','shop','bankcard'])->findWithoutFail($id);
+        $order = $this->orderRepository->with(['customer','goods','shop','bankcard','receivables','payables'])->findWithoutFail($id);
 
         if (empty($order)) {
             Flash::error('order not found');

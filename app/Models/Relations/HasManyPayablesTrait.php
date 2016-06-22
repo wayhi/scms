@@ -3,11 +3,11 @@
 namespace App\Models\Relations;
 
 /**
- * This is the has many shops trait.
+ * This is the has many payables trait.
  *
  * @author J.W
  */
-trait HasManyGoodsMastersTrait
+trait HasManyPayablesTrait
 {
     
     public function payables()

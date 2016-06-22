@@ -186,7 +186,7 @@ return [
         InfyOm\CoreTemplates\CoreTemplatesServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
+        //Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
@@ -239,7 +239,7 @@ return [
         'Flash'     => Laracasts\Flash\Flash::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'AdminLTE'  => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
-        'Debugbar'  => Barryvdh\Debugbar\Facade::class,
+        //'Debugbar'  => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

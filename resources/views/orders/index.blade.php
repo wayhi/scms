@@ -24,8 +24,8 @@
     <div class="col-xs-12">
         <!--div class="box"-->
             <div class="box-header">
-                <h3 class="box-title">所有订单</h3>
-                <a class="btn btn-primary btn-sm" href="{!!route('orders.create')!!}">新增</a> 
+                <h3 class="box-title">{{$viewname}}</h3>
+                <a class="btn btn-primary btn-sm" href="{!!route('orders.create')!!}">新建订单</a> 
                 <div class="box-tools">
                     
                       

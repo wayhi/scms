@@ -12,17 +12,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <body class="skin-yellow" data-spy="scroll" data-target="#scrollspy">
 
 <div>
-
-    
         <!-- Main content -->
         <section class="content">
             <!-- Your Page Content Here -->
             @yield('main-content')
         </section><!-- /.content -->
-   
-
-   
-
 </div>
 
 @section('scripts')

@@ -57,4 +57,19 @@ class ReceivablePresenter extends BasePresenter
        
     }
 
+    public function serial_no_with_link()
+    {
+        $vid = $this->getWrappedObject()->id;
+        $v = $this->getWrappedObject()->serial_no;
+
+        return "<a href='".route('receivables.show',$vid)."' target='_blank'>".$v."</a>";
+
+
+
+
+
+
+
+    }
+
 }

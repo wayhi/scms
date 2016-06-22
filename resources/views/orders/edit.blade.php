@@ -19,7 +19,8 @@
        <div class="box box-info">
            <div class="box-header with-border">
               <h3 class="box-title">订单修改</h3>
-              
+              <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal" onclick="javascript:goodsInfo_Init()">关联信息录入
+              </button>
             </div>
            <div class="box-body">
                <div class="row">
