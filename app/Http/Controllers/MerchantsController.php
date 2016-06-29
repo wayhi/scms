@@ -56,7 +56,9 @@ class MerchantsController extends AppBaseController
     public function store(CreatemerchantsRequest $request)
     {
         $input = $request->all();
-
+        if(empty($input['merchant_cert'])){
+            $input=array_merge($input,["merchant_cert"=>"{\"certfiles\":[]}"]);
+        }
         $merchants = $this->merchantsRepository->create($input);
 
         Flash::success('merchants saved successfully.');

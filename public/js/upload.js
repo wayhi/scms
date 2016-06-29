@@ -27,7 +27,24 @@ function send_request()
     if (xmlhttp!=null)
     {
         
-        serverUrl = '/getoss';
+        var type = document.getElementsByName('upload_type')[0].value;
+        
+        switch(type){
+            //files uploaded to different folder 
+
+            case "supporting":
+                serverUrl = '/getoss/order';
+            break;
+            case "merchant":
+                serverUrl = '/getoss/merchant';
+            break;
+            default:
+                serverUrl = '/getoss/merchant';
+            break;    
+
+        }
+        
+        
         
         xmlhttp.open( "GET", serverUrl, false );
         

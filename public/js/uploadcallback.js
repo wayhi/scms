@@ -26,7 +26,23 @@ function send_request()
   
     if (xmlhttp!=null)
     {
-        serverUrl = '/getosscallback'
+        //serverUrl = '/getosscallback'
+        var type = document.getElementsByName('upload_type')[0].value;
+        
+        switch(type){
+            //files uploaded to different folder 
+
+            case "supporting":
+                serverUrl = '/getosscallback/order';
+            break;
+            case "merchant":
+                serverUrl = '/getosscallback/merchant';
+            break;
+            default:
+                serverUrl = '/getosscallback/merchant';
+            break;    
+
+        }
         xmlhttp.open( "GET", serverUrl, false );
         xmlhttp.send( null );
         return xmlhttp.responseText

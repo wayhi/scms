@@ -20,7 +20,7 @@
         "barryvdh/laravel-debugbar": "^2.2",
         "infyomlabs/swagger-generator": "dev-master",
         "jlapp/swaggervel": "dev-master",
-        "aliyuncs/oss-sdk-php": "^2.0"
+        "simplesoftwareio/simple-qrcode": "~1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

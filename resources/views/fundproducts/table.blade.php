@@ -5,7 +5,7 @@
         <th>产品名称</th>
         <th>还款方式</th>
         <th>还款期数</th>
-        <th>年化利率</th>
+        <th>每期还款比率</th>
         <th colspan="3">操作</th>
     </thead>
         

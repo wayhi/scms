@@ -120,18 +120,23 @@
           for (var i =0;i<goods_spec['information'].length; i++) {//create input fields for data collection
             createInput(parent,goods_spec['information'][i].field_name,"",i);
           };
+          saveInput();
           //
           
           var payout_rate = parseFloat(obj[0].payout_rate);
+          var fund_rate = parseFloat(obj[0].fund_rate);
           var apply_amount = parseFloat($("#apply_amount").val());
           var downpayment_rate = parseFloat(obj[0].downpayment_rate);
           var downpayment_amount = parseFloat(obj[0].downpayment_amount);
+          var return_pct = parseFloat(obj[0].return_pct);
           var handling_fee = parseFloat(obj[0].handling_fee);
           var handling_fee_rate = parseFloat(obj[0].handling_fee_rate);
           var repay_pct = parseFloat(obj[0].repay_pct);
           var repay_amount = parseFloat(obj[0].repay_amount);
           if(apply_amount){
             $("#platform_payout").val(Math.round(apply_amount*payout_rate)/100.00);
+            $("#credit_given").val(Math.round(apply_amount*fund_rate)/100.00);
+            $('#repay_target').val(Math.round(apply_amount*return_pct)/100.00);
             if(downpayment_rate==0){
               $("#downpayment_amount").val(downpayment_amount);
             }else{
@@ -152,16 +157,19 @@
         $.get('../goods_info/'+$("#goods_id").val(),function(data){
           var obj = eval("("+data+")");
           var payout_rate = parseFloat(obj[0].payout_rate);
+          var fund_rate = parseFloat(obj[0].fund_rate);
           var apply_amount = parseFloat($("#apply_amount").val());
           var downpayment_rate = parseFloat(obj[0].downpayment_rate);
           var downpayment_amount = parseFloat(obj[0].downpayment_amount);
+          var return_pct = parseFloat(obj[0].return_pct);
           var handling_fee = parseFloat(obj[0].handling_fee);
           var handling_fee_rate = parseFloat(obj[0].handling_fee_rate);
           var repay_pct = parseFloat(obj[0].repay_pct);
           var repay_amount = parseFloat(obj[0].repay_amount);
           if(apply_amount){
             $("#platform_payout").val(Math.round(apply_amount*payout_rate)/100.00);
-          
+            $("#credit_given").val(Math.round(apply_amount*fund_rate)/100.00);
+            $('#repay_target').val(Math.round(apply_amount*return_pct)/100.00);
             if(downpayment_rate==0){
               $("#downpayment_amount").val(downpayment_amount);
             }else{

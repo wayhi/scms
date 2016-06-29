@@ -293,14 +293,14 @@ class orderController extends AppBaseController
     */
     private function createPayables($type, $order,$sn=1)
     {
-
+        $repay_period_setting = $order->goods->fundproduct->repay_period;
         if($type==1){ //对商户付款
             $arr_inputs=array('order_id'=>$order->id,
             'type'=>$type,
             'shop_id'=>$order->shop->id,
             'goods_id'=>$order->goods_id,
             'fund_product_id'=>$order->goods->fund_product_id,
-            'amount_scheduled'=>$order->apply_amount,
+            'amount_scheduled'=>$order->platform_payout,
             'amount_actual'=>0,
             'adjustment_amount'=>0,
             'serial_no'=>$sn,
@@ -321,23 +321,49 @@ class orderController extends AppBaseController
         if($type==2){ //对资金方付款（还款）
 
             $times = $order->goods->fundproduct->repay_times; //还款次数
+            $return_pct = $order->goods->fundproduct->return_pct; //
+            $return_ttl = round($order->credit_given*$return_pct/100,2);//应还本息总额
+            $repay_amount_ttl = 0;
             for ($i=1; $i<=$times ; $i++) { 
+                if($i==$times){
+                    $repay_amount = $repay_ttl-$repay_amount_ttl; //to avoid rounding difference
+                }else{
+                    $repay_amount = round($repay_ttl/$times,2);
+                }
+                $repay_amount_ttl += $repay_amount;
                 $arr_inputs=array('order_id'=>$order->id,
                     'type'=>$type,
                     'shop_id'=>$order->shop->id,
                     'goods_id'=>$order->goods_id,
                     'fund_product_id'=>$order->goods->fund_product_id,
-                    'amount_scheduled'=>($order->apply_amount)*($order->goods->fundproduct->repay_pct/100),
+                    'amount_scheduled'=>$repay_amount,
                     'amount_actual'=>0,
                     'adjustment_amount'=>0,
                     'serial_no'=>$i,
-                    'pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addDays(30*$i),
                     'pd_actual'=>'',
                     'handled_by'=>Auth::user()->email,
                     'ip_address'=>$this->req->ip(),
                     'memo'=>'',
                     'status'=>0
                 );
+                switch ($repay_period_setting) {
+                    case 0:
+                        $pd_scheduled = ['pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addMonths($i)];
+                        break;
+                    case 1:
+                        $pd_scheduled = ['pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addDays($i*30)];
+                        break;
+                    case 2:
+                        $pd_scheduled = ['pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addMonths($i*3)];
+                        break;
+                    case 3:
+                        $pd_scheduled = ['pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addMonths($i*6)];
+                        break;        
+                    default:
+                        $pd_scheduled = ['pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addMonths($i)];
+                        break;
+                }
+                $arr_inputs = array_merge($arr_inputs,$pd_scheduled);
                 $o = $this->payableRepo->create($arr_inputs);
             }
             return true;
@@ -349,6 +375,8 @@ class orderController extends AppBaseController
 
     private function createReceivables($type,$order,$sn=1)
     {
+        $repay_period_setting = $order->goods->fundproduct->repay_period;
+        
         if($type==1){ //应收资金方（资金方付款）
             $arr_inputs=array('order_id'=>$order->id,
             'type'=>$type,
@@ -376,25 +404,58 @@ class orderController extends AppBaseController
             return false;
         }
 
+        
+
         if($type==2){ //应收借款人（借款人还款）
             $times = $order->goods->repay_times; //还款次数
-            for ($i=1; $i<=$times ; $i++) { 
+            $downpayment = $order->downpayment_amount;
+            $adjustment = $order->adjustment_amount;
+            $repay_target =$order->repay_target;
+            $repay_amount_ttl = 0;
+
+            for ($i=1; $i<=$times ; $i++) {   
+                
+                if($i==$times){
+                    $repay_amount = $repay_target-$downpayment-$repay_amount_ttl;
+                }else{
+                    //$repay_amount = ($order->apply_amount)*($order->goods->repay_pct/100.00);
+                    $repay_amount = round(($repay_target-$downpayment+$adjustment)/$times,2);
+
+                }
+                $repay_amount_ttl += $repay_amount;
                 $arr_inputs=array('order_id'=>$order->id,
                     'type'=>$type,
                     'shop_id'=>$order->shop->id,
                     'goods_id'=>$order->goods_id,
                     'fund_product_id'=>$order->goods->fund_product_id,
-                    'amount_scheduled'=>($order->apply_amount)*($order->goods->repay_pct/100),
+                    'amount_scheduled'=>$repay_amount,
                     'amount_actual'=>0,
                     'adjustment_amount'=>0,
                     'serial_no'=>$i,
-                    'pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addDays(30*$i),
                     'pd_actual'=>'',
                     'handled_by'=>Auth::user()->email,
                     'ip_address'=>$this->req->ip(),
                     'memo'=>'',
                     'status'=>0
                 );
+                switch ($repay_period_setting) {
+                    case 0:
+                        $pd_scheduled = ['pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addMonths($i)];
+                        break;
+                    case 1:
+                        $pd_scheduled = ['pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addDays($i*30)];
+                        break;
+                    case 2:
+                        $pd_scheduled = ['pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addMonths($i*3)];
+                        break;
+                    case 3:
+                        $pd_scheduled = ['pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addMonths($i*6)];
+                        break;        
+                    default:
+                        $pd_scheduled = ['pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addMonths($i)];
+                        break;
+                }
+                $arr_inputs = array_merge($arr_inputs,$pd_scheduled);
                 $o = $this->receivableRepo->create($arr_inputs);
             }
             

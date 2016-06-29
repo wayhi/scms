@@ -186,6 +186,7 @@ return [
         InfyOm\CoreTemplates\CoreTemplatesServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
         //Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
@@ -239,6 +240,7 @@ return [
         'Flash'     => Laracasts\Flash\Flash::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'AdminLTE'  => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
+        'QrCode'    => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         //'Debugbar'  => Barryvdh\Debugbar\Facade::class,
     ],
 

@@ -18,7 +18,7 @@
 
 <!-- Credit Limit Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('credit_limit', '授信额度(分):') !!}
+    {!! Form::label('credit_limit', '授信额度:') !!}
     {!! Form::number('credit_limit', null, ['class' => 'form-control']) !!}
 </div>
 

@@ -92,6 +92,12 @@
     <p>{!! $goodsMaster->repay_pct !!}%</p>
 </div>
 
+<!-- Repay Pct Field -->
+<div class="form-group col-sm-4">
+    {!! Form::label('return_pct', '本息总计比率:') !!}
+    <p>{!! $goodsMaster->return_pct !!}%</p>
+</div>
+
 <!-- Repay Amount Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('repay_amount', '每期还款金额:') !!}

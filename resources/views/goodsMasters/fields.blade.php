@@ -67,14 +67,14 @@
 <div class="form-group col-sm-4">
     {!! Form::label('downpayment_rate', '预缴款比率:') !!}
     <div class="input-group">
-        {!! Form::text('downpayment_rate', 0, ['class' => 'form-control']) !!}
+        {!! Form::text('downpayment_rate',null, ['class' => 'form-control']) !!}
         <span class="input-group-addon">%</span>
     </div>
 </div>
 
 <div class="form-group col-sm-4">
     {!! Form::label('downpayment_amount', '预缴款金额:') !!}
-    {!! Form::text('downpayment_amount', 0, ['class' => 'form-control']) !!}    
+    {!! Form::text('downpayment_amount', null, ['class' => 'form-control']) !!}    
 </div>
 
 
@@ -104,6 +104,16 @@
     {!! Form::label('repay_pct', '每期还款比率:') !!}
     <div class="input-group">
         {!! Form::text('repay_pct',null, ['class' => 'form-control']) !!}
+        <span class="input-group-addon">%</span>
+    </div>
+    
+</div>
+
+<!-- Return Pct Field -->
+<div class="form-group col-sm-4">
+    {!! Form::label('return_pct', '本息总计比率:') !!}
+    <div class="input-group">
+        {!! Form::text('return_pct',null, ['class' => 'form-control']) !!}
         <span class="input-group-addon">%</span>
     </div>
     

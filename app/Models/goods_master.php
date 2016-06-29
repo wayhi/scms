@@ -61,6 +61,7 @@ class Goods_master extends Model implements HasPresenter
         'handling_fee',
         'repay_times',
         'repay_pct',
+        'return_pct',
         'repay_amount',
         'order_limit',
         'supporting_ids',

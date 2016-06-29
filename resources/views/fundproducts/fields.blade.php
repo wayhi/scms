@@ -11,11 +11,11 @@
     {!! Form::text('product_name', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group col-sm-4">
-    {!! Form::label('credit_limit', '授信额度(金额单位－分)：') !!}
+    {!! Form::label('credit_limit', '授信额度：') !!}
     {!! Form::number('credit_limit', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group col-sm-4">
-    {!! Form::label('limit_per_order', '每单限额(金额单位－分)：') !!}
+    {!! Form::label('limit_per_order', '每单限额：') !!}
     {!! Form::number('limit_per_order', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group col-sm-4">

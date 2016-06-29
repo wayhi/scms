@@ -34,8 +34,8 @@ Route::match(['get','post'], '/', function () {
      return Redirect::to('/home');
 
 });
-Route::get('/getoss',['as'=>'getoss','uses'=>'API\\OSSController@getoss']);
-Route::get('/getosscallback',['as'=>'getosscallback','uses'=>'API\\OSSController@getosscallback']);
+Route::get('/getoss/{file_type}',['as'=>'getoss','uses'=>'API\\OSSController@getoss']);
+Route::get('/getosscallback/{file_type}',['as'=>'getosscallback','uses'=>'API\\OSSController@getosscallback']);
 Route::match(['get','post'],'/callback',['as'=>'callback','uses'=>'API\\OSSController@callback']);
 Route::group(['middleware' => ['web','auth']], function () {
     //Route::auth();

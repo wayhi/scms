@@ -10,7 +10,7 @@ use Config,DateTime;
 
 class OSSController extends Controller
 {
-    public function getoss()
+    public function getoss($file_type='images')
     {
     	$id= Config::get('app.oss_id');//'dVlyl1bwWh8T6nos';
 	    $key= Config::get('app.oss_key');//'9aoOXwZb82Tgdq73yrwLGpllLlEiAr';
@@ -19,8 +19,21 @@ class OSSController extends Controller
 	    $expire = 30; //设置该policy超时时间是10s. 即这个policy过了这个有效时间，将不能访问
 	    $end = $now + $expire;
 	    $expiration = $this->gmt_iso8601($end);
-
-	    $dir = 'merchant_files/';
+	    switch ($file_type) {
+	    	case 'merchant':
+	    		$dir = 'merchant_files/';
+	    		break;
+	    	case 'order':
+	    		$dir = 'order_files/';
+	    		break;
+	   		case 'customer':
+	   			$dir = 'customer_files/';
+	   			break; 		
+	    	default:
+	    		$dir = 'images/';
+	    		break;
+	    }
+	    
 
 	    //最大文件大小.用户可以自己设置
 	    $condition = array(0=>'content-length-range', 1=>0, 2=>1048576000);
@@ -51,7 +64,7 @@ class OSSController extends Controller
 
     }
 
-    public function getosscallback()
+    public function getosscallback($file_type='images')
     {
 
     	$id= Config::get('app.oss_id');
@@ -69,7 +82,21 @@ class OSSController extends Controller
 	    $end = $now + $expire;
 	    $expiration = $this->gmt_iso8601($end);
 
-	    $dir = 'merchant_files/';
+	    
+	    switch ($file_type) {
+	    	case 'merchant':
+	    		$dir = 'merchant_files/';
+	    		break;
+	    	case 'order':
+	    		$dir = 'order_files/';
+	    		break;
+	   		case 'customer':
+	   			$dir = 'customer_files/';
+	   			break; 		
+	    	default:
+	    		$dir = 'images/';
+	    		break;
+	    }
 
 	    //最大文件大小.用户可以自己设置
 	    $condition = array(0=>'content-length-range', 1=>0, 2=>1048576000);

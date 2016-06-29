@@ -18,7 +18,7 @@ class FundPresenter extends BasePresenter
 
 		$credit = $this->getWrappedObject()->credit_limit;
 		if($credit){
-			return number_format ($credit/100,2); //原值以分为单位，显示还原为元为单位。
+			return number_format ($credit,2); //原值以分为单位，显示还原为元为单位。
 		}else{
 			return 'N/A';
 		}

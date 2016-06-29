@@ -55,7 +55,7 @@
 <!-- Merchant Cert Field -->
 <div class="form-group col-sm-6">
     
-    {!! Form::hidden('merchant_cert', null, ['class' => 'form-control']) !!}
+    {!! Form::hidden('merchant_cert',null, ['class' => 'form-control']) !!}
     {!! Form::label('cert_done', '已上传资质文件:') !!}
     <br>
     @if(isset($merchants) && isset(json_decode($merchants->merchant_cert, true)['certfiles']))
