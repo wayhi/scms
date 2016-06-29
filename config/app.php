@@ -127,11 +127,6 @@ return [
     | OSS Configuration
     |--------------------------------------------------------------------------
     | Aliyun OSS Setting
-    | 
-    | 
-    | 
-    |
-    | 
     |
     */
     
@@ -142,6 +137,12 @@ return [
     'oss_host' => env('OSS_HOST',''),
     
     'oss_callbackurl' => env('OSS_CALLBACKURL',''),
+
+    /*
+
+    */
+
+    'company_name' => '广州易分期网络科技有限公司',
 
     'providers' => [
 

@@ -168,8 +168,34 @@ class orderController extends AppBaseController
 
             return redirect(route('orders.index'));
         }
+        $times = $order->goods->repay_times; //还款次数
+        $downpayment = $order->downpayment_amount;
+        $adjustment = $order->adjustment_amount;
+        $repay_target =$order->repay_target;
+        $repay_amount = round(($repay_target-$downpayment+$adjustment)/$times,2);
 
-        return view('orders.show')->with('order', $order);
+        return view('orders.show')->with(compact('order','repay_amount'));
+    }
+
+    public function print($id)
+    {
+        
+        $order = $this->orderRepository->with(['customer','goods','shop','bankcard','receivables','payables'])->findWithoutFail($id);
+
+        if (empty($order)) {
+            Flash::error('order not found');
+
+            return redirect(route('orders.index'));
+        }
+        $times = $order->goods->repay_times; //还款次数
+        $downpayment = $order->downpayment_amount;
+        $adjustment = $order->adjustment_amount;
+        $repay_target =$order->repay_target;
+        $repay_amount = round(($repay_target-$downpayment+$adjustment)/$times,2);
+
+        return view('orders.summary_print')->with(compact('order','repay_amount'));
+
+
     }
 
     /**

@@ -73,12 +73,14 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::get('goods_info/{goods_id}',['middleware'=>'auth',function($goods_id){
             return Goods_master::with('supportings')->where('id',$goods_id)->get()->toJson();
                 }]);
+    Route::get('orders/summary_print/{id}',['middleware'=>'auth','as'=>'orders.summary_print','uses'=>'orderController@print']);
     Route::resource('funds', 'FundsController');
     Route::resource('fundproducts','FundProductController');
     Route::resource('merchants', 'MerchantsController');
     Route::resource('shops', 'ShopsController');
     Route::resource('goodsMasters', 'GoodsMasterController');
     Route::resource('orders', 'orderController');
+    
     Route::get('orders_in_approval',['as'=>'oia','uses'=>'orderController@getInApproval']);
     Route::get('orders_in_funding',['as'=>'oif','uses'=>'orderController@getInFunding']);
     Route::get('orders_in_repaying',['as'=>'oir','uses'=>'orderController@getInRepaying']);

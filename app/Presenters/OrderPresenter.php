@@ -90,4 +90,52 @@ class OrderPresenter extends BasePresenter
        
     }
 
+    public function apply_amount_formatted()
+    {
+        $amount = $this->getWrappedObject()->apply_amount;
+        $currency = $this->getWrappedObject()->currency;
+        if($amount){
+            return $currency." ".number_format ($amount,2); //原值以分为单位，显示还原为元为单位。
+        }else{
+            return 'N/A';
+        }
+
+    }
+
+    public function repay_target_formatted()
+    {
+        $amount = $this->getWrappedObject()->repay_target;
+        $currency = $this->getWrappedObject()->currency;
+        if($amount){
+            return $currency." ".number_format ($amount,2); //原值以分为单位，显示还原为元为单位。
+        }else{
+            return 'N/A';
+        }
+
+    }
+
+    public function handling_fees_formatted()
+    {
+        $amount = $this->getWrappedObject()->handling_fees;
+        $currency = $this->getWrappedObject()->currency;
+        if($amount){
+            return $currency." ".number_format ($amount,2); //原值以分为单位，显示还原为元为单位。
+        }else{
+            return 'N/A';
+        }
+
+    }
+
+    public function downpayment_amount_formatted()
+    {
+        $amount = $this->getWrappedObject()->downpayment_amount;
+        $currency = $this->getWrappedObject()->currency;
+        if($amount){
+            return $currency." ".number_format ($amount,2); //原值以分为单位，显示还原为元为单位。
+        }else{
+            return 'N/A';
+        }
+
+    }
+
 }

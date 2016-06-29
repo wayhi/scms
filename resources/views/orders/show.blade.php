@@ -25,7 +25,7 @@
               <li class="active"><a href="#tab_1" data-toggle="tab">订单详情</a></li>
               <li><a href="#tab_2" data-toggle="tab">用户还款记录</a></li>
               <li><a href="#tab_3" data-toggle="tab">资金记录</a></li>
-              <li><a href="#tab_4" data-toggle="tab">合同协议</a></li>
+              <li><a href="#tab_4" data-toggle="tab">打印</a></li>
               <li><a href="#tab_5" data-toggle="tab">关联信息</a></li>
               
             </ul>
@@ -55,7 +55,9 @@
               </div>
               <!-- /.tab-pane -->
                <div class="tab-pane" id="tab_4">
-               
+                 <div class="row" style="padding-left: 10px; padding-right: 10px">
+                  @include('orders.summary')
+                 </div> 
               </div>
               <!-- /.tab-pane -->
                <div class="tab-pane" id="tab_5">
