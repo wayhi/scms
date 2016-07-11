@@ -16,10 +16,10 @@
           服务方：
           <address>
             <strong>{!!Config('app.company_name')!!}</strong><br>
-            广东省广州市天河区<br>
+            <small>广东省广州市天河区<br>
             珠江东路16号高德置地冬广场3606<br>
             电话: 400-838-3187<br>
-            电子邮件: info@yifenqi.com
+            电子邮件: info@yifenqi.com</small>
           </address>
         </div>
         <!-- /.col -->
@@ -27,15 +27,16 @@
           需求方：
           <address>
             <strong>{!!$order->customer->name!!}</strong><br>
-            身份证号：{!!$order->customer->id_number!!}<br>
+            <small>身份证号：{!!$order->customer->id_number!!}<br>
             <br>
             电话: {!!$order->customer->mobile_phone!!}<br>
-            电子邮件: 
+            电子邮件:
+            </small> 
           </address>
         </div>
         <!-- /.col -->
         <div class="col-sm-3 invoice-col">
-        <br>
+        
           <b>订单号:</b> {!!$order->order_number!!}<br>
           
           @if(isset(json_decode($order->goods_info, true)['goods']))
@@ -47,7 +48,7 @@
         </div>
         <div class="col-sm-2 invoice-col">
           {!! QrCode::size(100)->generate('http://dev01.yifenqi.com:8881/web/carInsurance/uploadCert?orderNumber='.$order->order_number) !!}<br>
-          <p>扫描二维码以完善您的个人信息。</p>
+          <small>扫描二维码以完善您的个人信息。</small>
         </div>
 
         <!-- /.col -->

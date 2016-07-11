@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Relations\BelongsToOrderTrait;
 use App\Models\Relations\BelongsToShopTrait;
 use App\Models\Relations\BelongsToFundProductTrait;
+use App\Models\Relations\BelongsToGoodsMasterTrait;
 use McCool\LaravelAutoPresenter\HasPresenter;
 use App\Presenters\ReceivablePresenter;
 
@@ -48,7 +49,7 @@ use App\Presenters\ReceivablePresenter;
  */
 class receivable extends Model implements HasPresenter
 {
-    use SoftDeletes,BelongsToOrderTrait, BelongsToShopTrait,BelongsToFundProductTrait;
+    use SoftDeletes,BelongsToOrderTrait, BelongsToShopTrait,BelongsToGoodsMasterTrait,BelongsToFundProductTrait;
 
     public $table = 'receivables';
     

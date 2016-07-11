@@ -20,7 +20,7 @@
 </div>
 <div class="form-group col-sm-4">
     {!! Form::label('repay_method', '还款方式：') !!}
-    {!! Form::select('repay_method',[0=>'等额本息',1=>'先息后本',2=>'平均利息'],null, ['class' => 'form-control']) !!}
+    {!! Form::select('repay_method',[0=>'无需还款',1=>'等额本息',2=>'先息后本',3=>'平均利息'],null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group col-sm-4">
     {!! Form::label('repay_times', '还款期数：') !!}

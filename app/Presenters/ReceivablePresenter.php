@@ -20,11 +20,17 @@ class ReceivablePresenter extends BasePresenter
         $value = $this->getWrappedObject()->type;
         switch ($value) {
             case 1:
-                return "资金方";
+                return "应收资金方";
                 break;
             case 2:
-                return "借款方";
-                break;                         
+                return "分期缴款";
+                break;
+            case 3:
+                return "服务费";
+                break; 
+            case 4:
+                return "预缴款";
+                break;                                 
             default:
                 return "";
                 break;
@@ -63,12 +69,6 @@ class ReceivablePresenter extends BasePresenter
         $v = $this->getWrappedObject()->serial_no;
 
         return "<a href='".route('receivables.show',$vid)."' target='_blank'>".$v."</a>";
-
-
-
-
-
-
 
     }
 

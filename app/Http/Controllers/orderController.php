@@ -184,15 +184,13 @@ class orderController extends AppBaseController
 
         if (empty($order)) {
             Flash::error('order not found');
-
             return redirect(route('orders.index'));
         }
         $times = $order->goods->repay_times; //还款次数
         $downpayment = $order->downpayment_amount;
         $adjustment = $order->adjustment_amount;
-        $repay_target =$order->repay_target;
+        $repay_target = $order->repay_target;
         $repay_amount = round(($repay_target-$downpayment+$adjustment)/$times,2);
-
         return view('orders.summary_print')->with(compact('order','repay_amount'));
 
 
@@ -238,38 +236,62 @@ class orderController extends AppBaseController
         $allfields = array_merge($request->all(),['modified_by'=>Auth::user()->email,'ip_address'=>$request->ip()]);
         switch ($request->action) {
             case '平台审核通过':
-                $order = $this->orderRepository->update(array_merge($allfields,['process_status'=>'2','fund_status'=>'2']), $id);
+                
                 //生成资金计划
-                if($this->createPayables(1,$order) && $this->createReceivables(1,$order)){
+                if($order->handling_fees>0){//生成应收手续费
+                    $ar_3 = $this->createReceivables(3,$order);
+                }else{
+                    $ar_3 = true;
+                }
+
+                if($order->downpayment_amount>0){ //生成应收预付款（首付）
+                    $ar_4 = $this->createReceivables(4,$order);
+                }else{
+                    $ar_4 = true;
+                }
+                if($this->createPayables(1,$order) && $ar_3 && $ar_4){
+                    $order = $this->orderRepository->update(['modified_by'=>Auth::user()->email,'ip_address'=>$request->ip(),'process_status'=>'2','fund_status'=>'2'], $id);
                     Flash::success('订单：'.$order->order_number.' 已核准, 进入放款流程。');
                 }else{
                     Flash::error('订单：'.$order->order_number.' 内部错误，请联系管理员。');
                 }
-                
                 return redirect(route('oia'));
                 break;
             case '已放款':
                 //生成资金计划
-                $order = $this->orderRepository->update(array_merge($allfields,['process_status'=>'4','fund_status'=>'5']), $id);
-                if($this->createPayables(2,$order) && $this->createReceivables(2,$order)){
-                    Flash::success('订单：'.$order->order_number.' 已完成放款，进入还款流程。');
+
+                if($order->goods->fundproduct->repay_method===0){ //自有资金不向资金方付款
+
+                        if($this->createReceivables(2,$order)){
+                            $order = $this->orderRepository->update(['modified_by'=>Auth::user()->email,'ip_address'=>$request->ip(),'process_status'=>'4','fund_status'=>'5'], $id);
+                            Flash::success('订单：'.$order->order_number.' 已完成放款，进入还款流程。');
+                        }else{
+                            Flash::error('订单：'.$order->order_number.' 内部错误，请联系管理员。');
+                        }
                 }else{
-                    Flash::error('订单：'.$order->order_number.' 内部错误，请联系管理员。');
-                }
+                    if($this->createPayables(2,$order) && $this->createReceivables(2,$order)){
+                        $order = $this->orderRepository->update(['modified_by'=>Auth::user()->email,'ip_address'=>$request->ip(),'process_status'=>'4','fund_status'=>'5'], $id);
+                        Flash::success('订单：'.$order->order_number.' 已完成放款，进入还款流程。');
+                    }else{
+                        Flash::error('订单：'.$order->order_number.' 内部错误，请联系管理员。');
+                    }
+
+                };
+                
                 return redirect(route('oif'));
                 break;
             case '还款完成':
-                $order = $this->orderRepository->update(array_merge($allfields,['process_status'=>'6','fund_status'=>'8']), $id);
+                $order = $this->orderRepository->update(['modified_by'=>Auth::user()->email,'ip_address'=>$request->ip(),'process_status'=>'6','fund_status'=>'8'], $id);
                 Flash::success('订单：'.$order->order_number.' 已完成。');
                 return redirect(route('oir'));
                 break;
             case '订单取消':
-                $order = $this->orderRepository->update(array_merge($allfields,['process_status'=>'5']), $id);
+                $order = $this->orderRepository->update(['modified_by'=>Auth::user()->email,'ip_address'=>$request->ip(),'process_status'=>'5'], $id);
                 Flash::success('订单：'.$order->order_number.' 已取消。');
                 return redirect(route('oir'));
                 break;    
             case '拒绝':
-                $order = $this->orderRepository->update(array_merge($allfields,['process_status'=>'6','fund_status'=>'9']), $id);
+                $order = $this->orderRepository->update(['modified_by'=>Auth::user()->email,'ip_address'=>$request->ip(),'process_status'=>'6','fund_status'=>'9'], $id);
                 Flash::warning('订单：'.$order->order_number.' 已拒绝放款。');
                 return redirect(route('oia'));
                 break; 
@@ -317,7 +339,7 @@ class orderController extends AppBaseController
      *
      * 
     */
-    private function createPayables($type, $order,$sn=1)
+    private function createPayables($type,$order,$sn=1)
     {
         $repay_period_setting = $order->goods->fundproduct->repay_period;
         if($type==1){ //对商户付款
@@ -330,7 +352,7 @@ class orderController extends AppBaseController
             'amount_actual'=>0,
             'adjustment_amount'=>0,
             'serial_no'=>$sn,
-            'pd_scheduled'=>Carbon::now()->addDays(3),
+            'pd_scheduled'=>Carbon::now()->addDays(1),
             'pd_actual'=>'',
             'handled_by'=>Auth::user()->email,
             'ip_address'=>'',
@@ -349,12 +371,13 @@ class orderController extends AppBaseController
             $times = $order->goods->fundproduct->repay_times; //还款次数
             $return_pct = $order->goods->fundproduct->return_pct; //
             $return_ttl = round($order->credit_given*$return_pct/100,2);//应还本息总额
+
             $repay_amount_ttl = 0;
             for ($i=1; $i<=$times ; $i++) { 
                 if($i==$times){
-                    $repay_amount = $repay_ttl-$repay_amount_ttl; //to avoid rounding difference
+                    $repay_amount = $return_ttl-$repay_amount_ttl; //to avoid rounding difference
                 }else{
-                    $repay_amount = round($repay_ttl/$times,2);
+                    $repay_amount = round($return_ttl/$times,2);
                 }
                 $repay_amount_ttl += $repay_amount;
                 $arr_inputs=array('order_id'=>$order->id,
@@ -430,8 +453,6 @@ class orderController extends AppBaseController
             return false;
         }
 
-        
-
         if($type==2){ //应收借款人（借款人还款）
             $times = $order->goods->repay_times; //还款次数
             $downpayment = $order->downpayment_amount;
@@ -488,6 +509,64 @@ class orderController extends AppBaseController
                 return true;
         }
 
+        if($type==3){ //应收服务费
+
+            $arr_inputs=array('order_id'=>$order->id,
+            'type'=>$type,
+            'shop_id'=>$order->shop->id,
+            'goods_id'=>$order->goods_id,
+            'fund_product_id'=>$order->goods->fund_product_id,
+            'amount_scheduled'=>$order->handling_fees,
+            'amount_actual'=>0,
+            'adjustment_amount'=>0,
+            'serial_no'=>$sn,
+            'pd_scheduled'=>$order->effective_date,
+            'pd_actual'=>'',
+            'handled_by'=>Auth::user()->email,
+            'ip_address'=>$this->req->ip(),
+            'memo'=>'',
+            'status'=>0
+            );
+            if($order->handling_fees>0){
+                $o = $this->receivableRepo->create($arr_inputs);
+            }
+
+            if($o){
+                return true;
+            }
+
+            return false;
+
+        }
+
+        if($type==4){//应收预缴款（首付）
+            $arr_inputs=array('order_id'=>$order->id,
+            'type'=>$type,
+            'shop_id'=>$order->shop->id,
+            'goods_id'=>$order->goods_id,
+            'fund_product_id'=>$order->goods->fund_product_id,
+            'amount_scheduled'=>$order->downpayment_amount,
+            'amount_actual'=>0,
+            'adjustment_amount'=>0,
+            'serial_no'=>$sn,
+            'pd_scheduled'=>$order->effective_date,
+            'pd_actual'=>'',
+            'handled_by'=>Auth::user()->email,
+            'ip_address'=>$this->req->ip(),
+            'memo'=>'',
+            'status'=>0
+            );
+            if($order->downpayment_amount>0){
+                $o = $this->receivableRepo->create($arr_inputs);
+            }
+
+            if($o){
+                return true;
+            }
+
+            return false;
+        }
+
         return false;
     }
 
@@ -516,5 +595,6 @@ class orderController extends AppBaseController
 
     }
 
+    
     
 }

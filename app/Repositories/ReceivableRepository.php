@@ -11,7 +11,7 @@ class ReceivableRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        
+       'type' 
     ];
 
     /**

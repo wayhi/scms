@@ -11,6 +11,8 @@
 <script src="{{ asset('/plugins/select2/select2.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/plugins/input-mask/jquery.inputmask.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/plugins/input-mask/jquery.inputmask.date.extensions.js') }}" type="text/javascript"></script>
+<script src="{{ asset('/js/moment.min.js')}}" type="text/javascript"></script>
+<script src="{{ asset('/plugins/daterangepicker/daterangepicker.js')}}" type="text/javascript"></script>
 <script src="{{ asset('/plugins/input-mask/jquery.inputmask.extensions.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/plugins/timepicker/bootstrap-timepicker.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/plugins/datepicker/bootstrap-datepicker.js') }}" type="text/javascript"></script>
@@ -249,6 +251,27 @@
       autoclose: true,
       format: "yyyy/mm/dd"
     });
+
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+        {
+          ranges: {
+            '今天': [moment(), moment()],
+            '昨日': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            '过去1周': [moment().subtract(6, 'days'), moment()],
+            '过去30天': [moment().subtract(29, 'days'), moment()],
+            '本月': [moment().startOf('month'), moment().endOf('month')],
+            '上月': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment()
+        },
+        function (start, end) {
+          $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+          $('#start_date').val(start.format('YYYY-MM-DD'));
+          $('#end_date').val(end.format('YYYY-MM-DD'));
+        }
+    );
 
     //$("#receivables_table").DataTable();
 

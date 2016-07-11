@@ -25,13 +25,13 @@
 <!-- Shop Id Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('shop_id', '关联商户:') !!}
-    <p>{!! $goodsMaster->merchant->merchant_name !!}</p>
+    <p><a href="{{route('merchants.show',$goodsMaster->merchant_id)}}" target='_blank'>{!! $goodsMaster->merchant->merchant_name !!}</a></p>
 </div>
 
 <!-- Fund Product Id Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('fund_product_id', '关联资金:') !!}
-    <p>{!! $goodsMaster->fundproduct->product_name !!}</p>
+    <p><a href="{{route('fundproducts.show',$goodsMaster->fund_product_id)}}" target="_blank">{!! $goodsMaster->fundproduct->product_name !!}</a></p>
 </div>
 
 <div class="form-group col-sm-4">

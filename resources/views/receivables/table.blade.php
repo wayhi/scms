@@ -1,12 +1,10 @@
 <table class="table table-responsive" id="receivables-table">
     <thead>
         <th>订单号</th>
-        <th>收款对象</th>
-        <th>关联商户</th>
-        <th>关联资金</th>
+        <th>易分期产品</th>
         <th>计划收取金额</th>
         <th>实际收取金额</th>
-        <th>序号</th>
+        <th>期数/总期数</th>
         <th>计划收取日期</th>
         <th>实际收取日期</th>
         <th>状态</th>
@@ -16,12 +14,10 @@
     @foreach($receivables as $receivable)
         <tr>
             <td>{!! $receivable->order->order_number !!}</td>
-            <td>{!! $receivable->type_text !!}</td>
-            <td>{!! $receivable->shop->shop_name !!}</td>
-            <td>{!! $receivable->fundproduct->product_name !!}</td>
+            <td>{!! $receivable->goods->goods_name !!}</td>
             <td>{!! $receivable->amount_scheduled !!}</td>
             <td>{!! $receivable->amount_actual !!}</td>
-            <td>{!! $receivable->serial_no !!}</td>
+            <td>{!! $receivable->serial_no !!}/@if($receivable->type==2){!! $receivable->goods->repay_times!!}@else 1 @endif</td>
             <td>{!! $receivable->pd_scheduled !!}</td>
             <td>{!! $receivable->pd_actual !!}</td>
             <td>{!! $receivable->status_text !!}</td>

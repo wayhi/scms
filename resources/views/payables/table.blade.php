@@ -15,9 +15,9 @@
         <tr>
             <td>{!! $payable->order->order_number !!}</td>
             @if($payable->type==1)
-             <td>{!! $payable->shop->shop_name !!}</td>
+             <td>{!! $payable->shop->account_name !!}</td>
             @elseif($payable->type==2)
-            <td>{!! $payable->fundproduct->product_name !!}</td>
+            <td>{!! $payable->fundproduct->clearing_acct_name !!}</td>
             @endif
             <td>{!! $payable->amount_scheduled !!}</td>
             <td>{!! $payable->amount_actual !!}</td>

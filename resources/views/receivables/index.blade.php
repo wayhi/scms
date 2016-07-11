@@ -8,7 +8,7 @@
 @endsection
 
 @section('contentheader_description')
-    应收
+    @if(!empty($receivables->first())){{$receivables->first()->type_text}}@endif
 @endsection
 @section('main-content')
 
@@ -32,8 +32,8 @@
                         <span class="caret"></span>
                       </button>
                       <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                        <li><a href="{!!route('receivables.create')!!}">新增</a></li>
-                       
+                        <li><a href="{!!route('receivables.summary')!!}">贷前应收汇总</a></li>
+                        <li><a href="{!!route('receivables.installment')!!}">分期还款汇总</a></li>
                       </ul>
                     </div>
                   

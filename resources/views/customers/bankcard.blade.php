@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="form-group">
-                  {!!Form::label('cvn2', 'CVN：',['class' => 'col-sm-2 control-label']);!!} 
+                  {!!Form::label('cvn2', 'CVN2：',['class' => 'col-sm-2 control-label']);!!} 
                   <div class="col-sm-6">
                     {!!Form::text('cvn2',null,['class' => 'form-control','id'=>'cvn2']);!!}
                   </div>

@@ -6,12 +6,10 @@
 
 <!-- Type Field -->
 <div class="form-group col-sm-4">
-    {!! Form::label('type', '收款对象:') !!}
-    @if($receivable->type==2)  <!-- 客户-->
+    {!! Form::label('customer', '申请客户:') !!}
+    
     <p><a href="{{route('customers.show',$receivable->order->customer->id)}}" target="_blank" data-toggle="tooltip" title="☎️：{{$receivable->order->customer->mobile_phone}}"> {!! $receivable->order->customer->name !!}</a></p>
-    @elseif($receivable->type==1) <!-- 资金方-->
-    <p><a href="{{route('fundproducts.show',$receivable->fund_product_id)}}" target="_blank"> {!! $receivable->fundproduct->product_name !!}</a></p>
-    @endif
+    
 </div>
 
 <!-- Shop Id Field -->
@@ -22,8 +20,8 @@
 
 <!-- Fund Product Id Field -->
 <div class="form-group col-sm-4">
-    {!! Form::label('fund_product_id', '关联资金:') !!}
-    <p><a href="{{route('fundproducts.show',$receivable->fundproduct->id)}}" target="_blank">{!! $receivable->fundproduct->product_name !!}</a></p>
+    {!! Form::label('goods_id', '关联产品:') !!}
+    <p><a href="{{route('goodsMasters.show',$receivable->goods_id)}}" target="_blank">{!! $receivable->goods->goods_name !!}</a></p>
 </div>
 
 <!-- Amount Scheduled Field -->

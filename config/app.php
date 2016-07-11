@@ -188,7 +188,8 @@ return [
         Zizaco\Entrust\EntrustServiceProvider::class,
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
-        //Barryvdh\Debugbar\ServiceProvider::class,
+        Spatie\Activitylog\ActivitylogServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
@@ -242,7 +243,7 @@ return [
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'AdminLTE'  => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
         'QrCode'    => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
-        //'Debugbar'  => Barryvdh\Debugbar\Facade::class,
+        'Debugbar'  => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

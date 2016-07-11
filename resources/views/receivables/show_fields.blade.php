@@ -20,13 +20,10 @@
     {!! Form::label('shop_id', '关联商家:') !!}
     <p><a target="_blank" href="{{route('shops.show',$receivable->shop_id)}}">{!! $receivable->shop->shop_name !!}</a></p>
 </div>
-@if($receivable->type==2) 
-<!-- Fund Product Id Field -->
 <div class="form-group col-sm-4">
-    {!! Form::label('fund_product_id', '关联资金:') !!}
-    <p><a target="_blank" href="{{route('fundproducts.show',$receivable->fund_product_id)}}">{!! $receivable->fundproduct->product_name !!}</a></p>
+    {!! Form::label('goods_id', '关联产品:') !!}
+    <p><a href="{{route('goodsMasters.show',$receivable->goods_id)}}" target="_blank">{!! $receivable->goods->goods_name !!}</a></p>
 </div>
-@endif
 <!-- Amount Scheduled Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('amount_scheduled', '计划收取金额:') !!}

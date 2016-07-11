@@ -30,22 +30,23 @@ class MenuBar
       $orders->add('已完成','orders_completed')->prepend("<i class='fa fa-circle-o'></i>");
       $orders->add('还款逾期','orders_overdue')->prepend("<i class='fa fa-circle-o'></i>");
 
-  		$funds = $menu->add('资金管理', ['class'=>'treeview']);
+  	$funds = $menu->add('资金管理', ['class'=>'treeview']);
       $funds->prepend("<i class='fa fa-credit-card'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");
-      $funds->add('应收','receivables')->prepend("<i class='fa fa-circle-o'></i>");
-      $funds->add('应付','payables')->prepend("<i class='fa fa-circle-o'></i>");
+      $ar = $funds->add('应收')->prepend("<i class='fa fa-reply'></i>");
+      $ar->add('应收汇总','receivables/summary')->prepend("<i class='fa fa-circle-o'></i>");
+      $ar->add('分期缴款','receivables?search=2&searchFields=type&orderBy=pd_scheduled&sortedBy=asc')->prepend("<i class='fa fa-circle-o'></i>");
+      $ar->add('服务费','receivables?search=3&searchFields=type&orderBy=pd_scheduled&sortedBy=asc')->prepend("<i class='fa fa-circle-o'></i>");
+      $ar->add('预缴款','receivables?search=4&searchFields=type&orderBy=pd_scheduled&sortedBy=asc')->prepend("<i class='fa fa-circle-o'></i>");
+
+      $ap = $funds->add('应付','payables')->prepend("<i class='fa fa-share'></i>");
 
       $customers = $menu->add('客户管理', ['class'=>'treeview']);
       $customers->prepend("<i class='fa fa-group'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");
       $customers->add('新建客户','customers/create')->prepend("<i class='fa fa-circle-o'></i>");
       $customers->add('客户列表','customers')->prepend("<i class='fa fa-circle-o'></i>");
-      
-
       $products = $menu->add('产品管理', ['class'=>'treeview']);
       $products->prepend("<i class='fa fa-th'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");
       $products->add('产品列表','goodsMasters')->prepend("<i class='fa fa-circle-o'></i>");
-      
-
       $partners = $menu->add('合作方管理', ['class'=>'treeview']);
       $partners->prepend("<i class='fa fa-user-plus'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");
       $fund_partner=$partners->add('资金方','#')->prepend("<i class='fa fa-money'></i>");

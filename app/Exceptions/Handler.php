@@ -6,6 +6,7 @@ use Exception;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Session\TokenMismatchException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
@@ -49,6 +50,17 @@ class Handler extends ExceptionHandler
         if ($e instanceof NotFoundHttpException) {
             return response()->view('errors.404');
         }
+
+        if($e instanceof \Symfony\Component\Debug\Exception\FatalErrorException 
+        && !config('app.debug')) {
+            return response()->view('errors.500');
+        }
+
+        if ($e instanceof TokenMismatchException){
+            //redirect to a form. Here is an example of how I handle mine
+            return redirect($request->fullUrl())->with('csrf_error',"Opps! Seems you couldn't submit form for a longtime. Please try again");
+        }
+
         return parent::render($request, $e);
     }
 }

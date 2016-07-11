@@ -6,6 +6,8 @@ use App\Http\Requests;
 use App\Http\Requests\CreatereceivableRequest;
 use App\Http\Requests\UpdatereceivableRequest;
 use App\Repositories\receivableRepository;
+use App\Repositories\MerchantsRepository;
+use App\Criteria\SummaryCriteria;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
@@ -15,10 +17,12 @@ class receivableController extends AppBaseController
 {
     /** @var  receivableRepository */
     private $receivableRepository;
+    private $merchantsRepository;
 
-    public function __construct(receivableRepository $receivableRepo)
+    public function __construct(receivableRepository $receivableRepo, MerchantsRepository $merchantsRepo)
     {
         $this->receivableRepository = $receivableRepo;
+        $this->merchantsRepository = $merchantsRepo;
     }
 
     /**
@@ -30,13 +34,13 @@ class receivableController extends AppBaseController
     public function index(Request $request)
     {
         $this->receivableRepository->pushCriteria(new RequestCriteria($request));
-        $receivables = $this->receivableRepository->with(['order','shop','fundproduct'])->paginate(10);
+        $receivables = $this->receivableRepository->with(['order','shop','goods','fundproduct'])->paginate(10);
         $links = $receivables->links();
         return view('receivables.index')
             ->with(['receivables'=>$receivables,'links'=>$links]);
     }
 
-    /**
+    /*
      * Show the form for creating a new receivable.
      *
      * @return Response
@@ -73,7 +77,7 @@ class receivableController extends AppBaseController
      */
     public function show($id)
     {
-        $receivable = $this->receivableRepository->with(['order.goods','shop','fundproduct'])->findWithoutFail($id);
+        $receivable = $this->receivableRepository->with(['order.goods','shop','goods'])->findWithoutFail($id);
 
         if (empty($receivable)) {
             Flash::error('receivable not found');
@@ -152,4 +156,44 @@ class receivableController extends AppBaseController
 
         return redirect(route('receivables.index'));
     }
+
+    /**
+     * Show the form for summary of service fee and downpayment.
+     *
+     * @return Response
+     */
+    public function summary()
+    {
+        $merchants_list = $this->merchantsRepository->lists('merchant_name','id')->toArray();
+        
+        return view('receivables.summary')->with(['merchants_list'=>$merchants_list,'merchant_id'=>'','results'=>null]);
+    }
+    /**
+     * Show the search_results of summary.
+     *
+     * @return Response
+     */
+    public function summary_results(Request $searchRequest)
+    {
+        
+        $merchants_list = $this->merchantsRepository->lists('merchant_name','id')->toArray();
+      
+        $merchant_id = $searchRequest->merchant_id;
+        $criteria = new SummaryCriteria();
+        $criteria->setStartDate($searchRequest->start_date);
+        $criteria->setEndDate($searchRequest->end_date);
+        $criteria->setMerchantID($merchant_id);
+        $criteria->setType(3);
+        $this->receivableRepository->pushCriteria($criteria);
+        $results = $this->receivableRepository->with(['order','shop.merchant','goods'])->all();
+        $amount_sum = $results->sum('amount_scheduled');
+        return view('receivables.summary')->with([
+            'merchants_list'=>$merchants_list,
+            'merchant_id'=>$merchant_id,
+            'results'=>$results, 
+            'amount_sum'=>$amount_sum
+            ]);
+
+    }
+
 }

@@ -178,3 +178,23 @@
     <p>{!! $order->updated_at !!}</p>
 </div>
 
+<!-- Submit Field -->
+<div class="form-group col-sm-12">
+    
+    @if($order->process_status==1)
+    {!! Form::submit('平台审核通过', ['class' => 'btn btn-success','name'=>'action']) !!}
+    {!! Form::submit('拒绝', ['class' => 'btn btn-danger','name'=>'action']) !!}
+    @endif
+    @if($order->process_status==2)
+    {!! Form::submit('已放款', ['class' => 'btn btn-success','name'=>'action']) !!}
+    @endif
+    @if($order->process_status==4)
+    {!! Form::submit('还款完成', ['class' => 'btn btn-success','name'=>'action']) !!}
+    
+    @endif
+    @if($order->process_status<=4 && $order->process_status>0)
+    {!! Form::submit('订单取消', ['class' => 'btn btn-warning','name'=>'action']) !!}
+    @endif
+    <a href="javascript:history.go(-1);" class="btn btn-default">返回</a> 
+</div>
+

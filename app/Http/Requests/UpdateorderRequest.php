@@ -23,8 +23,14 @@ class UpdateorderRequest extends Request
      *
      * @return array
      */
-    public function rules()
+    public function rules() 
     {
-        return order::$rules;
+        if(in_array($this->action,["已放款","平台审核通过","还款完成","订单取消","拒绝"])){
+            return [];
+        }else{
+            return order::$rules;
+            
+        }
+        
     }
 }

@@ -13,6 +13,7 @@ use App\Models\Relations\HasManyPayablesTrait;
 use Carbon\Carbon;
 use McCool\LaravelAutoPresenter\HasPresenter;
 use App\Presenters\OrderPresenter;
+use Spatie\Activitylog\Traits\LogsActivity;
 /**
  * @SWG\Definition(
  *      definition="order",
@@ -45,12 +46,14 @@ use App\Presenters\OrderPresenter;
  */
 class order extends Model implements HasPresenter
 {
-    use SoftDeletes,BelongsToCustomerTrait,BelongsToGoodsMasterTrait,BelongsToShopTrait,BelongsToBankCardTrait,HasManyReceivablesTrait,HasManyPayablesTrait;
+    use SoftDeletes,BelongsToCustomerTrait,BelongsToGoodsMasterTrait,BelongsToShopTrait,BelongsToBankCardTrait,HasManyReceivablesTrait,HasManyPayablesTrait,LogsActivity;
 
     public $table = 'orders';
     
 
     protected $dates = ['created_at','updated_at','deleted_at'];
+
+    protected static $logAttributes = ['modified_by', 'process_status','fund_status'];
 
     public $fillable = [
         'order_number',
