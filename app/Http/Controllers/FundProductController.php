@@ -11,6 +11,7 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\Funds;
+use Entrust;
 
 class FundProductController extends AppBaseController
 {

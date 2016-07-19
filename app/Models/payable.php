@@ -9,6 +9,8 @@ use App\Models\Relations\BelongsToShopTrait;
 use App\Models\Relations\BelongsToFundProductTrait;
 use McCool\LaravelAutoPresenter\HasPresenter;
 use App\Presenters\PayablePresenter;
+use App\Models\Relations\BelongsToGoodsMasterTrait;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * @SWG\Definition(
@@ -48,12 +50,14 @@ use App\Presenters\PayablePresenter;
  */
 class payable extends Model implements HasPresenter
 {
-    use SoftDeletes,BelongsToOrderTrait, BelongsToShopTrait,BelongsToFundProductTrait;
+    use SoftDeletes,BelongsToOrderTrait, BelongsToShopTrait,BelongsToFundProductTrait,BelongsToGoodsMasterTrait,LogsActivity;
 
     public $table = 'payables';
     
 
     protected $dates = ['deleted_at'];
+
+    protected static $logAttributes = ['amount_actual','pd_actual','status'];
 
 
     public $fillable = [

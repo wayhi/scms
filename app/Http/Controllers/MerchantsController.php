@@ -62,7 +62,6 @@ class MerchantsController extends AppBaseController
         $merchants = $this->merchantsRepository->create($input);
 
         Flash::success('merchants saved successfully.');
-
         return redirect(route('merchants.index'));
     }
 
@@ -79,7 +78,6 @@ class MerchantsController extends AppBaseController
 
         if (empty($merchants)) {
             Flash::error('merchants not found');
-
             return redirect(route('merchants.index'));
         }
         $expires=time() + 3600;

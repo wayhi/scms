@@ -62,4 +62,10 @@ abstract class AbstractRepository
     {
         return $this->validator;
     }
+
+    public function lists($column, $key = null)
+    {
+        
+        return $this->model->lists($column, $key);
+    }
 }

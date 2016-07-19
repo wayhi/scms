@@ -13,7 +13,7 @@
 @section('main-content')
 
 @include('flash::message')
-@include('adminlte::common.errors')
+
 
    
     <div class="content">

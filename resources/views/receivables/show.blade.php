@@ -24,7 +24,7 @@
                  @include('receivables.show_fields') 
                 </div>
                 <div class='btn-group'>
-                    <a href="{!! route('receivables.index') !!}" class="btn btn-default">返回</a>
+                    <a href="javascript:history.go(-1);" class="btn btn-default">返回</a>
                 </div>
             </div>
         </div>

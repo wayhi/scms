@@ -16,9 +16,6 @@
 @include('adminlte::common.errors')
 
     <div class="content">
-        <script>
-            
-        </script>
         <div class="box box-info">
              <div class="box-header with-border">
               <h3 class="box-title">订单详细</h3>

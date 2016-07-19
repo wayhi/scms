@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Relations\BelongsToMerchantTrait;
 use App\Models\Relations\BelongsToFundProductTrait;
 use App\Models\Relations\BelongsToManySupportingTrait;
+use App\Models\Relations\BelongsToRoleTrait;
 use McCool\LaravelAutoPresenter\HasPresenter;
 use App\Presenters\GoodsMasterPresenter;
 
@@ -37,7 +38,7 @@ use App\Presenters\GoodsMasterPresenter;
  */
 class Goods_master extends Model implements HasPresenter
 {
-    use SoftDeletes,BelongsToMerchantTrait,BelongsToFundProductTrait,BelongsToManySupportingTrait;
+    use SoftDeletes,BelongsToMerchantTrait,BelongsToFundProductTrait,BelongsToManySupportingTrait,BelongsToRoleTrait;
 
     public $table = 'goods_master';
     
@@ -69,6 +70,7 @@ class Goods_master extends Model implements HasPresenter
         'refund_available',
         'trade_time_start',
         'trade_time_end',
+        'role_id',
         'activated'
     ];
 
@@ -98,6 +100,7 @@ class Goods_master extends Model implements HasPresenter
         'repay_times' => 'numeric|max:120',
         'repay_pct' => 'numeric',
         'repay_amount' => 'numeric',
+        'role_id' => 'numeric',
         'order_limit' => 'numeric'
     ];
 

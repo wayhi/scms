@@ -31,9 +31,9 @@ class SummaryCriteria implements CriteriaInterface
         $model = $model->where([
             ['pd_scheduled','>=',$this->start_date],
             ['pd_scheduled','<=',$this->end_date],
-            ['type','in',$this->type],
             ['status','<>',2]
-            ])->whereExists(function($query){ 
+            ])->whereIn('type',$this->type)
+              ->whereExists(function($query){ 
                 $query->select(DB::raw(1))
                       ->from('shops')
                       ->where('merchant_id',$this->merchant_id)
@@ -59,6 +59,7 @@ class SummaryCriteria implements CriteriaInterface
 
     public function setType($type)
     {
-        $this->type = $type;
+        $this->type = [];
+        $this->type = array_merge($this->type,$type);
     }
 }

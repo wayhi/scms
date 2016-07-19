@@ -45,15 +45,7 @@
       var elementChildren = source.children;
       var goods_info={goods:[]};
       var temp;
-     
-      
-        //alert(elementChildren[i].name+elementChildren[i].value);
-        //if((target !="") && (target !="{\"goods\": []}") && (target!="{}")){  
-        //    goods_info = JSON && JSON.parse(target) || $.parseJSON(target);
-        //}else{
-            //goods_info = {goods:[]};
-        //}
-        for (var i = 0; i < elementChildren.length; i+=2) {
+      for (var i = 0; i < elementChildren.length; i+=2) {
           temp = {field_name:elementChildren[i].value,field_value:elementChildren[i+1].value};
           goods_info.goods.push(temp);
         }
@@ -61,9 +53,10 @@
     }  
 
     function goodsInfo_Init(){
+
       var existing_info = document.getElementsByName('goods_info')[0].value;
       var parent=document.getElementById('related_inputs');
-
+      
       if((existing_info !="") && (existing_info !="{\"goods\": []}") && (existing_info!="{}")){ 
 
             goods_info = JSON && JSON.parse(existing_info) || $.parseJSON(existing_info);
@@ -201,8 +194,37 @@
         });
       });
 
+      //receiviables summary page(receivables.summary)
+      $("#ar_chk_all").click(function(){
+        if($(this).prop("checked") == true){ //check all
+         $("input[name='ar_chk[]']").each(function(){
+          $(this).prop("checked",true);
+          $("#amount_sum").val(document.getElementsByName('total_amount')[0].value);
+         });
+        }else{
+         $("input[name='ar_chk[]']").each(function(){
+          $(this).prop("checked",false);
+          $("#amount_sum").val(0);
+         });
+        }
+       });
+
+      $("input[name='ar_chk[]']").click(function(){
+
+        var ttl_amount = 0.00;
+        var arrChk=$("input[name='ar_chk[]']:checkbox");
+        $(arrChk).each(function(){
+              if (true == $(this).prop("checked")){
+                ttl_amount += parseFloat(document.getElementsByName(this.value)[0].value);  
+             }
+                                 
+            }); 
+        $("#amount_sum").val(Math.round(ttl_amount*100,2)/100);
+        
+        });
 
      }); 
+    
 
     
     
@@ -258,18 +280,38 @@
           ranges: {
             '今天': [moment(), moment()],
             '昨日': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            '过去1周': [moment().subtract(6, 'days'), moment()],
-            '过去30天': [moment().subtract(29, 'days'), moment()],
+            '将来3天': [moment(),moment().add(2, 'days')],
+            '过去10天': [moment().subtract(9, 'days'), moment()],
             '本月': [moment().startOf('month'), moment().endOf('month')],
             '上月': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
           },
-          startDate: moment().subtract(29, 'days'),
-          endDate: moment()
+          startDate: moment().startOf('month'),
+          endDate: moment().endOf('month')
         },
         function (start, end) {
           $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
           $('#start_date').val(start.format('YYYY-MM-DD'));
           $('#end_date').val(end.format('YYYY-MM-DD'));
+        }
+    );
+
+    $('#daterange-btn2').daterangepicker(
+        {
+          ranges: {
+            '今天': [moment(), moment()],
+            '昨日': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            '将来3天': [moment(),moment().add(2, 'days')],
+            '过去10天': [moment().subtract(9, 'days'), moment()],
+            '本月': [moment().startOf('month'), moment().endOf('month')],
+            '上月': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          startDate: moment().startOf('month'),
+          endDate: moment().endOf('month')
+        },
+        function (start, end) {
+          $('#daterange-btn2 span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+          $('#start_date_2').val(start.format('YYYY-MM-DD'));
+          $('#end_date_2').val(end.format('YYYY-MM-DD'));
         }
     );
 

@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 use App\Models\order;
+use Entrust;
 
 class UpdateorderRequest extends Request
 {
@@ -15,7 +16,11 @@ class UpdateorderRequest extends Request
      */
     public function authorize()
     {
-        return true;
+        if(Entrust::can(['order_editor','admin','owner'])){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**

@@ -72,21 +72,21 @@
             <tr>
               <td>{!!$order->goods->goods_name!!}</td>
               <td>1</td>
-              <td>借款本息合计金额</td>
+              <td>保费垫付款合计</td>
               <td>{!!$order->repay_target_formatted!!}</td>
               <td>分期支付</td>
             </tr>
             <tr>
               <td>服务费</td>
               <td>1</td>
-              <td>本次借贷的服务费用</td>
+              <td>本次服务费用</td>
               <td>{!!$order->handling_fees_formatted!!}</td>
               <td>@if($order->process_status>1 && $order->handling_fees>0)已支付@endif</td>
             </tr>
             <tr>
-              <td>预收费用</td>
+              <td>首期费用</td>
               <td>1</td>
-              <td>预收费用，在借款本息中抵扣</td>
+              <td>首期付款(在垫付款中抵扣)</td>
               <td>{!!$order->downpayment_amount_formatted!!}</td>
               <td>@if($order->process_status>1 && $order->downpayment_amount>0)已支付@endif</td>
             </tr>
@@ -120,11 +120,11 @@
           <div class="table-responsive">
             <table class="table">
               <tr>
-                <th style="width:50%">借贷本金:</th>
+                <th style="width:50%">垫付款总计:</th>
                 <td>{!!$order->apply_amount_formatted!!}</td>
               </tr>
               <tr>
-                <th>已归还/预收费用:</th>
+                <th>首期费用:</th>
                 <td>{!!$order->downpayment_amount_formatted!!}</td>
               </tr>
               <tr>

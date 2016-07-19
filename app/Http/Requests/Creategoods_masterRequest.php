@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 use App\Models\goods_master;
+use Entrust;
 
 class Creategoods_masterRequest extends Request
 {
@@ -15,7 +16,11 @@ class Creategoods_masterRequest extends Request
      */
     public function authorize()
     {
-        return true;
+        if(Entrust::can(['goods_creator','admin','owner'])){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**

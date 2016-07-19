@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 use App\Models\Funds;
+use Entrust;
 
 class UpdateFundsRequest extends Request
 {
@@ -15,7 +16,11 @@ class UpdateFundsRequest extends Request
      */
     public function authorize()
     {
-        return true;
+        if(Entrust::can(['fund_editor','admin','owner'])){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**

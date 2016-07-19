@@ -28,7 +28,7 @@
                   
                 </div>
                 <div class='btn-group'>
-                    <a href="{!! route('payables.index') !!}" class="btn btn-default">Back</a>
+                    <a href="javascript:history.go(-1);" class="btn btn-default">返回</a>
                 </div>
             </div>
         </div>

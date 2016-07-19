@@ -152,7 +152,7 @@
     <div class="bootstrap-timepicker">
       {!! Form::label('trade_time_end', '有效交易时间终:') !!}
       <div class="input-group">
-        {!! Form::text('trade_time_end',null, ['class' => 'form-control timepicker']) !!}
+        <p>{!! Form::text('trade_time_end',null, ['class' => 'form-control timepicker']) !!}</p>
         <div class="input-group-addon">
           <i class="fa fa-clock-o"></i>
         </div>
@@ -160,23 +160,21 @@
     </div>
 </div>
 
-<!-- Blocked On Creation Field -->
+<!-- Related Role Field -->
 <div class="form-group col-sm-4">
-    {!! Form::label('blocked_on_creation', '是否冻结首期款:') !!}<br>
-    <label class="radio-inline">
-        {!! Form::radio('blocked_on_creation','1', null) !!} 是
-    </label>
-    <label class="radio-inline">
-        {!! Form::radio('blocked_on_creation','0', null) !!} 否
-    </label><br><br>
+    {!! Form::label('role_id', '关联用户角色:') !!}
+    
+    {!! Form::select('role_id',$roles, null, ['class' => 'form-control']) !!}
+    
+    
 </div>
 
 <div class="form-group col-sm-4">
   {!!Form::label('supporting_ids', '所需审核材料：')!!} 
   @if(isset($action)&&$action=='edit')
-   {!!Form::select('supporting_ids[]',$supportings,$supportings_selected_ids,["class"=>"form-control select2","multiple"=>"multiple","data-placeholder"=>"选择所需审核材料","style"=>"width: 100%;"])!!}
+   <p>{!!Form::select('supporting_ids[]',$supportings,$supportings_selected_ids,["class"=>"form-control select2","multiple"=>"multiple","data-placeholder"=>"选择所需审核材料","style"=>"width: 100%;"])!!}</p>
   @else
-      {!!Form::select('supporting_ids[]',$supportings,null,["class"=>"form-control select2","multiple"=>"multiple","data-placeholder"=>"选择所需审核材料","style"=>"width: 100%;"])!!}
+      <p>{!!Form::select('supporting_ids[]',$supportings,null,["class"=>"form-control select2","multiple"=>"multiple","data-placeholder"=>"选择所需审核材料","style"=>"width: 100%;"])!!}</p>
 
   @endif
     
@@ -189,6 +187,17 @@
     </label>
     <label class="radio-inline">
         {!! Form::radio('refund_available','0', null) !!} 否
+    </label><br><br>
+</div>
+
+<!-- Blocked On Creation Field -->
+<div class="form-group col-sm-4">
+    {!! Form::label('blocked_on_creation', '是否冻结首期款:') !!}<br>
+    <label class="radio-inline">
+       {!! Form::radio('blocked_on_creation','1', null) !!} 是
+    </label>
+    <label class="radio-inline">
+        {!! Form::radio('blocked_on_creation','0', null) !!} 否
     </label><br><br>
 </div>
 <!-- Activated Field -->

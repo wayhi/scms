@@ -21,7 +21,8 @@
         "infyomlabs/swagger-generator": "dev-master",
         "jlapp/swaggervel": "dev-master",
         "simplesoftwareio/simple-qrcode": "~1",
-        "spatie/laravel-activitylog": "^1.2"
+        "spatie/laravel-activitylog": "^1.2",
+        "barryvdh/laravel-ide-helper": "^2.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

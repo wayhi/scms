@@ -10,6 +10,7 @@ use App\Models\Relations\BelongsToFundProductTrait;
 use App\Models\Relations\BelongsToGoodsMasterTrait;
 use McCool\LaravelAutoPresenter\HasPresenter;
 use App\Presenters\ReceivablePresenter;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * @SWG\Definition(
@@ -49,12 +50,14 @@ use App\Presenters\ReceivablePresenter;
  */
 class receivable extends Model implements HasPresenter
 {
-    use SoftDeletes,BelongsToOrderTrait, BelongsToShopTrait,BelongsToGoodsMasterTrait,BelongsToFundProductTrait;
+    use SoftDeletes,BelongsToOrderTrait, BelongsToShopTrait,BelongsToGoodsMasterTrait,BelongsToFundProductTrait,LogsActivity;
 
     public $table = 'receivables';
     
 
     protected $dates = ['deleted_at'];
+
+    protected static $logAttributes = ['amount_actual','pd_actual','status'];
 
 
     public $fillable = [

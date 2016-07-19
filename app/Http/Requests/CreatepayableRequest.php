@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 use App\Models\payable;
+use Entrust;
 
 class CreatepayableRequest extends Request
 {
@@ -15,7 +16,11 @@ class CreatepayableRequest extends Request
      */
     public function authorize()
     {
-        return true;
+        if(Entrust::can(['payable_creator','admin','owner'])){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**

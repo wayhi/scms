@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('htmlheader_title')
-    应收账款
+    应付账款
 @endsection
 
 @section('contentheader_title')
-    应收账款汇总
+    应付账款汇总
 @endsection
 
 @section('contentheader_description')
-    应收汇总
+    应付汇总
 @endsection
 @section('main-content')
 
@@ -16,13 +16,13 @@
 
      <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-              <li @if($active_pane==1)class="active"@endif><a href="#tab_1" data-toggle="tab">贷前应收汇总</a></li>
-              <li @if($active_pane==2)class="active"@endif><a href="#tab_2" data-toggle="tab">用户应还汇总</a></li>
+              <li @if($active_pane==1)class="active"@endif><a href="#tab_1" data-toggle="tab">应付商家汇总</a></li>
+              <li @if($active_pane==2)class="active"@endif><a href="#tab_2" data-toggle="tab">应付资金方汇总</a></li>
             </ul>
             <div class="tab-content">
              
               <div @if($active_pane==1) class="tab-pane active" @else class="tab-pane" @endif id="tab_1">
-              {!! Form::open(['route' => 'receivables.summary_results']) !!}
+              {!! Form::open(['route' => 'payables.summary_results']) !!}
               {!!Form::hidden('start_date','',['id'=>'start_date'])!!}
               {!!Form::hidden('end_date','',['id'=>'end_date'])!!}
                <div class="row" style="padding-left: 10px">
@@ -45,7 +45,7 @@
                       </div>
                       <div class="form-group col-sm-2">
                         <br>
-                        {!! Form::submit('贷前应收汇总', ['class' => 'btn btn-primary ','name'=>'action']) !!}
+                        {!! Form::submit('应付商家汇总', ['class' => 'btn btn-primary ','name'=>'action']) !!}
 
                       </div>
                </div>
@@ -55,7 +55,7 @@
              
              
               <div @if($active_pane==2) class="tab-pane active" @else class="tab-pane" @endif id="tab_2">
-              {!! Form::open(['route' => 'receivables.summary_results']) !!}
+              {!! Form::open(['route' => 'payables.summary_results']) !!}
               {!!Form::hidden('start_date_2','',['id'=>'start_date_2'])!!}
               {!!Form::hidden('end_date_2','',['id'=>'end_date_2'])!!}
               
@@ -79,21 +79,21 @@
                   </div>
                       <div class="form-group col-sm-2">
                         <br>
-                        {!! Form::submit('用户应还汇总', ['class' => 'btn btn-primary ','name'=>'action']) !!}
+                        {!! Form::submit('应付资金方汇总', ['class' => 'btn btn-primary ','name'=>'action']) !!}
 
                       </div>    
                 </div> 
                 {!! Form::close() !!}      
               </div>
-              {!! Form::open(['route' => 'receivables.summary_results']) !!}
-               <table class="table table-responsive" id="receivables-summary">
+              {!! Form::open(['route' => 'payables.summary_results']) !!}
+               <table class="table table-responsive" id="payables-summary">
 
                     <thead>
                         <th><input type='checkbox' id='ar_chk_all' checked></th>
                         <th>订单号</th>
                         <th>易分期产品</th>
                         <th>类型</th>
-                        <th>商户平台</th>
+                        <th>付款对象</th>
                         <th>计划金额</th>
                         <th>计划日期</th>
                         <th>状态</th>
@@ -107,7 +107,7 @@
                             <td>{{$result->order->order_number}}</td>
                             <td>{{$result->goods->goods_name}}</td>
                             <td>{{$result->type_text}}
-                            <td>{{$result->shop->merchant->merchant_name}}</td>
+                            <td>{{$result->shop->account_name}}</td>
                             <td>{{$result->amount_scheduled }}
                             <input type="hidden" name="{{$result->id}}" id="{{$result->id}}" value="{{$result->amount_scheduled}}">
                             </td>
@@ -122,7 +122,7 @@
                 {{Form::text('amount_sum',$amount_sum,['disabled','id'=>'amount_sum'])}}
                 {{Form::hidden('total_amount',$amount_sum)}}
                 @endif
-                {!! Form::submit('收讫', ['class' => 'btn btn-success btn-sm ','name'=>'action']) !!}
+                {!! Form::submit('已支付', ['class' => 'btn btn-success btn-sm ','name'=>'action']) !!}
                 {!! Form::close() !!}
               <!-- /.tab-pane -->
             </div>

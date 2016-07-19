@@ -53,7 +53,7 @@
                   <div class='col-sm-6'>
                     <select name="permissions[]" class="form-control select2" multiple="multiple" data-placeholder="选择权限" style="width: 100%;">
                       @foreach($perms as $perm)
-                        <option value="{{$perm->id}}" @if(in_array($perm->id,$perms_selected_ids)) selected @endif > {{$perm->name}}</option>
+                        <option value="{{$perm->id}}" @if(in_array($perm->id,$perms_selected_ids)) selected @endif > {{$perm->display_name}}</option>
                       @endforeach
                     </select>
                   </div>

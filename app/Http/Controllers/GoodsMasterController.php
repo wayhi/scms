@@ -9,6 +9,7 @@ use App\Repositories\goods_masterRepository;
 use App\Repositories\FundProductRepository;
 use App\Repositories\MerchantsRepository;
 use App\Repositories\SupportingRepository;
+use App\Facades\RoleRepository;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
@@ -56,7 +57,8 @@ class GoodsMasterController extends AppBaseController
         $merchants = $this->MerchantsRepository->lists('merchant_name','id');
         $fundproducts = $this->FundProductRepository->lists('product_name','id');
         $supportings = $this->SupportingRepository->lists('title','id');
-        return view('goodsMasters.create')->with(['merchants'=>$merchants,'fundproducts'=>$fundproducts,'supportings'=>$supportings]);
+        $roles = RoleRepository::lists('display_name','id');
+        return view('goodsMasters.create')->with(['merchants'=>$merchants,'fundproducts'=>$fundproducts,'supportings'=>$supportings,'roles'=>$roles]);
     }
 
     /**
@@ -99,7 +101,7 @@ class GoodsMasterController extends AppBaseController
      */
     public function show($id)
     {
-        $goodsMaster = $this->goodsMasterRepository->with(['supportings'])->findWithoutFail($id);
+        $goodsMaster = $this->goodsMasterRepository->with(['supportings','role'])->findWithoutFail($id);
 
         if (empty($goodsMaster)) {
             Flash::error('goods_master not found');
@@ -123,7 +125,6 @@ class GoodsMasterController extends AppBaseController
 
         if (empty($goodsMaster)) {
             Flash::error('goods_master not found');
-
             return redirect(route('goodsMasters.index'));
         }
         $merchants = $this->MerchantsRepository->lists('merchant_name','id');
@@ -131,7 +132,8 @@ class GoodsMasterController extends AppBaseController
         $supportings = $this->SupportingRepository->lists('title','id');
         $supportings_selected = $goodsMaster->supportings()->select('id')->get()->toArray();
         $supportings_selected_ids = array_column($supportings_selected,'id');
-        return view('goodsMasters.edit')->with(['goodsMaster'=>$goodsMaster,'merchants'=>$merchants,'fundproducts'=>$fundproducts,'supportings'=>$supportings,'supportings_selected_ids'=>$supportings_selected_ids,'action'=>'edit']);
+        $roles = RoleRepository::lists('display_name','id');
+        return view('goodsMasters.edit')->with(['goodsMaster'=>$goodsMaster,'merchants'=>$merchants,'fundproducts'=>$fundproducts,'supportings'=>$supportings,'supportings_selected_ids'=>$supportings_selected_ids,'action'=>'edit','roles'=>$roles]);
     }
 
     /**
@@ -167,10 +169,7 @@ class GoodsMasterController extends AppBaseController
 
         }
 
-        
-
         Flash::success('goods_master updated successfully.');
-
         return redirect(route('goodsMasters.index'));
     }
 

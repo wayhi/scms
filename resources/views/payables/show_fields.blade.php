@@ -7,11 +7,24 @@
 
 <!-- Type Field -->
 <div class="form-group col-sm-4">
-    {!! Form::label('type', '付款对象:') !!}
+    
     @if($payable->type==1)
+    {!! Form::label('type', '关联商家:') !!}
     <p><a target="_blank" href="{{route('shops.show',$payable->shop_id)}}"> {!! $payable->shop->shop_name !!}</a></p>
     @elseif($payable->type==2)
+    {!! Form::label('type', '关联资金:') !!}
     <p><a target="_blank" href="{{route('fundproducts.show',$payable->fund_product_id)}}">{!! $payable->fundproduct->product_name !!}</a></p>
+    @endif
+</div>
+
+<div class="form-group col-sm-4">
+    
+    @if($payable->type==1)
+    {!! Form::label('type', '付款对象:') !!}
+    <p>{!! $payable->shop->account_name !!}</p>
+    @elseif($payable->type==2)
+    {!! Form::label('type', '付款对象:') !!}
+    <p>{!! $payable->fundproduct->clearing_acct_name !!}</p>
     @endif
 </div>
 

@@ -80,20 +80,20 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::resource('shops', 'ShopsController');
     Route::resource('goodsMasters', 'GoodsMasterController');
     Route::resource('orders', 'orderController');
-    
+    /*
     Route::get('orders_in_approval',['as'=>'oia','uses'=>'orderController@getInApproval']);
     Route::get('orders_in_funding',['as'=>'oif','uses'=>'orderController@getInFunding']);
     Route::get('orders_in_repaying',['as'=>'oir','uses'=>'orderController@getInRepaying']);
     Route::get('orders_completed',['as'=>'oc','uses'=>'orderController@getCompleted']);
     Route::get('orders_overdue',['as'=>'ood','uses'=>'orderController@getOverdue']);
     //Route::put('order_approve',['as'=>'orderapprove','uses'=>'orderController@approve']);
-    Route::resource('payables', 'payableController');
+    */
     Route::get('receivables/summary',['as'=>'receivables.summary','uses'=>'receivableController@summary']);
     Route::post('receivables/summary_results',['as'=>'receivables.summary_results','uses'=>'receivableController@summary_results']);
-    Route::get('receivables/installment',['as'=>'receivables.installment',function(){
-        return view('receivables.installment');
-    }]);
     Route::resource('receivables', 'receivableController');
+    Route::get('payables/summary',['as'=>'payables.summary','uses'=>'payableController@summary']);
+    Route::post('payables/summary_results',['as'=>'payables.summary_results','uses'=>'payableController@summary_results']);
+    Route::resource('payables', 'payableController');
 });
 
 

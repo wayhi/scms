@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 use App\Models\payable;
+use Entrust;
 
 class UpdatepayableRequest extends Request
 {
@@ -15,7 +16,11 @@ class UpdatepayableRequest extends Request
      */
     public function authorize()
     {
-        return true;
+        if(Entrust::can(['payable_editor','admin','owner'])){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**

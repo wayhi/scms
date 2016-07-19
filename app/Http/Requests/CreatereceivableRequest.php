@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 use App\Models\receivable;
+use Entrust;
 
 class CreatereceivableRequest extends Request
 {
@@ -15,7 +16,11 @@ class CreatereceivableRequest extends Request
      */
     public function authorize()
     {
-        return true;
+        if(Entrust::can(['receivable_creator','admin','owner'])){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**

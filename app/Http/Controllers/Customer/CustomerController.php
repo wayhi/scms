@@ -11,6 +11,7 @@ use App\Facades\BankCardRepository;
 use Illuminate\Support\Facades\Redirect;
 use Flash,Session,DB;
 use App\Models\Tag;
+use Entrust;
 
 class CustomerController extends Controller
 {
@@ -28,6 +29,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
+        if(!Entrust::can(['customer_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $customers = CustomerRepository::paginate();
         $links = CustomerRepository::links();
         return View::make('customers.index',['customers'=> $customers,'links'=>$links]);
@@ -40,6 +44,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
+        
         $tags = Tag::all();
         return View::make('customers.create',['tags'=>$tags]);
     }
@@ -52,6 +57,9 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+        if(!Entrust::can(['customer_creator','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $input = $request->only(['name','mobile_phone','id_number','gender','wechat_account']);
         if($request->has('tag_ids')){
             $tmp_tags = $request->get('tag_ids');
@@ -90,6 +98,9 @@ class CustomerController extends Controller
 
     public function show($id)
     {
+        if(!Entrust::can(['customer_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $customer = CustomerRepository::find($id);
         if($customer){
             $customer->load('tags','bankcards');
@@ -115,7 +126,9 @@ class CustomerController extends Controller
     public function edit($id,$bankcard = null)
     {
         //return $bankcard;
-        
+        if(!Entrust::can(['customer_editor','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $customer = CustomerRepository::find($id);
         $customer->load('bankcards');
         $tags = Tag::all();
@@ -134,6 +147,9 @@ class CustomerController extends Controller
     public function update(Request $request, $id)
     {
         
+        if(!Entrust::can(['customer_editor','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $input = $request->only(['name','mobile_phone','wechat_account','activated']);
         $val = CustomerRepository::validate($input, array_keys($input));
         if ($val->fails()) {
@@ -191,6 +207,9 @@ class CustomerController extends Controller
 
     public function bankcard_store(Request $request)
     {
+        if(!Entrust::can(['customer_creator','customer_editor','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $input = $request->only(['customer_id','bin','code','cvn2','vaild_period','contact_phone','memo']);
         
         
@@ -210,6 +229,9 @@ class CustomerController extends Controller
 
     public function search(Request $request,$search_term='')
     {
+        if(!Entrust::can(['customer_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
         
         if($search_term==''){
             $search_term = $request->table_search;

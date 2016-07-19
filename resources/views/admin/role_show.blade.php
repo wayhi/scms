@@ -50,7 +50,7 @@
                  {!!Form::label('permission', '权限：',['class' => 'col-sm-2 control-label']);!!} 
                  
                     @foreach($pems as $pem)
-                     {{$pem->name}};
+                     {{$pem->display_name}};
                     @endforeach
                   
                 </div>

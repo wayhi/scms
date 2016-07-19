@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 use App\Models\merchants;
+use Entrust;
 
 class UpdatemerchantsRequest extends Request
 {
@@ -15,7 +16,11 @@ class UpdatemerchantsRequest extends Request
      */
     public function authorize()
     {
-        return true;
+        if(Entrust::can(['merchant_editor','admin','owner'])){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**

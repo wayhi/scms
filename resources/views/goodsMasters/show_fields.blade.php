@@ -142,9 +142,19 @@
 
 <div class="form-group col-sm-4">
     {!! Form::label('supportings', '所需审核材料:') !!}
+    <p>
     @foreach($goodsMaster->supportings as $supporting)
-        <span class="badge bg-light-blue">{{$supporting->title}}</span>
+       <span class="badge bg-light-blue">{{$supporting->title}}</span>
     @endforeach
+    </p>
+</div>
+
+<div class="form-group col-sm-4">
+    {!! Form::label('role_id', '关联用户角色:') !!}
+    
+   <p> {{$goodsMaster->role->display_name}}</p>
+    
+    
 </div>
             
 

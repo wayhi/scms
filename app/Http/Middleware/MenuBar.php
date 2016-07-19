@@ -24,11 +24,11 @@ class MenuBar
       $orders = $menu->add('订单管理',['class'=>'treeview']);
       $orders->prepend("<i class='fa fa-list'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");
       $orders->add('所有订单','orders')->prepend("<i class='fa fa-circle-o'></i>");
-      $orders->add('待审核','orders_in_approval')->prepend("<i class='fa fa-circle-o'></i>");
-      $orders->add('放款中','orders_in_funding')->prepend("<i class='fa fa-circle-o'></i>");
-      $orders->add('还款中','orders_in_repaying')->prepend("<i class='fa fa-circle-o'></i>");
-      $orders->add('已完成','orders_completed')->prepend("<i class='fa fa-circle-o'></i>");
-      $orders->add('还款逾期','orders_overdue')->prepend("<i class='fa fa-circle-o'></i>");
+      $orders->add('待审核','orders?search=1&searchFields=process_status&orderBy=created_at&sortedBy=desc')->prepend("<i class='fa fa-circle-o'></i>");
+      $orders->add('放款中','orders?search=2&searchFields=process_status&orderBy=created_at&sortedBy=desc')->prepend("<i class='fa fa-circle-o'></i>");
+      $orders->add('还款中','orders?search=4&searchFields=process_status&orderBy=created_at&sortedBy=desc')->prepend("<i class='fa fa-circle-o'></i>");
+      $orders->add('已完成','orders?search=6&searchFields=process_status&orderBy=created_at&sortedBy=desc')->prepend("<i class='fa fa-circle-o'></i>");
+      $orders->add('还款逾期','orders?search=fund_status:6&orderBy=created_at&sortedBy=desc')->prepend("<i class='fa fa-circle-o'></i>");
 
   	$funds = $menu->add('资金管理', ['class'=>'treeview']);
       $funds->prepend("<i class='fa fa-credit-card'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");
@@ -39,7 +39,9 @@ class MenuBar
       $ar->add('预缴款','receivables?search=4&searchFields=type&orderBy=pd_scheduled&sortedBy=asc')->prepend("<i class='fa fa-circle-o'></i>");
 
       $ap = $funds->add('应付','payables')->prepend("<i class='fa fa-share'></i>");
-
+      $ap->add('应付汇总','payables/summary')->prepend("<i class='fa fa-circle-o'></i>");
+      $ap->add('应付商家','payables?search=1&searchFields=type&orderBy=pd_scheduled&sortedBy=asc')->prepend("<i class='fa fa-circle-o'></i>");
+      $ap->add('应付资金方','payables?search=2&searchFields=type&orderBy=pd_scheduled&sortedBy=asc')->prepend("<i class='fa fa-circle-o'></i>");
       $customers = $menu->add('客户管理', ['class'=>'treeview']);
       $customers->prepend("<i class='fa fa-group'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");
       $customers->add('新建客户','customers/create')->prepend("<i class='fa fa-circle-o'></i>");

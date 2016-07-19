@@ -51,7 +51,7 @@
               
               <!-- /.tab-pane -->
               <div class="tab-pane" id="tab_3">
-               
+               @include('orders.show_downpayments')
               </div>
               <!-- /.tab-pane -->
                <div class="tab-pane" id="tab_4">

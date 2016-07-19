@@ -5,7 +5,7 @@
 
 <!-- Type Field -->
 <div class="form-group col-sm-4">
-    {!! Form::label('type', '付款对象:') !!}
+    {!! Form::label('type', '关联商家:') !!}
     @if($payable->type==1)
     <p>{!! $payable->shop->shop_name !!}</p>
     @elseif($payable->type==2)
@@ -19,7 +19,7 @@
     @if($payable->type==2)
     <p>{!! $payable->serial_no !!}/{!! $payable->fundproduct->repay_times !!}</p>
     @else
-    N/A
+    <p>N/A</p>
     @endif
     
 </div>

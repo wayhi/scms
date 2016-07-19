@@ -5,17 +5,21 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Requests\CreateorderRequest;
 use App\Http\Requests\UpdateorderRequest;
+use App\Http\Requests\VieworderRequest;
 use App\Repositories\OrderRepository;
 use App\Repositories\goods_masterRepository;
 use App\Repositories\CustomerRepo;
 use App\Repositories\PayableRepository;
 use App\Repositories\ReceivableRepository;
+use App\Criteria\GoodsCriteria;
+use App\Criteria\OrdersByShopCriteria;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use Carbon\Carbon;
 use Auth;
+use Entrust;
 
 class orderController extends AppBaseController
 {
@@ -47,28 +51,45 @@ class orderController extends AppBaseController
     public function index(Request $request)
     {
         
-            $this->orderRepository->pushCriteria(new RequestCriteria($request));
-            $orders = $this->orderRepository->with(['customer','goods'])->scopeQuery(function($query){
-                return $query->orderBy('updated_at','desc');
-            })->paginate(10);
-            $links = $orders->links();
-            return view('orders.index')->with(['orders'=>$orders,'links'=>$links,'viewname'=>'所有订单']);
+        if(!Entrust::can(['order_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
+        
+        
+        $orderByShopCriteria = new OrdersByShopCriteria();
+        $this->orderRepository->pushCriteria($orderByShopCriteria);
+        $this->orderRepository->pushCriteria(new RequestCriteria($request));
+        $orders = $this->orderRepository->with(['customer','goods'])->scopeQuery(function($query){
+            return $query->orderBy('updated_at','desc');
+        })->paginate(10);
+        $links = $orders->links();
+        return view('orders.index')->with(['orders'=>$orders,'links'=>$links,'viewname'=>'所有订单']);   
         
     }
 
     public function getInApproval(Request $request)
     {
-        
+              
+        if(!Entrust::can(['order_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
+
         $orders = $this->orderRepository->with(['customer','goods'])->scopeQuery(function($query){
             return $query->where('process_status','1')->orderBy('updated_at','desc');
         })->paginate(10);
         $links = $orders->links();
         return view('orders.index')->with(['orders'=>$orders,'links'=>$links,'viewname'=>'待审核']);
 
+            
+
     }
 
     public function getInFunding(Request $request)
     {
+        
+        if(!Entrust::can(['order_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
         
         $orders = $this->orderRepository->with(['customer','goods'])->scopeQuery(function($query){
             return $query->where('process_status','2')->orderBy('updated_at','desc');
@@ -76,29 +97,43 @@ class orderController extends AppBaseController
         $links = $orders->links();
         return view('orders.index')->with(['orders'=>$orders,'links'=>$links,'viewname'=>'放款中']);
 
+
     }
 
     public function getInRepaying(Request $request)
     {
+        
+        if(!Entrust::can(['order_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
+
         $orders = $this->orderRepository->with(['customer','goods'])->scopeQuery(function($query){
             return $query->where('process_status','4')->orderby('updated_at','desc');
         })->paginate(10);
         $links = $orders->links();
         return view('orders.index')->with(['orders'=>$orders,'links'=>$links,'viewname'=>'还款中']);
-
+        
     }
 
     public function getCompleted(Request $request)
     {
-       $orders = $this->orderRepository->with(['customer','goods'])->scopeQuery(function($query){
+        if(!Entrust::can(['order_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
+
+        $orders = $this->orderRepository->with(['customer','goods'])->scopeQuery(function($query){
             return $query->where('process_status','6')->orderBy('updated_at','desc');
         })->paginate(10);
         $links = $orders->links();
         return view('orders.index')->with(['orders'=>$orders,'links'=>$links,'viewname'=>'已完成']);
+       
     }
 
     public function getOverdue(Request $request)
     {
+        if(!Entrust::can(['order_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
         
         $orders = $this->orderRepository->with(['customer','goods'])->scopeQuery(function($query){
             return $query->where(['process_status'=>3,'fund_status'=>5])->orderBy('updated_at','desc'); //
@@ -115,6 +150,12 @@ class orderController extends AppBaseController
      */
     public function create()
     {
+        
+        $user_role_ids = Auth::user()->roles()->lists('id');
+        //return $user_role_ids;
+        $goodsCriteria = new GoodsCriteria();
+        $goodsCriteria->setRoleIDs($user_role_ids);
+        $this->goods_masterRepo->pushCriteria($goodsCriteria);
         $goodslist = $this->goods_masterRepo->lists('goods_name','id')->toArray();
         //$goods_spec = $this->goods_masterRepo->lists('goods_spec')->toJson();
         //return $goods_spec;
@@ -130,22 +171,24 @@ class orderController extends AppBaseController
      */
     public function store(CreateorderRequest $request)
     {
-        $input = array_merge($request->all(),['modified_by'=>Auth::user()->email,'ip_address'=>$request->ip()]);
-        
-        $goods = $this->goods_masterRepo->findWithoutFail($input['goods_id']);
+        //$input = array_merge($request->all(),['modified_by'=>Auth::user()->email,'ip_address'=>$request->ip()]);
+        $request->merge(['modified_by'=>Auth::user()->email,'ip_address'=>$request->ip()]);
+        $goods = $this->goods_masterRepo->findWithoutFail($request->goods_id);
         if(empty($goods)){
-            $new_creation = array_merge($input,['order_number'=>self::getOrderNumber(0),'process_status'=>1,'fund_status'=>1]);
+            //$new_creation = array_merge($input,['order_number'=>self::getOrderNumber(0),'process_status'=>1,'fund_status'=>1]);
+            $request->merge(['order_number'=>self::getOrderNumber(0),'process_status'=>1,'fund_status'=>1]);
         }else{
-            $new_creation = array_merge($input,['order_number'=>self::getOrderNumber($goods->type),'process_status'=>1,'fund_status'=>1]);
-            if($goods->order_limit!=0 && ($input['apply_amount']>$goods->order_limit)){
+            //$new_creation = array_merge($input,['order_number'=>self::getOrderNumber($goods->type),'process_status'=>1,'fund_status'=>1]);
+            $request->merge(['order_number'=>self::getOrderNumber($goods->merchant->merchant_code),'process_status'=>1,'fund_status'=>1]);
+            if($goods->order_limit!=0 && ($request->apply_amount>$goods->order_limit)){
                 Flash::error('订单超限额！');
-
                 return redirect(route('orders.index'));
             }
         }
     
 
-        $order = $this->orderRepository->create($new_creation);
+        //$order = $this->orderRepository->create($new_creation);
+        $order = $this->orderRepository->create($request->all());
 
         Flash::success('order saved successfully.');
 
@@ -161,37 +204,45 @@ class orderController extends AppBaseController
      */
     public function show($id)
     {
-        $order = $this->orderRepository->with(['customer','goods','shop','bankcard','receivables','payables'])->findWithoutFail($id);
+        if(Entrust::can(['order_viewer','admin','owner'])){
+            $order = $this->orderRepository->with(['customer','goods','shop','bankcard','receivables','payables'])->findWithoutFail($id);
 
-        if (empty($order)) {
-            Flash::error('order not found');
+            if (empty($order)) {
+                Flash::error('order not found');
+                return redirect(route('orders.index'));
+            }
+            $times = $order->goods->repay_times; //还款次数
+            $downpayment = $order->downpayment_amount;
+            $adjustment = $order->adjustment_amount;
+            $repay_target =$order->repay_target;
+            $repay_amount = round(($repay_target-$downpayment+$adjustment)/$times,2);
+            return view('orders.show')->with(compact('order','repay_amount'));
+        }else{
 
-            return redirect(route('orders.index'));
-        }
-        $times = $order->goods->repay_times; //还款次数
-        $downpayment = $order->downpayment_amount;
-        $adjustment = $order->adjustment_amount;
-        $repay_target =$order->repay_target;
-        $repay_amount = round(($repay_target-$downpayment+$adjustment)/$times,2);
-
-        return view('orders.show')->with(compact('order','repay_amount'));
+            return response()->view('errors.403');
+        }    
     }
 
     public function print($id)
     {
         
-        $order = $this->orderRepository->with(['customer','goods','shop','bankcard','receivables','payables'])->findWithoutFail($id);
+        if(Entrust::can(['order_viewer','admin','owner'])){
+            $order = $this->orderRepository->with(['customer','goods','shop','bankcard','receivables','payables'])->findWithoutFail($id);
 
-        if (empty($order)) {
-            Flash::error('order not found');
-            return redirect(route('orders.index'));
-        }
-        $times = $order->goods->repay_times; //还款次数
-        $downpayment = $order->downpayment_amount;
-        $adjustment = $order->adjustment_amount;
-        $repay_target = $order->repay_target;
-        $repay_amount = round(($repay_target-$downpayment+$adjustment)/$times,2);
-        return view('orders.summary_print')->with(compact('order','repay_amount'));
+            if (empty($order)) {
+                Flash::error('order not found');
+                return redirect(route('orders.index'));
+            }
+            $times = $order->goods->repay_times; //还款次数
+            $downpayment = $order->downpayment_amount;
+            $adjustment = $order->adjustment_amount;
+            $repay_target = $order->repay_target;
+            $repay_amount = round(($repay_target-$downpayment+$adjustment)/$times,2);
+            return view('orders.summary_print')->with(compact('order','repay_amount'));
+        }else{
+            return response()->view('errors.403');
+
+        }    
 
 
     }
@@ -316,19 +367,24 @@ class orderController extends AppBaseController
      */
     public function destroy($id)
     {
-        $order = $this->orderRepository->findWithoutFail($id);
+        
+        if(Entrust::can(['owner'])){
+            $order = $this->orderRepository->findWithoutFail($id);
 
-        if (empty($order)) {
-            Flash::error('order not found');
+            if (empty($order)) {
+                Flash::error('order not found');
+
+                return redirect(route('orders.index'));
+            }
+
+            $this->orderRepository->delete($id);
+
+            Flash::success('order deleted successfully.');
 
             return redirect(route('orders.index'));
-        }
-
-        $this->orderRepository->delete($id);
-
-        Flash::success('order deleted successfully.');
-
-        return redirect(route('orders.index'));
+        }else{
+            return response()->view('errors.403');
+        }    
     }
 
     /**
@@ -341,6 +397,10 @@ class orderController extends AppBaseController
     */
     private function createPayables($type,$order,$sn=1)
     {
+        if(!Entrust::can(['payable_creator','admin','owner'])){
+            return response()->view('errors.403');
+        }
+
         $repay_period_setting = $order->goods->fundproduct->repay_period;
         if($type==1){ //对商户付款
             $arr_inputs=array('order_id'=>$order->id,
@@ -424,6 +484,9 @@ class orderController extends AppBaseController
 
     private function createReceivables($type,$order,$sn=1)
     {
+        if(!Entrust::can(['receivable_creator','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $repay_period_setting = $order->goods->fundproduct->repay_period;
         
         if($type==1){ //应收资金方（资金方付款）
@@ -570,17 +633,9 @@ class orderController extends AppBaseController
         return false;
     }
 
-    private function getOrderNumber($order_type=1)
+    private function getOrderNumber($prefix)
     {
-        switch ($order_type) {
-            case 1: //car insurance
-                $prefix = 'CI';
-                break;
-            
-            default:
-                $prefix = 'YFQ';
-                break;
-        }
+       
 
         $code = str_replace("-","",Carbon::now()->toDateString());
 
