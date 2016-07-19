@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Requests\CreatepayableRequest;
 use App\Http\Requests\UpdatepayableRequest;
-use App\Repositories\payableRepository;
+use App\Repositories\PayableRepository;
 use App\Repositories\MerchantsRepository;
 use App\Criteria\SummaryCriteria;
 use Illuminate\Http\Request;

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Requests\CreatereceivableRequest;
 use App\Http\Requests\UpdatereceivableRequest;
-use App\Repositories\receivableRepository;
+use App\Repositories\ReceivableRepository;
 use App\Repositories\MerchantsRepository;
 use App\Criteria\SummaryCriteria;
 use Illuminate\Http\Request;

@@ -80,14 +80,14 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::resource('shops', 'ShopsController');
     Route::resource('goodsMasters', 'GoodsMasterController');
     Route::resource('orders', 'orderController');
-    /*
+    
     Route::get('orders_in_approval',['as'=>'oia','uses'=>'orderController@getInApproval']);
     Route::get('orders_in_funding',['as'=>'oif','uses'=>'orderController@getInFunding']);
     Route::get('orders_in_repaying',['as'=>'oir','uses'=>'orderController@getInRepaying']);
     Route::get('orders_completed',['as'=>'oc','uses'=>'orderController@getCompleted']);
     Route::get('orders_overdue',['as'=>'ood','uses'=>'orderController@getOverdue']);
     //Route::put('order_approve',['as'=>'orderapprove','uses'=>'orderController@approve']);
-    */
+    
     Route::get('receivables/summary',['as'=>'receivables.summary','uses'=>'receivableController@summary']);
     Route::post('receivables/summary_results',['as'=>'receivables.summary_results','uses'=>'receivableController@summary_results']);
     Route::resource('receivables', 'receivableController');

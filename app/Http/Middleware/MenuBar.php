@@ -4,6 +4,7 @@
 namespace App\Http\Middleware;
 
 use Closure,Menu;
+use Entrust;
 
 
 class MenuBar
@@ -63,14 +64,14 @@ class MenuBar
       $reports->prepend("<i class='fa fa-area-chart'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");
       $reports->add('Level 2','#')->prepend("<i class='fa fa-circle-o'></i>");
       $reports->add('Level 2','#')->prepend("<i class='fa fa-circle-o'></i>");
-
-      $admins = $menu->add('系统设置', ['class'=>'treeview'])->active('/admin/*');
-      $admins->prepend("<i class='fa fa-cog'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");
-      $admins->add('角色权限管理','admin/roles')->prepend("<i class='fa fa-circle-o'></i>")->active('/admin/roles');
-      $admins->add('用户管理','#')->prepend("<i class='fa fa-circle-o'></i>");
-
-		});
-
+      if(Entrust::hasRole('admin')){
+            $admins = $menu->add('系统设置', ['class'=>'treeview'])->active('/admin/*');
+            $admins->prepend("<i class='fa fa-cog'></i><span>")->append("</span><i class='fa fa-angle-left pull-right'></i>");
+            $admins->add('角色权限管理','admin/roles')->prepend("<i class='fa fa-circle-o'></i>")->active('/admin/roles');
+            $admins->add('用户管理','#')->prepend("<i class='fa fa-circle-o'></i>");
+      }
+      		});
+      
 		return $next($request);
 
 	}
