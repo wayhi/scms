@@ -460,19 +460,19 @@ class orderController extends AppBaseController
                 );
                 switch ($repay_period_setting) {
                     case 0:
-                        $pd_scheduled = ['pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addMonths($i)];
+                        $pd_scheduled = ['pd_scheduled'=>Carbon::parse($order->effective_date)->addMonths($i)];
                         break;
                     case 1:
-                        $pd_scheduled = ['pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addDays($i*30)];
+                        $pd_scheduled = ['pd_scheduled'=>Carbon::parse($order->effective_date)->addDays($i*30)];
                         break;
                     case 2:
-                        $pd_scheduled = ['pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addMonths($i*3)];
+                        $pd_scheduled = ['pd_scheduled'=>Carbon::parse($order->effective_date)->addMonths($i*3)];
                         break;
                     case 3:
-                        $pd_scheduled = ['pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addMonths($i*6)];
+                        $pd_scheduled = ['pd_scheduled'=>Carbon::parse($order->effective_date)->addMonths($i*6)];
                         break;        
                     default:
-                        $pd_scheduled = ['pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addMonths($i)];
+                        $pd_scheduled = ['pd_scheduled'=>Carbon::parse($order->effective_date)->addMonths($i)];
                         break;
                 }
                 $arr_inputs = array_merge($arr_inputs,$pd_scheduled);
@@ -502,7 +502,7 @@ class orderController extends AppBaseController
             'amount_actual'=>0,
             'adjustment_amount'=>0,
             'serial_no'=>$sn,
-            'pd_scheduled'=>Carbon::now()->addDays(3),
+            'pd_scheduled'=>Carbon::parse($order->effective_date)->addDays(3),
             'pd_actual'=>'',
             'handled_by'=>Auth::user()->email,
             'ip_address'=>$this->req->ip(),
@@ -553,19 +553,19 @@ class orderController extends AppBaseController
                 );
                 switch ($repay_period_setting) {
                     case 0:
-                        $pd_scheduled = ['pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addMonths($i)];
+                        $pd_scheduled = ['pd_scheduled'=>Carbon::parse($order->effective_date)->addMonths($i)];
                         break;
                     case 1:
-                        $pd_scheduled = ['pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addDays($i*30)];
+                        $pd_scheduled = ['pd_scheduled'=>Carbon::parse($order->effective_date)->addDays($i*30)];
                         break;
                     case 2:
-                        $pd_scheduled = ['pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addMonths($i*3)];
+                        $pd_scheduled = ['pd_scheduled'=>Carbon::parse($order->effective_date)->addMonths($i*3)];
                         break;
                     case 3:
-                        $pd_scheduled = ['pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addMonths($i*6)];
+                        $pd_scheduled = ['pd_scheduled'=>Carbon::parse($order->effective_date)->addMonths($i*6)];
                         break;        
                     default:
-                        $pd_scheduled = ['pd_scheduled'=>Carbon::createFromFormat('Y-m-d',$order->effective_date)->addMonths($i)];
+                        $pd_scheduled = ['pd_scheduled'=>Carbon::parse($order->effective_date)->addMonths($i)];
                         break;
                 }
                 $arr_inputs = array_merge($arr_inputs,$pd_scheduled);
