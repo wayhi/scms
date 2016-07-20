@@ -37,19 +37,28 @@ class dashboardController extends AppBaseController
     	if(!Entrust::can(['dashboard_viewer','admin','owner'])){
             return response()->view('errors.403');
         }
-
+        setlocale(LC_MONETARY, 'zh_cn');
         $txs_value_ytd = self::getTXS_Value_YTD();
-        return view('dashboard')->with(['txs_value_ytd'=>$txs_value_ytd]);
+        $txs_value_mtd = self::getTXS_Value_MTD();
+        $txs_volume_mtd = self::getTXS_Volume_MTD();
+        $txs_loans_balance = self::getLoans_Balance();
+
+        return view('dashboard')->with([
+            'txs_value_ytd'=>$txs_value_ytd,
+            'txs_value_mtd'=>$txs_value_mtd, 
+            'txs_volume_mtd'=>$txs_volume_mtd, 
+            'txs_loans_balance'=>$txs_loans_balance
+            ]);
 
     }
 
     private function getTXS_Value_YTD()
     {
 
-    	return $this->orderRepository->findWhere([
+    	return money_format('%i',$this->orderRepository->findWhere([
     		['process_status','>',1],
-    		[DB::raw('year(effective_date)'),'=',2016]
-    		])->sum('apply_amount');
+    		[DB::raw('year(effective_date)'),'=',date('Y')]
+    		])->sum('apply_amount'));
 
 
     }	
@@ -57,19 +66,30 @@ class dashboardController extends AppBaseController
     private function getTXS_Value_MTD()
     {
 
-
+        return money_format('%i',$this->orderRepository->findWhere([
+            ['process_status','>',1],
+            [DB::raw('year(effective_date)'),'=',date('Y')],
+            [DB::raw('month(effective_date)'),'=',date('m')]
+            ])->sum('apply_amount'));
 
     }
 
     private function getTXS_Volume_MTD()
-
     {
-
+        return $this->orderRepository->findWhere([
+            ['process_status','>',1],
+            [DB::raw('year(effective_date)'),'=',date('Y')],
+            [DB::raw('month(effective_date)'),'=',date('m')]
+            ])->count('*');
     }
 
     private function getLoans_Balance()
     {
-    	//
+    	
+        return money_format('%i',$this->receivableRepo->findWhere([
+        ['status','<>',2],
+        ['type','=',2]
+            ])->sum('amount_scheduled'));
     }
 
     

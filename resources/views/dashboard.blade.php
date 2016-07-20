@@ -22,7 +22,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">本年度交易金额<br>Txs Value YTD</span>
-              <span class="info-box-number">CNY {{$txs_value_ytd}}</span>
+              <span class="info-box-number">{{$txs_value_ytd}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -35,7 +35,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">本月交易金额<br>Txs Value MTD</span>
-              <span class="info-box-number">41,410</span>
+              <span class="info-box-number">{{$txs_value_mtd}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -51,8 +51,8 @@
             <span class="info-box-icon bg-green"><i class="fa fa-ticket"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">本月交易数量<br>Txs Volume MTD</span>
-              <span class="info-box-number">760</span>
+              <span class="info-box-text">本月订单数量<br>Txs Volume MTD</span>
+              <span class="info-box-number">{{$txs_volume_mtd}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -65,7 +65,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">贷款余额<br>Loans Balance</span>
-              <span class="info-box-number">2,000</span>
+              <span class="info-box-number">{{$txs_loans_balance}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
