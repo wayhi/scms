@@ -46,10 +46,10 @@
           @endif
           
         </div>
-        <div class="col-sm-2 invoice-col">
+        <!--div class="col-sm-2 invoice-col">
           {!! QrCode::size(100)->generate('http://dev01.yifenqi.com:8881/web/carInsurance/uploadCert?orderNumber='.$order->order_number) !!}<br>
           <small>扫描二维码以完善您的个人信息。</small>
-        </div>
+        </div-->
 
         <!-- /.col -->
       </div>
