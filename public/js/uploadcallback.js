@@ -213,10 +213,24 @@ var uploader = new plupload.Uploader({
 		FileUploaded: function(up, file, info) {
             if (info.status == 200)
             {
-                var type_name = document.getElementsByName('merchant_cert_type')[0].value;
-                var file_path = get_uploaded_object_name(file.name);
+                 var type_name;
                 var files_uploaded;
-                var _uploaded = document.getElementsByName('merchant_cert')[0].value;
+                var _uploaded;
+                var file_path = get_uploaded_object_name(file.name);
+                var up_name = document.getElementsByName('upload_type')[0].value;
+                switch (up_name){ //不同表单不同域
+                    case "supporting":
+
+                        type_name = document.getElementsByName('supporting_doctype')[0].value;
+                        _uploaded = document.getElementsByName('supporting_docs')[0].value;
+                    break;
+                    case "merchant":
+                        type_name = document.getElementsByName('merchant_cert_type')[0].value;
+                        _uploaded = document.getElementsByName('merchant_cert')[0].value;
+                    break;
+                    default:
+                    break;
+                }
                
                 if((_uploaded !="") && (_uploaded !="{\"certfiles\": []}") && (_uploaded!="{}")){
                    
@@ -229,11 +243,22 @@ var uploader = new plupload.Uploader({
                 
                 var temp = {certname:type_name,filepath:file_path};
                 files_uploaded.certfiles.push(temp);
+                
+                switch (up_name){ //不同表单不同域
+                    case "supporting":
 
-                document.getElementsByName('merchant_cert')[0].value = JSON.stringify(files_uploaded);
-                //document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = type_name+'上传成功, 文件名:' + get_uploaded_object_name(file.name) +' 回调服务器返回的内容是:' + info.response;;
-                document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = type_name+'上传成功';
-
+                        document.getElementsByName('supporting_docs')[0].value = JSON.stringify(files_uploaded);
+                        document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = type_name+'上传成功, 文件名:' + get_uploaded_object_name(file.name);
+              
+                    break;
+                    case "merchant":
+                        document.getElementsByName('merchant_cert')[0].value = JSON.stringify(files_uploaded);
+                        document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = type_name+'上传成功, 文件名:' + get_uploaded_object_name(file.name);
+              
+                    break;
+                    default:
+                    break;
+                }
             }
             else if (info.status == 203)
             {
