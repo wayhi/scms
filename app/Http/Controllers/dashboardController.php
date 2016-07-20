@@ -37,7 +37,7 @@ class dashboardController extends AppBaseController
     	if(!Entrust::can(['dashboard_viewer','admin','owner'])){
             return response()->view('errors.403');
         }
-        setlocale(LC_MONETARY, 'zh_cn');
+        setlocale(LC_MONETARY, 'zh_CN');
         $txs_value_ytd = self::getTXS_Value_YTD();
         $txs_value_mtd = self::getTXS_Value_MTD();
         $txs_volume_mtd = self::getTXS_Volume_MTD();
