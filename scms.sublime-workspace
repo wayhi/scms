@@ -4,6 +4,50 @@
 		"selected_items":
 		[
 			[
+				"m",
+				"merchant_viewer"
+			],
+			[
+				"ord",
+				"order_id"
+			],
+			[
+				"C",
+				"Criteria〔namespace〕"
+			],
+			[
+				"ha",
+				"HasManyShopsThroughTrait〔trait〕"
+			],
+			[
+				"Be",
+				"BelongsToMerchantTrait〔trait〕"
+			],
+			[
+				"goods",
+				"goods_ids"
+			],
+			[
+				"pu",
+				"pushCriteria"
+			],
+			[
+				"role",
+				"role_ids"
+			],
+			[
+				"B",
+				"BelongsToRoleTrait〔trait〕"
+			],
+			[
+				"Ht",
+				"HttpResponseException"
+			],
+			[
+				"fu",
+				"fullUrl"
+			],
+			[
 				"pa",
 				"payables"
 			],
@@ -58,10 +102,6 @@
 			[
 				"swi",
 				"switch	switch …"
-			],
-			[
-				"goods",
-				"goods_info〔variable〕"
 			],
 			[
 				"field",
@@ -144,14 +184,6 @@
 				"Models〔namespace〕"
 			],
 			[
-				"B",
-				"BelongsToFundProductTrait"
-			],
-			[
-				"Be",
-				"BelongsToShopTrait"
-			],
-			[
 				"Belong",
 				"BelongsToOrderTrait〔namespace〕"
 			],
@@ -218,10 +250,6 @@
 			[
 				"Fund",
 				"FundProductRepository〔namespace〕"
-			],
-			[
-				"m",
-				"model"
 			],
 			[
 				"per",
@@ -486,34 +514,6 @@
 			[
 				"left",
 				"leftJoin"
-			],
-			[
-				"co",
-				"color: 〔property〕"
-			],
-			[
-				"order_",
-				"$order_new〔variable〕"
-			],
-			[
-				"item_",
-				"$item_ordered〔variable〕"
-			],
-			[
-				"ite",
-				"$item_stock〔variable〕"
-			],
-			[
-				"Order",
-				"OrderItem〔class〕"
-			],
-			[
-				"No",
-				"Notification"
-			],
-			[
-				"where",
-				"where('activity_id',$activity_id"
 			]
 		]
 	},
@@ -523,79 +523,31 @@
 			"file": "app/Http/routes.php",
 			"settings":
 			{
-				"buffer_size": 5774,
+				"buffer_size": 5856,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/receivableController.php",
+			"file": "resources/views/dashboard.blade.php",
 			"settings":
 			{
-				"buffer_size": 7369,
+				"buffer_size": 2343,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/payableController.php",
+			"file": "app/Http/Controllers/dashboardController.php",
 			"settings":
 			{
-				"buffer_size": 7039,
+				"buffer_size": 471,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Models/payable.php",
+			"file": "app/Http/Controllers/orderController.php",
 			"settings":
 			{
-				"buffer_size": 2735,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/Models/receivable.php",
-			"settings":
-			{
-				"buffer_size": 2809,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/layouts/partials/scripts.blade.php",
-			"settings":
-			{
-				"buffer_size": 13133,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/receivables/show.blade.php",
-			"settings":
-			{
-				"buffer_size": 800,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/admin/role_show.blade.php",
-			"settings":
-			{
-				"buffer_size": 2081,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/Http/Requests/CreateorderRequest.php",
-			"settings":
-			{
-				"buffer_size": 484,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "_ide_helper.php",
-			"settings":
-			{
-				"buffer_size": 411850,
+				"buffer_size": 24254,
 				"line_ending": "Unix"
 			}
 		},
@@ -603,15 +555,7 @@
 			"file": "app/Http/Middleware/MenuBar.php",
 			"settings":
 			{
-				"buffer_size": 4714,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/Repositories/PayableRepository.php",
-			"settings":
-			{
-				"buffer_size": 363,
+				"buffer_size": 5092,
 				"line_ending": "Unix"
 			}
 		}
@@ -660,13 +604,101 @@
 	[
 		"/Applications/MAMP/htdocs/scms",
 		"/Applications/MAMP/htdocs/scms/app",
-		"/Applications/MAMP/htdocs/scms/app/Models",
-		"/Applications/MAMP/htdocs/scms/resources/views/admin",
-		"/Applications/MAMP/htdocs/scms/resources/views/payables",
-		"/Applications/MAMP/htdocs/scms/resources/views/receivables"
+		"/Applications/MAMP/htdocs/scms/app/Entities/Repositories",
+		"/Applications/MAMP/htdocs/scms/app/Http",
+		"/Applications/MAMP/htdocs/scms/app/Http/Requests",
+		"/Applications/MAMP/htdocs/scms/database/migrations",
+		"/Applications/MAMP/htdocs/scms/database/seeds",
+		"/Applications/MAMP/htdocs/scms/public",
+		"/Applications/MAMP/htdocs/scms/public/css",
+		"/Applications/MAMP/htdocs/scms/resources",
+		"/Applications/MAMP/htdocs/scms/resources/views",
+		"/Applications/MAMP/htdocs/scms/vendor/laravel/framework",
+		"/Applications/MAMP/htdocs/scms/vendor/laravel/framework/src",
+		"/Applications/MAMP/htdocs/scms/vendor/laravel/framework/src/Illuminate",
+		"/Applications/MAMP/htdocs/scms/vendor/laravel/framework/src/Illuminate/Foundation/Http",
+		"/Applications/MAMP/htdocs/scms/vendor/laravel/framework/src/Illuminate/Http",
+		"/Applications/MAMP/htdocs/scms/vendor/prettus/l5-repository",
+		"/Applications/MAMP/htdocs/scms/vendor/prettus/l5-repository/src",
+		"/Applications/MAMP/htdocs/scms/vendor/prettus/l5-repository/src/Prettus",
+		"/Applications/MAMP/htdocs/scms/vendor/prettus/l5-repository/src/Prettus/Repository",
+		"/Applications/MAMP/htdocs/scms/vendor/prettus/l5-repository/src/Prettus/Repository/Eloquent",
+		"/Applications/MAMP/htdocs/scms/vendor/zizaco",
+		"/Applications/MAMP/htdocs/scms/vendor/zizaco/entrust",
+		"/Applications/MAMP/htdocs/scms/vendor/zizaco/entrust/src",
+		"/Applications/MAMP/htdocs/scms/vendor/zizaco/entrust/src/Entrust",
+		"/Applications/MAMP/htdocs/scms/vendor/zizaco/entrust/src/Entrust/Traits"
 	],
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/scms/resources/views/home.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/ShopsController.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/MerchantsController.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/receivableController.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/payableController.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/orderController.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/HomeController.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/FundsController.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/FundProductController.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/shops/edit.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Repositories/PayableRepository.php",
+		"/Applications/MAMP/htdocs/scms/app/Repositories/ReceivableRepository.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/receivables/index.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Middleware/MenuBar.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Relations/BelongsToMerchantTrait.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/shops/show.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Exceptions/Handler.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Requests/CreatemerchantsRequest.php",
+		"/Applications/MAMP/htdocs/scms/app/Repositories/OrderRepository.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/orders/create.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/layouts/partials/scripts.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/orders/fields.blade.php",
+		"/Applications/MAMP/htdocs/scms/config/app.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/orders/show_fields.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/User.php",
+		"/Applications/MAMP/htdocs/scms/app/Repositories/AbstractRepository.php",
+		"/Applications/MAMP/htdocs/scms/app/Criteria/OrdersByShopCriteria.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/order.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/goodsMasters/fields.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/GoodsMasterController.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/goodsMasters/show_fields.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Relations/HasManyShopsThroughTrait.php",
+		"/Applications/MAMP/htdocs/scms/database/migrations/2016_07_16_123331_add_roleid_to_goodsmaster_table.php",
+		"/Applications/MAMP/htdocs/scms/database/migrations/2016_07_18_153045_add_merchant_id_to_user_table.php",
+		"/Applications/MAMP/htdocs/scms/app/Criteria/SummaryCriteria.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Relations/HasManyGoodsThroughRoleTrait.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Requests/Request.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Requests/CreateshopsRequest.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/goods_master.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/goodsMasters/show.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/Relations/BelongsToRoleTrait.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Requests/UpdateshopsRequest.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Requests/CreatereceivableRequest.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Requests/CreateFundProductRequest.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/Customer/CustomerController.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Requests/UpdateorderRequest.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Requests/UpdatereceivableRequest.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Requests/UpdatepayableRequest.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Requests/UpdateFundProductRequest.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Requests/UpdatemerchantsRequest.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Requests/Updategoods_masterRequest.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Requests/UpdateFundsRequest.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Requests/CreatepayableRequest.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Requests/CreateFundsRequest.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Requests/Creategoods_masterRequest.php",
+		"/Applications/MAMP/htdocs/scms/vendor/illuminate/validation/ValidatesWhenResolvedTrait.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Requests/VieworderRequest.php",
+		"/Applications/MAMP/htdocs/scms/vendor/laravel/framework/src/Illuminate/Foundation/Http/FormRequest.php",
+		"/Applications/MAMP/htdocs/scms/vendor/symfony/http-foundation/Response.php",
+		"/Applications/MAMP/htdocs/scms/vendor/illuminate/http/Exception/HttpResponseException.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/errors/403.blade.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/payable.php",
+		"/Applications/MAMP/htdocs/scms/app/Models/receivable.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/receivables/show.blade.php",
+		"/Applications/MAMP/htdocs/scms/resources/views/admin/role_show.blade.php",
+		"/Applications/MAMP/htdocs/scms/vendor/illuminate/http/Request.php",
+		"/Applications/MAMP/htdocs/scms/vendor/laravel/framework/src/Illuminate/Http/Request.php",
+		"/Applications/MAMP/htdocs/scms/app/Http/Requests/CreateorderRequest.php",
 		"/Users/JW/Library/Application Support/Sublime Text 3/Packages/User/PHP.sublime-settings",
 		"/Users/JW/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/Users/JW/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings",
@@ -677,38 +709,21 @@
 		"/Applications/MAMP/htdocs/scms/resources/views/receivables/summary.blade.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/payables/summary.blade.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/payables/fields.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/receivables/show.blade.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/payables/show_fields.blade.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/orders/show_receivables.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/receivables/index.blade.php",
-		"/Applications/MAMP/htdocs/scms/app/Models/receivable.php",
 		"/Applications/MAMP/htdocs/scms/.env",
 		"/Applications/MAMP/htdocs/scms/resources/views/orders/summary.blade.php",
-		"/Applications/MAMP/htdocs/scms/config/app.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/orderController.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/layouts/partials/scripts.blade.php",
-		"/Applications/MAMP/htdocs/scms/app/Criteria/SummaryCriteria.php",
 		"/Applications/MAMP/htdocs/scms/app/Presenters/ReceivablePresenter.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/receivables/table.blade.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Middleware/MenuBar.php",
-		"/Applications/MAMP/htdocs/scms/app/Exceptions/Handler.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/receivables/fields.blade.php",
 		"/Applications/MAMP/htdocs/scms/public/js/moment.min.js",
-		"/Applications/MAMP/htdocs/scms/resources/views/orders/fields.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/orders/show_fields.blade.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/ShopsController.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Requests/UpdateorderRequest.php",
-		"/Applications/MAMP/htdocs/scms/app/Models/order.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/payables/table.blade.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/receivables/show_fields.blade.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/goodsMasters/table.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/goodsMasters/show_fields.blade.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/fundproducts/fields.blade.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/customers/bankcard.blade.php",
 		"/Applications/MAMP/htdocs/scms/app/Presenters/FundProductPresenter.php",
-		"/Applications/MAMP/htdocs/scms/app/Repositories/ReceivableRepository.php",
 		"/Applications/MAMP/htdocs/scms/config/laravel-menu/settings.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/receivableController.php",
 		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/REST.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/orders/summary_print.blade.php",
 		"/Applications/MAMP/htdocs/scms/app/Presenters/OrderPresenter.php",
@@ -716,10 +731,8 @@
 		"/Applications/MAMP/htdocs/scms/resources/views/layouts/partials/footer.blade.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/layouts/summary_print.balde.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/orders/show_related.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/goodsMasters/fields.blade.php",
 		"/Applications/MAMP/htdocs/scms/vendor/simplesoftwareio/simple-qrcode/src/SimpleSoftwareIO/QrCode/QrCodeInterface.php",
 		"/Applications/MAMP/htdocs/scms/vendor/simplesoftwareio/simple-qrcode/src/SimpleSoftwareIO/QrCode/QrCodeServiceProvider.php",
-		"/Applications/MAMP/htdocs/scms/app/Models/goods_master.php",
 		"/Applications/MAMP/htdocs/scms/composer.json",
 		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/API/OSSController.php",
 		"/Applications/MAMP/htdocs/scms/app/Models/Relations/BelongsToFundProductTrait.php",
@@ -727,13 +740,10 @@
 		"/Applications/MAMP/htdocs/scms/public/js/upload.js",
 		"/Applications/MAMP/htdocs/scms/public/js/uploadcallback.js",
 		"/Applications/MAMP/htdocs/scms/resources/views/orders/edit.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/orders/create.blade.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/merchants/fields.blade.php",
 		"/Applications/MAMP/htdocs/scms/app/Presenters/FundPresenter.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/funds/table.blade.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/funds/fields.blade.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Requests/CreateorderRequest.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/MerchantsController.php",
 		"/Applications/MAMP/htdocs/scms/vendor/prettus/l5-repository/src/Prettus/Repository/Eloquent/BaseRepository.php",
 		"/Applications/MAMP/htdocs/scms/public/upacp_demo_dg/.gitignore",
 		"/Applications/MAMP/htdocs/scms/resources/views/merchants/show_fields.blade.php",
@@ -747,54 +757,8 @@
 		"/Applications/MAMP/htdocs/scms/app/Models/Relations/HasManyGoodsMastersTrait.php",
 		"/Applications/MAMP/htdocs/scms/app/Models/Relations/HasManyReceivablesTrait.php",
 		"/Applications/MAMP/htdocs/scms/app/Models/Relations/HasManyShopsTrait.php",
-		"/Applications/MAMP/htdocs/scms/app/Models/Relations/BelongsToMerchantTrait.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/payableController.php",
 		"/Applications/MAMP/htdocs/scms/resources/views/payables/edit.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/merchants/create.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/merchants/edit.blade.php",
-		"/Applications/MAMP/htdocs/scms/app/Presenters/BankCardPresenter.php",
-		"/Applications/MAMP/htdocs/scms/app/Presenters/CustomerPresenter.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/orders/table.blade.php",
-		"/Applications/MAMP/htdocs/scms/app/Models/Relations/HasManySupportingsTrait.php",
-		"/Applications/MAMP/htdocs/scms/app/Repositories/CustomerRepo.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/routes.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/layouts/app.blade.php",
-		"/Applications/MAMP/htdocs/scms/app/Models/payable.php",
-		"/Applications/MAMP/htdocs/scms/app/Presenters/PayablePresenter.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/receivables/create.blade.php",
-		"/Applications/MAMP/htdocs/scms/app/Models/Supporting.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/customers/create.blade.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/GoodsMasterController.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/receivables/edit.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/customers/edit.blade.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/Customer/CustomerController.php",
-		"/Applications/MAMP/htdocs/scms/app/Models/Relations/BelongsToManySupportingTrait.php",
-		"/Applications/MAMP/htdocs/scms/app/Models/Relations/HasManySupportingTrait.php",
-		"/Applications/MAMP/htdocs/scms/app/Repositories/SupportingRepository.php",
-		"/Applications/MAMP/htdocs/scms/app/Providers/AppServiceProvider.php",
-		"/Applications/MAMP/htdocs/scms/app/Repositories/CustomerRepository.php",
-		"/Applications/MAMP/htdocs/scms/app/Models/Merchants.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/goodsMasters/edit.blade.php",
-		"/Applications/MAMP/htdocs/scms/app/Models/FundProduct.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/FundProductController.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/Auth/AuthController.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/payables/index.blade.php",
-		"/Applications/MAMP/htdocs/scms/app/Repositories/PayableRepository.php",
-		"/Applications/MAMP/htdocs/scms/app/Repositories/receivableRepository.php",
-		"/Applications/MAMP/htdocs/scms/app/Models/Relations/BelongsToOrderTrait.php",
-		"/Applications/MAMP/htdocs/scms/app/Http/Controllers/FundsController.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/merchants/index.blade.php",
-		"/Applications/MAMP/htdocs/scms/app/Repositories/OrderRepository.php",
-		"/Applications/MAMP/htdocs/scms/app/Models/Relations/BelongsToBankCardTrait.php",
-		"/Applications/MAMP/htdocs/scms/app/Models/Relations/BelongsToShopTrait.php",
-		"/Applications/MAMP/htdocs/scms/app/Models/Relations/BelongsToGoodsMasterTrait.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/shops/index.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/shops/table.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/shops/show_fields.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/merchants/table.blade.php",
-		"/Applications/MAMP/htdocs/scms/public/osscallback/callback.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/get.blade.php",
-		"/Applications/MAMP/htdocs/scms/resources/views/upload.blade.php"
+		"/Applications/MAMP/htdocs/scms/resources/views/merchants/create.blade.php"
 	],
 	"find":
 	{
@@ -814,6 +778,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"goodsInfo",
+			"ReceivableRepository",
+			"all",
 			"RequestCriteria",
 			"repay_ttl",
 			"get_signature",
@@ -877,7 +844,7 @@
 	"groups":
 	[
 		{
-			"selected": 9,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -886,15 +853,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5774,
+						"buffer_size": 5856,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5398,
-								5398
+								1519,
+								1519
 							]
 						],
 						"settings":
@@ -905,248 +872,89 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1080.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/Http/Controllers/receivableController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7369,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6846,
-								6846
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 98.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/Http/Controllers/payableController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7039,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6008,
-								6008
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3049.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/Models/payable.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2735,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1537,
-								1537
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 491.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/Models/receivable.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2809,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1594,
-								1667
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 541.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "resources/views/layouts/partials/scripts.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13133,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								9502,
-								9502
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3044.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "resources/views/receivables/show.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 800,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								687,
-								687
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 266.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "resources/views/admin/role_show.blade.php",
+					"buffer": 1,
+					"file": "resources/views/dashboard.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2081,
+						"buffer_size": 2343,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1571,
-								1571
+								116,
+								116
 							]
 						],
 						"settings":
 						{
 							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 525.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "app/Http/Requests/CreateorderRequest.php",
+					"buffer": 2,
+					"file": "app/Http/Controllers/dashboardController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 484,
+						"buffer_size": 471,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								301,
-								301
+								292,
+								292
 							]
 						],
 						"settings":
 						{
 							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/Http/Controllers/orderController.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 24254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								40,
+								603
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -1159,50 +967,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "_ide_helper.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 411850,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								197,
-								243
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
+					"buffer": 4,
 					"file": "app/Http/Middleware/MenuBar.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4714,
+						"buffer_size": 5092,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2586,
-								2586
+								234,
+								234
 							]
 						],
 						"settings":
@@ -1213,41 +991,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 454.0,
+						"translation.y": 29.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "app/Repositories/PayableRepository.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 363,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								236,
-								236
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -1330,7 +1077,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 292.0,
+	"side_bar_width": 329.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

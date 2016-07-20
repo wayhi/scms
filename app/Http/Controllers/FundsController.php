@@ -9,7 +9,7 @@ use App\Repositories\FundsRepository;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
-use Response;
+use Response,Entrust;
 
 class FundsController extends AppBaseController
 {
@@ -29,6 +29,9 @@ class FundsController extends AppBaseController
      */
     public function index(Request $request)
     {
+        if(!Entrust::can(['fund_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $this->fundsRepository->pushCriteria(new RequestCriteria($request));
         $funds = $this->fundsRepository->all();
 
@@ -73,6 +76,9 @@ class FundsController extends AppBaseController
      */
     public function show($id)
     {
+        if(!Entrust::can(['fund_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $funds = $this->fundsRepository->findWithoutFail($id);
 
         if (empty($funds)) {
@@ -93,6 +99,9 @@ class FundsController extends AppBaseController
      */
     public function edit($id)
     {
+        if(!Entrust::can(['fund_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $funds = $this->fundsRepository->findWithoutFail($id);
 
         if (empty($funds)) {
@@ -138,6 +147,9 @@ class FundsController extends AppBaseController
      */
     public function destroy($id)
     {
+        if(!Entrust::can(['fund_editor','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $funds = $this->fundsRepository->findWithoutFail($id);
 
         if (empty($funds)) {

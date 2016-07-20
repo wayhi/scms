@@ -237,8 +237,11 @@ class receivableController extends AppBaseController
                         Flash::error('receivable(id:'.$uid.') not found');
                         //return redirect(route('receivables.index'));
                     }else{
-                        $receivable->order->repay_actual += $receivable->amount_scheduled;
-                        $receivable->order->save();
+                        if($receivable->type==4||$receivable->type==2){//如果是预缴款（抵扣借款）或还款则更新订单中“实际还款”字段
+                            $receivable->order->repay_actual += $receivable->amount_scheduled;
+                            $receivable->order->save();
+                        }
+                        
                         $receivable = $this->receivableRepository
                         ->update(['status'=>2,'amount_actual'=>$receivable->amount_scheduled,'pd_actual'=>Carbon::now()], $uid);
                     }

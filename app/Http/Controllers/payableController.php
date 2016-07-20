@@ -238,8 +238,10 @@ class payableController extends AppBaseController
                         Flash::error('payables(id:'.$uid.') not found');
                         //return redirect(route('receivables.index'));
                     }else{
+                        
                         $payable = $this->payableRepository
                         ->update(['status'=>2,'amount_actual'=>$payable->amount_scheduled,'pd_actual'=>Carbon::now()], $uid);
+                        
                     }  
                 } 
               Flash::success($n.'条应付记录状态更新成功！');

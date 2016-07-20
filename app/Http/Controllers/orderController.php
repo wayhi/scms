@@ -256,6 +256,9 @@ class orderController extends AppBaseController
      */
     public function edit($id)
     {
+        if(!Entrust::can(['order_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $goodslist = $this->goods_masterRepo->lists('goods_name','id');
         $order = $this->orderRepository->with(['customer','goods.supportings','goods.merchant','bankcard'])->findWithoutFail($id);
 
@@ -412,7 +415,7 @@ class orderController extends AppBaseController
             'amount_actual'=>0,
             'adjustment_amount'=>0,
             'serial_no'=>$sn,
-            'pd_scheduled'=>Carbon::now()->addDays(1),
+            'pd_scheduled'=>Carbon::parse($order->effective_date)->addDays(1),
             'pd_actual'=>'',
             'handled_by'=>Auth::user()->email,
             'ip_address'=>'',

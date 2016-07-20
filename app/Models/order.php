@@ -152,4 +152,19 @@ class order extends Model implements HasPresenter
     {
         return OrderPresenter::class;
     }
+
+    public function getReceivableStatus($type=[])
+    {
+        //判断是否所有应付已支付，$type筛选应付类型
+        $records = $this->receivables()->whereIn('type',$type);
+        $result = $records->avg('status');
+        if($result<>2.0){
+            return false;
+        }else{
+            //已支付
+            return true;
+        }
+        
+
+    }
 }

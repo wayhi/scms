@@ -2,16 +2,13 @@
 @section('htmlheader_title')
     应付账款
 @endsection
-
 @section('contentheader_title')
     应付账款汇总
 @endsection
-
 @section('contentheader_description')
     应付汇总
 @endsection
 @section('main-content')
-
 @include('flash::message')
 
      <div class="nav-tabs-custom">
@@ -102,9 +99,16 @@
                         @if($results)
 
                             @foreach($results as $result)
+                            
+                            @if($result->order->getReceivableStatus([3,4]))
+                            <tr class='success'>
+                            @else
                             <tr>
+                            @endif
+                            
+                            
                             <td><input type='checkbox' id='ar_chk[]' name='ar_chk[]' value='{{$result->id}}' checked></td>
-                            <td>{{$result->order->order_number}}</td>
+                            <td><a href='/orders/{{$result->order->id}}' target='_blank'>{{$result->order->order_number}}</a></td>
                             <td>{{$result->goods->goods_name}}</td>
                             <td>{{$result->type_text}}
                             <td>{{$result->shop->account_name}}</td>

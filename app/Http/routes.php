@@ -40,6 +40,7 @@ Route::match(['get','post'],'/callback',['as'=>'callback','uses'=>'API\\OSSContr
 Route::group(['middleware' => ['web','auth']], function () {
     //Route::auth();
 	Route::get('/home', ['as'=>'home','uses'=>'HomeController@index']);
+    route::get('/dashboard',['as'=>'dashboard','uses'=>'dashboardController@index']);
     Route::resource('admin/roles', 'Admin\\RoleController');
     Route::get('/sms/start',['middleware'=>'auth','as'=>'sms.start','uses'=>'SmsController@start']);
     Route::resource('sms', 'SmsController');
@@ -48,7 +49,6 @@ Route::group(['middleware' => ['web','auth']], function () {
     }]);
     Route::match(['get','post'],'/customers/search/{search_term?}',['as'=>'customers.search',
         'uses'=>'Customer\\CustomerController@search']);
-
     Route::resource('customers', 'Customer\\CustomerController');
     Route::post('customers/add_bankcard',['middleware'=>'auth','as'=>'customers.addbankcard','uses'=>'Customer\\CustomerController@bankcard_store']);
     Route::get('mobile_search',['middleware'=>'auth',function(Request $request){

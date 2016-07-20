@@ -11,7 +11,8 @@ class PayableRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'type'
+        'type',
+        'order.order_number'
     ];
 
     /**

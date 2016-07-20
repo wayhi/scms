@@ -11,6 +11,7 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\Merchants;
+use Entrust;
 
 class ShopsController extends AppBaseController
 {
@@ -30,6 +31,9 @@ class ShopsController extends AppBaseController
      */
     public function index(Request $request)
     {
+        if(!Entrust::can(['merchant_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $this->shopsRepository->pushCriteria(new RequestCriteria($request));
         $shops = $this->shopsRepository->with(['merchant'])->paginate(10);
 
@@ -74,6 +78,9 @@ class ShopsController extends AppBaseController
      */
     public function show($id)
     {
+        if(!Entrust::can(['merchant_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $shops = $this->shopsRepository->findWithoutFail($id);
 
         if (empty($shops)) {
@@ -94,11 +101,13 @@ class ShopsController extends AppBaseController
      */
     public function edit($id)
     {
+        if(!Entrust::can(['merchant_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $shops = $this->shopsRepository->findWithoutFail($id);
 
         if (empty($shops)) {
             Flash::error('shops not found');
-
             return redirect(route('shops.index'));
         }
         $merchants = Merchants::all()->lists('merchant_name','id');
@@ -139,6 +148,9 @@ class ShopsController extends AppBaseController
      */
     public function destroy($id)
     {
+        if(!Entrust::can(['merchant_editor','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $shops = $this->shopsRepository->findWithoutFail($id);
 
         if (empty($shops)) {

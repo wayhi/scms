@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Entrust;
 
 class MerchantsController extends AppBaseController
 {
@@ -29,6 +30,9 @@ class MerchantsController extends AppBaseController
      */
     public function index(Request $request)
     {
+        if(!Entrust::can(['merchant_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $this->merchantsRepository->pushCriteria(new RequestCriteria($request));
         $merchants = $this->merchantsRepository->paginate(10);
 
@@ -74,6 +78,9 @@ class MerchantsController extends AppBaseController
      */
     public function show($id)
     {
+        if(!Entrust::can(['merchant_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $merchants = $this->merchantsRepository->findWithoutFail($id);
 
         if (empty($merchants)) {
@@ -94,11 +101,13 @@ class MerchantsController extends AppBaseController
      */
     public function edit($id)
     {
+        if(!Entrust::can(['merchant_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $merchants = $this->merchantsRepository->findWithoutFail($id);
 
         if (empty($merchants)) {
             Flash::error('merchants not found');
-
             return redirect(route('merchants.index'));
         }
 

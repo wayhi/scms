@@ -14,7 +14,7 @@ class MenuBar
 		Menu::make('sideBar', function($menu){
 
   		
-      $dashboard = $menu->add('Dashboard','home');
+      $dashboard = $menu->add('Dashboard','dashboard');
       $dashboard->prepend("<i class='fa fa-dashboard'></i><span>")->append("</span>");
       /*
       $sms = $menu->add('信贷产品',['class'=>'treeview']);

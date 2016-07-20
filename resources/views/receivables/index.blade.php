@@ -15,7 +15,7 @@
 @include('flash::message')
 <script>
   function search(){
-    window.location.href='/funds?search=' + document.getElementsByName('table_search')[0].value;
+    window.location.href='/receivables?search=' + document.getElementsByName('table_search')[0].value;
   }
 </script>
 

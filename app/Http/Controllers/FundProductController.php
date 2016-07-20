@@ -31,6 +31,9 @@ class FundProductController extends AppBaseController
      */
     public function index(Request $request)
     {
+        if(!Entrust::can(['fund_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $this->fundProductRepository->pushCriteria(new RequestCriteria($request));
         $fundProducts = $this->fundProductRepository->with(['fund'])->paginate(10);
         $links = $fundProducts->links();
@@ -97,6 +100,9 @@ class FundProductController extends AppBaseController
      */
     public function edit($id)
     {
+        if(!Entrust::can(['fund_viewer','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $fundProduct = $this->fundProductRepository->findWithoutFail($id);
 
         if (empty($fundProduct)) {
@@ -142,6 +148,9 @@ class FundProductController extends AppBaseController
      */
     public function destroy($id)
     {
+        if(!Entrust::can(['fund_editor','admin','owner'])){
+            return response()->view('errors.403');
+        }
         $fundProduct = $this->fundProductRepository->findWithoutFail($id);
 
         if (empty($fundProduct)) {
