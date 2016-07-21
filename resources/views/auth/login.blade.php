@@ -51,7 +51,7 @@
     
 
     <a href="{{ url('/password/reset') }}">忘记密码</a><br>
-    <a href="{{ url('/register') }}" class="text-center">注册帐户</a>
+    <!--a href="{{ url('/register') }}" class="text-center">注册帐户</a-->
 
 </div><!-- /.login-box-body -->
 
