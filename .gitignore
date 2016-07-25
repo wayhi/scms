@@ -9,4 +9,4 @@ scms.sublime-workspace
 composer.*
 /config/app.php
 mail.php
-
+_ide_helper.php
