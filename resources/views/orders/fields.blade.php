@@ -202,8 +202,11 @@
 </div>
 
 <div class="form-group col-sm-6">
-    
-   {!! Form::hidden('supporting_docs','{}', ['class' => 'form-control']) !!}
+    @if($mode==='editing' && isset($order))
+        {!! Form::hidden('supporting_docs',null, ['class' => 'form-control']) !!}
+    @else
+        {!! Form::hidden('supporting_docs','{}', ['class' => 'form-control']) !!}
+    @endif
     {!! Form::label('docs_done', '已上传支持文件:') !!}
     <br>
     @if(isset($order) && isset(json_decode($order->supporting_docs, true)['certfiles']))
