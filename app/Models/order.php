@@ -124,6 +124,29 @@ class order extends Model implements HasPresenter
         'goods_info' => 'unique:orders'
     ];
 
+    public static $update_rules =[
+        'shop_id' => 'numeric|required',
+        'customer_id' => 'sometimes|numeric|required',
+        'bankcard_id' => 'numeric',
+        'goods_id' => 'sometimes|numeric|required',
+        'apply_amount' => 'numeric',
+        'credit_amount' => 'numeric',
+        'platform_payout' => 'numeric',
+        'downpayment_amount' => 'numeric',
+        'repay_target' => 'numeric',
+        'repay_actual' => 'numeric',
+        'handling_fees' => 'numeric',
+        'bank_charges' => 'numeric',
+        'refund_amount' => 'numeric',
+        'adjustment_amount' => 'numeric',
+        'process_status' => 'numeric',
+        'fund_status' => 'numeric',
+        'risk_level' => 'numeric',
+        'memo' => 'max:255',
+        'modified_by' => 'max:255',
+        'ip_address' => 'max:255'
+    ];
+
     
     
     public function getEffectiveDateAttribute($value)
