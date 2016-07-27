@@ -181,6 +181,7 @@
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     @ability('order_approver', 'admin,owner')
+        {!! Form::submit('平台审核通过', ['class' => 'btn btn-success','name'=>'action']) !!}
         @if($order->process_status==1)
         {!! Form::submit('平台审核通过', ['class' => 'btn btn-success','name'=>'action']) !!}
         {!! Form::submit('拒绝', ['class' => 'btn btn-danger','name'=>'action']) !!}

@@ -401,7 +401,8 @@ class orderController extends AppBaseController
     private function createPayables($type,$order,$sn=1)
     {
         if(!Entrust::can(['payable_creator','admin','owner'])){
-            return response()->view('errors.403');
+            //return response()->view('errors.403');
+            return false;
         }
 
         $repay_period_setting = $order->goods->fundproduct->repay_period;
@@ -488,7 +489,8 @@ class orderController extends AppBaseController
     private function createReceivables($type,$order,$sn=1)
     {
         if(!Entrust::can(['receivable_creator','admin','owner'])){
-            return response()->view('errors.403');
+            //return response()->view('errors.403');
+            return false;
         }
         $repay_period_setting = $order->goods->fundproduct->repay_period;
         
