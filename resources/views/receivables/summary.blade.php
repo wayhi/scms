@@ -107,7 +107,7 @@
                             <td><input type='checkbox' id='ar_chk[]' name='ar_chk[]' value='{{$result->id}}' checked></td>
                             <td><a href='/orders/{{$result->order->id}}' target='_blank'>{{$result->order->order_number}}</a></td>
                             <td>{{$result->goods->goods_name}}</td>
-                            <td>{{$result->type_text}}
+                            <td>{{$result->type_text}}</td>
                             <td>{{$result->shop->merchant->merchant_name}}</td>
                             <td>{{$result->amount_scheduled }}
                             <input type="hidden" name="{{$result->id}}" id="{{$result->id}}" value="{{$result->amount_scheduled}}">
