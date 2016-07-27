@@ -95,6 +95,7 @@
                         <th>类型</th>
                         <th>商户平台</th>
                         <th>计划金额</th>
+                        <th>订单金额</th>
                         <th>计划日期</th>
                         <th>状态</th>
                     </thead>
@@ -111,6 +112,7 @@
                             <td>{{$result->amount_scheduled }}
                             <input type="hidden" name="{{$result->id}}" id="{{$result->id}}" value="{{$result->amount_scheduled}}">
                             </td>
+                            <td>{{$result->order->apply_amount}}</td>
                             <td>{{$result->pd_scheduled }}</td>
                             <td>{{$result->status_text }}</td>
                             </tr>

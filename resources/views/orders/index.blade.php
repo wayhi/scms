@@ -30,7 +30,7 @@
                     
                       
                     <div class="input-group input-group-sm" style="width: 250px;">
-                      <input type="text" name="table_search" class="form-control pull-right" placeholder="编号或名称">
+                      <input type="text" name="table_search" class="form-control pull-right" placeholder="订单号、车牌或生效日">
                       <div class="input-group-btn">
                         <a type="button" href='javascript:search();' class="btn btn-primary"><i class="fa fa-search"></i></a>
                       </div>

@@ -227,8 +227,9 @@ class receivableController extends AppBaseController
             if(!Entrust::can(['receivable_editor','admin','owner'])){
                 return response()->view('errors.403');
             }
-            if(!empty($searchRequest->ar_chk)){
 
+            if(!empty($searchRequest->ar_chk)){
+                
                 $n = count($searchRequest->ar_chk);
                 for($i=0;$i<$n;$i++){
                     $uid = $searchRequest->ar_chk[$i];
@@ -255,6 +256,8 @@ class receivableController extends AppBaseController
                 'amount_sum'=>0,
                 'active_pane'=>1
                ]);     
+            }else{
+                return redirect(route('receivables.summary'));
             }
 
         }   

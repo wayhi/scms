@@ -252,6 +252,8 @@ class payableController extends AppBaseController
                 'amount_sum'=>0,
                 'active_pane'=>1
                ]);     
+            }else{
+                return redirect(route('payables.summary'));
             }
 
         }   

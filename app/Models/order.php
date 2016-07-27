@@ -120,7 +120,8 @@ class order extends Model implements HasPresenter
         'risk_level' => 'numeric',
         'memo' => 'max:255',
         'modified_by' => 'max:255',
-        'ip_address' => 'max:255'
+        'ip_address' => 'max:255',
+        'goods_info' => 'unique:orders'
     ];
 
     
