@@ -23,17 +23,20 @@
           </address>
         </div>
         <!-- /.col -->
-        <div class="col-sm-3 invoice-col">
+        <div class="col-sm-4 invoice-col">
           需求方：
           <address>
             <strong>{!!$order->customer->name!!}</strong><br>
-            <small>身份证号：{!!$order->customer->id_number!!}<br>
-            <br>
-            电话: {!!$order->customer->mobile_phone!!}<br>
-            电子邮件:
+            <small>电话: {!!$order->customer->mobile_phone!!}<br>
+            身份证号：{!!$order->customer->id_number!!}<br>
+            关联商户：
+            {{$order->shop->account_name}}<br>
+            {{$order->shop->bank_name}}<br>
+            {{$order->shop->account_code}}
             </small> 
           </address>
         </div>
+        
         <!-- /.col -->
         <div class="col-sm-3 invoice-col">
         

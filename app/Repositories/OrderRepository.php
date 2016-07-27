@@ -18,7 +18,7 @@ class OrderRepository extends BaseRepository
         'process_status'=>'=',
         'fund_status'=>'=',
         'goods_info'=>'like',
-        'effective_date'
+        'effective_date'=>'like'
 
     ];
 
