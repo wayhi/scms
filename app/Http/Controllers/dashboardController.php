@@ -56,10 +56,12 @@ class dashboardController extends AppBaseController
     {
 
     	return money_format('%i',$this->orderRepository->findWhere([
-    		['process_status','in',[2,3,4,6]],
 
-    		[DB::raw('year(effective_date)'),'=',date('Y')]
-    		])->sum('apply_amount'));
+            ['process_status','>',1],
+            ['process_status','<>',5],
+            [DB::raw('year(effective_date)'),'=',date('Y')],
+            ])->sum('apply_amount'));
+            
 
 
     }	
@@ -68,7 +70,8 @@ class dashboardController extends AppBaseController
     {
 
         return money_format('%i',$this->orderRepository->findWhere([
-            ['process_status','in',[2,3,4,6]],
+            ['process_status','>',1],
+            ['process_status','<>',5],
             [DB::raw('year(effective_date)'),'=',date('Y')],
             [DB::raw('month(effective_date)'),'=',date('m')]
             ])->sum('apply_amount'));
@@ -78,7 +81,8 @@ class dashboardController extends AppBaseController
     private function getTXS_Volume_MTD()
     {
         return $this->orderRepository->findWhere([
-            ['process_status','in',[2,3,4,6]],
+            ['process_status','>',1],
+            ['process_status','<>',5],
             [DB::raw('year(effective_date)'),'=',date('Y')],
             [DB::raw('month(effective_date)'),'=',date('m')]
             ])->count('*');
