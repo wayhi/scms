@@ -12,7 +12,9 @@
     </thead>
     <tbody>
     @foreach($orders as $order)
-        @if($order->risk_level>3)
+        @if($order->getReceivableStatus([3,4])&&$order->process_status==2)
+        <tr class='success'>
+        @elseif($order->risk_level>3)
         <tr class='danger'>
         @elseif($order->risk_level>1)
         <tr class='warning'>
