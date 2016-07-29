@@ -271,7 +271,7 @@
     //Date picker
     $('#datepicker').datepicker({
       autoclose: true,
-      format: "yyyy/mm/dd"
+      format: "yyyy-mm-dd"
     });
 
     //Date range as a button
