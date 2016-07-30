@@ -14,7 +14,7 @@ use App\Repositories\ReceivableRepository;
 use App\Criteria\GoodsCriteria;
 use App\Criteria\OrdersByShopCriteria;
 use Illuminate\Http\Request;
-use Flash;
+use Flash,Redirect,URL,Route;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use Carbon\Carbon;
@@ -216,6 +216,7 @@ class orderController extends AppBaseController
             $adjustment = $order->adjustment_amount;
             $repay_target =$order->repay_target;
             $repay_amount = round(($repay_target-$downpayment+$adjustment)/$times,2);
+
             return view('orders.show')->with(compact('order','repay_amount'));
         }else{
 
@@ -309,7 +310,13 @@ class orderController extends AppBaseController
                 }else{
                     Flash::error('订单：'.$order->order_number.' 内部错误，请联系管理员。');
                 }
-                return redirect(route('oia'));
+                $backurl = substr(strstr(URL::previous(),'?'),1);
+                if(empty($backurl)){
+                    return redirect(route('oia'));
+                }else{
+                    return Redirect::to($backurl);
+                }
+                
                 break;
             case '已放款':
                 //生成资金计划
@@ -332,27 +339,53 @@ class orderController extends AppBaseController
 
                 };
                 
-                return redirect(route('oif'));
+                $backurl = substr(strstr(URL::previous(),'?'),1);
+                if(empty($backurl)){
+                    return redirect(route('oif'));
+                }else{
+                    return Redirect::to($backurl);
+                }
                 break;
             case '还款完成':
                 $order = $this->orderRepository->update(['modified_by'=>Auth::user()->email,'ip_address'=>$request->ip(),'process_status'=>'6','fund_status'=>'8'], $id);
                 Flash::success('订单：'.$order->order_number.' 已完成。');
-                return redirect(route('oir'));
+                $backurl = substr(strstr(URL::previous(),'?'),1);
+                if(empty($backurl)){
+                    return redirect(route('oir'));
+                }else{
+                    return Redirect::to($backurl);
+                }
                 break;
             case '订单取消':
                 $order = $this->orderRepository->update(['modified_by'=>Auth::user()->email,'ip_address'=>$request->ip(),'process_status'=>'5'], $id);
                 Flash::success('订单：'.$order->order_number.' 已取消。');
-                return redirect(route('oir'));
+                $backurl = substr(strstr(URL::previous(),'?'),1);
+                if(empty($backurl)){
+                    return redirect(route('oir'));
+                }else{
+                    return Redirect::to($backurl);
+                }
                 break;    
             case '拒绝':
                 $order = $this->orderRepository->update(['modified_by'=>Auth::user()->email,'ip_address'=>$request->ip(),'process_status'=>'6','fund_status'=>'9'], $id);
                 Flash::warning('订单：'.$order->order_number.' 已拒绝放款。');
-                return redirect(route('oia'));
+                $backurl = substr(strstr(URL::previous(),'?'),1);
+                if(empty($backurl)){
+                    return redirect(route('oia'));
+                }else{
+                    return Redirect::to($backurl);
+                }
                 break; 
             case '保存':
                 $order = $this->orderRepository->update($allfields, $id);
                 Flash::success('订单：'.$order->order_number.' 保存成功。');
-                return redirect(route('orders.index'));
+                $backurl = substr(strstr(URL::previous(),'?'),1);
+                if(empty($backurl)){
+                    return redirect(route('orders.index'));
+                }else{
+                    return Redirect::to($backurl);
+                }
+                
                 break;
                    
         }

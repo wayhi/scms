@@ -1,4 +1,3 @@
-
 <!-- Order Number Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('order_number', '订单号:') !!}
