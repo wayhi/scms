@@ -14,7 +14,7 @@ class OSSController extends Controller
     {
     	$id= Config::get('app.oss_id');//'dVlyl1bwWh8T6nos';
 	    $key= Config::get('app.oss_key');//'9aoOXwZb82Tgdq73yrwLGpllLlEiAr';
-	    $host = "http://".Config::get('app.oss_host');//'http://oss.yifenqi.com';
+	    $host = "https://".Config::get('app.oss_host');//'http://oss.yifenqi.com';
 	    $now = time();
 	    $expire = 30; //设置该policy超时时间是10s. 即这个policy过了这个有效时间，将不能访问
 	    $end = $now + $expire;
@@ -69,7 +69,7 @@ class OSSController extends Controller
 
     	$id= Config::get('app.oss_id');
 	    $key= Config::get('app.oss_key');
-	    $host = "http://".Config::get('app.oss_host');
+	    $host = "https://".Config::get('app.oss_host');
 	    $callbackUrl = Config::get('app.oss_callbackurl');
 	    $callback_param = array('callbackUrl'=>$callbackUrl, 
 	                 'callbackBody'=>'filename=${object}&size=${size}&mimeType=${mimeType}&height=${imageInfo.height}&width=${imageInfo.width}', 

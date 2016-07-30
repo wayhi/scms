@@ -93,7 +93,7 @@
                         <th>订单号</th>
                         <th>易分期产品</th>
                         <th>类型</th>
-                        <th>商户平台</th>
+                        <th>商家名称</th>
                         <th>计划金额</th>
                         <th>订单金额</th>
                         <th>计划日期</th>
@@ -108,7 +108,7 @@
                             <td><a href='/orders/{{$result->order->id}}' target='_blank'>{{$result->order->order_number}}</a></td>
                             <td>{{$result->goods->goods_name}}</td>
                             <td>{{$result->type_text}}</td>
-                            <td>{{$result->shop->merchant->merchant_name}}</td>
+                            <td>{{$result->shop->shop_name}}</td>
                             <td>{{$result->amount_scheduled }}
                             <input type="hidden" name="{{$result->id}}" id="{{$result->id}}" value="{{$result->amount_scheduled}}">
                             </td>
