@@ -156,7 +156,7 @@ class orderController extends AppBaseController
         $goodsCriteria = new GoodsCriteria();
         $goodsCriteria->setRoleIDs($user_role_ids);
         $this->goods_masterRepo->pushCriteria($goodsCriteria);
-        $goodslist = $this->goods_masterRepo->lists('goods_name','id')->toArray();
+        $goodslist = $this->goods_masterRepo->findByField('activated',1)->lists('goods_name','id')->toArray();
         //$goods_spec = $this->goods_masterRepo->lists('goods_spec')->toJson();
         //return $goods_spec;
         return view('orders.create')->with(['mode'=>'creating','goodslist'=>$goodslist]);
